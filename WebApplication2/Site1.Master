@@ -1,0 +1,36 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication2.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Winter Project </title>
+    <link href="css/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+<%--</head>--%>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class ="main">
+            <div class ="overlay"></div>
+                <div class ="topbar">
+                    <div class="logo">LOGO</div>
+                        <ul id="ulSiteMenu">
+                            <li><a href="Home.aspx">Home</a></li>
+                            <li><a href="Login.aspx">Login</a></li>
+                            <li><a href="Register.aspx">Register</a></li>
+                            <li><a href="Personal.aspx">Personal</a></li>
+                            <li><a href="Friends.aspx">Friends</a></li>
+                            <li><a href="App.aspx">App</a></li>
+                            <li><asp:Button ID="Update_Button" Text="Log Out" OnClick="Button1_Click" runat="server" /></li>
+                    </ul>
+            </div> 
+      </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
