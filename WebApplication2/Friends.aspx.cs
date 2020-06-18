@@ -18,6 +18,9 @@ namespace WebApplication2
             {
                 Button1.Visible = true;
                 Button2.Visible = false;
+                Button3.Visible = false;
+                Button4.Visible = false;
+                Button5.Visible = false;
             }
             else
             {
@@ -27,14 +30,34 @@ namespace WebApplication2
                 {
                     Button1.Visible = false;
                     Button2.Visible = false;
+                    Button3.Visible = false;
+                    Button4.Visible = true;
+                    Button5.Visible = false;
                 }
-
                 else if (status == 0)
                 {
                     Button1.Visible = false;
                     Button2.Visible = true;
+                    Button3.Visible = false;
+                    Button4.Visible = false;
+                    Button5.Visible = false;
                 }
-
+                else if (status == 2)
+                {
+                    Button1.Visible = false;
+                    Button2.Visible = false;
+                    Button3.Visible = true;
+                    Button4.Visible = false;
+                    Button5.Visible = false;
+                }
+                else if (status == 3)
+                {
+                    Button1.Visible = false;
+                    Button2.Visible = false;
+                    Button3.Visible = false;
+                    Button4.Visible = false;
+                    Button5.Visible = true;
+                }
             }
             conn.Close();
         }
@@ -86,6 +109,72 @@ namespace WebApplication2
             Response.Redirect("Friends.aspx");
 
             Response.Write("Request has been canceled");
+        }
+
+        protected void Re_Add_Friend_Button_Click(Object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+
+            string updateQuery = "UPDATE FriendRelationship SET status = 0 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+            string updateQuery_2 = "UPDATE FriendRelationship SET status = 0 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
+
+            SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
+            SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+
+
+            cmdUpdate.ExecuteNonQuery();
+            cmdUpdate_2.ExecuteNonQuery();
+
+
+            conn.Close();
+
+            Response.Redirect("Friends.aspx");
+
+        }
+
+        protected void Block_Button_Click(Object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+
+            string updateQuery = "UPDATE FriendRelationship SET status = 3 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+            string updateQuery_2 = "UPDATE FriendRelationship SET status = 3 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
+
+            SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
+            SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+
+
+            cmdUpdate.ExecuteNonQuery();
+            cmdUpdate_2.ExecuteNonQuery();
+
+
+            conn.Close();
+
+            Response.Redirect("Friends.aspx");
+
+        }
+
+        protected void Unblock_Button_Click(Object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+
+            string updateQuery = "UPDATE FriendRelationship SET status = 1 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+            string updateQuery_2 = "UPDATE FriendRelationship SET status = 1 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
+
+            SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
+            SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+
+
+            cmdUpdate.ExecuteNonQuery();
+            cmdUpdate_2.ExecuteNonQuery();
+
+
+            conn.Close();
+
+            Response.Redirect("Friends.aspx");
+
         }
     }
 }

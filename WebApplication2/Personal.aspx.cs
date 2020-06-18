@@ -56,6 +56,7 @@ namespace WebApplication2
 
         protected void Button_Click_Decline(Object sender, EventArgs e)
         {
+
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
 

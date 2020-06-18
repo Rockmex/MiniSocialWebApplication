@@ -17,7 +17,9 @@
     <div class="button_list">
             <asp:Button ID="Button1" runat="server" Text="Add Friend" OnClick="Request_Button_Click"/>
             <asp:Button ID="Button2" runat="server" Text="Cancel Add Friend" OnClick="Delete_Button_Click"/>
-            
+            <asp:Button ID="Button3" runat="server" Text="Re-Add Friend" OnClick="Re_Add_Friend_Button_Click"/>
+            <asp:Button ID="Button4" runat="server" Text="Block" OnClick="Block_Button_Click"/>
+            <asp:Button ID="Button5" runat="server" Text="Unblock" OnClick="Unblock_Button_Click"/>
     </div>
 
     <div class="personal_info">
