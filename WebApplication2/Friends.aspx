@@ -5,7 +5,7 @@
     <div class="backgroud-pic">
         <img src="./img/05.png" width="850px" height="310px">
     </div>
-    
+
     <div class="profile-pic-a">
         
     </div>
@@ -15,7 +15,8 @@
     </div>
 
     <div class="button_list">
-            <asp:Button ID="Button444" runat="server" Text="Add Friend" />
+            <asp:Button ID="Button1" runat="server" Text="Add Friend" OnClick="Request_Button_Click"/>
+            <asp:Button ID="Button2" runat="server" Text="Cancel Add Friend" OnClick="Delete_Button_Click"/>
             
     </div>
 

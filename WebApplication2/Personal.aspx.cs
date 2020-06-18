@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
@@ -6,17 +11,107 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Email"] == null)
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("Login.aspx");
+                if (Session["Email"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    if (Count() == 0)
+                    {
+                        GridView1.Visible = false;
+                        Label_display.Text = "No New Notifications";
+                    }
+                    else
+                    {
+                        ShowResult();
+                        Label_display.Text = "There are" + Count() + " new notifications.";
+                    }
+                }
             }
         }
 
-        protected void Button1_Click(Object sender, EventArgs e)
+        protected void Button_Click_Accept(Object sender, CommandEventArgs e)
+        {
+            Session["FID"] = e.CommandArgument;
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string updateQuery = "UPDATE FriendRelationship SET status = 1 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+            string updateQuery_2 = "UPDATE FriendRelationship SET status = 1 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
+
+            SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
+            SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+
+            cmdUpdate_2.ExecuteNonQuery();
+            cmdUpdate.ExecuteNonQuery();
+            DeleteLog();
+
+            conn.Close();
+
+            Response.Redirect("Personal.aspx");
+        }
+
+        protected void Button_Click_Decline(Object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+
+            string updateQuery = "UPDATE FriendRelationship SET status = 2 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+            string updateQuery_2 = "UPDATE FriendRelationship SET status = 2 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
+
+            SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
+            SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+
+
+            cmdUpdate.ExecuteNonQuery();
+            cmdUpdate_2.ExecuteNonQuery();
+
+            DeleteLog();
+
+            conn.Close();
+
+            Response.Redirect("Personal.aspx");
+        }
+        protected void Button_Click_Edit(Object sender, EventArgs e)
         {
             Response.Redirect("Edit.aspx");
         }
+        private void ShowResult()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT EventLog.UID, Fname, Lname FROM EventLog INNER JOIN UserInfo ON EventLog.UID = UserInfo.UID WHERE EventLog.FID = '" + Session["UID"] + "'";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
+        }
 
+        private int Count()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
 
+        private void DeleteLog()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+
+            string deleteQuery = "DELETE FROM EventLog WHERE FID = '" + Session["UID"] + "' AND UID = '" + Session["FID"] + "'";
+
+            SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
+
+            cmdDelete.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }

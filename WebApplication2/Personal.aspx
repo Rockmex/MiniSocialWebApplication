@@ -17,7 +17,7 @@
 
     <div class="personal_info">
     <h2>Personal Info</h2>
-    <asp:Button ID="Button1" runat="server" Text="Edit" OnClick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Edit" OnClick="Button_Click_Edit" />
     </div> 
 
     <div class="personal_pictures">
@@ -29,7 +29,29 @@
     </div>
 
     <div class="personal_postarea">
-    <h2>What's in you mind ?</h2>
+    <h2>New Friends</h2>
+        <table>
+                        <tr>
+                            <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="XX Notifications" runat="server" ></asp:Label></td>
+                        </tr>                           
+                    </table>
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="UID" HeaderText="Friend ID" />
+                                <asp:BoundField DataField="Fname" HeaderText="First Name" />
+                                <asp:BoundField DataField="Lname" HeaderText="Last Name" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="Button1" runat="server" Text="Accept" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Accept"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="Button2" runat="server" Text="Decline" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Decline"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
     </div> 
 
 
