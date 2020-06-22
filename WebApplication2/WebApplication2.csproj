@@ -71,6 +71,7 @@
     <Content Include="App_Data\User_Info_log.ldf">
       <DependentUpon>User_Info.mdf</DependentUpon>
     </Content>
+    <Content Include="Chat.aspx" />
     <Content Include="css\Style.css" />
     <Content Include="Redirect.aspx" />
     <Content Include="Web.config" />
@@ -88,6 +89,13 @@
     <Content Include="Result.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat.aspx.designer.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redirect.aspx.cs">
       <DependentUpon>Redirect.aspx</DependentUpon>
