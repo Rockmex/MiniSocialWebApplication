@@ -54,8 +54,9 @@ namespace WebApplication2
             Response.Redirect("Personal.aspx");
         }
 
-        protected void Button_Click_Decline(Object sender, EventArgs e)
+        protected void Button_Click_Decline(Object sender, CommandEventArgs e)
         {
+            Session["FID"] = e.CommandArgument;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
