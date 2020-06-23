@@ -21,7 +21,7 @@
                         <table>
                             <tr>
                                 <td><asp:TextBox ID="MessageBox" runat="server"></asp:TextBox></td>
-                                <td><asp:Button ID="Button1" runat="server" Text="Send" onclick="Button_Click_Send" /></td>
+                                <td><asp:Button ID="Button1" runat="server" Text="Send" onclick="Button_Click_Send"/></td>
                             </tr>                         
                         </table>
                         </div>

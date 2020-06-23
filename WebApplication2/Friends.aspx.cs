@@ -21,6 +21,7 @@ namespace WebApplication2
                 Button3.Visible = false;
                 Button4.Visible = false;
                 Button5.Visible = false;
+                Button6.Visible = false;
             }
             else
             {
@@ -33,6 +34,7 @@ namespace WebApplication2
                     Button3.Visible = false;
                     Button4.Visible = true;
                     Button5.Visible = false;
+                    Button6.Visible = true;
                 }
                 else if (status == 0)
                 {
@@ -41,6 +43,7 @@ namespace WebApplication2
                     Button3.Visible = false;
                     Button4.Visible = false;
                     Button5.Visible = false;
+                    Button6.Visible = false;
                 }
                 else if (status == 2)
                 {
@@ -49,6 +52,7 @@ namespace WebApplication2
                     Button3.Visible = true;
                     Button4.Visible = false;
                     Button5.Visible = false;
+                    Button6.Visible = false;
                 }
                 else if (status == 3)
                 {
@@ -57,6 +61,7 @@ namespace WebApplication2
                     Button3.Visible = false;
                     Button4.Visible = false;
                     Button5.Visible = true;
+                    Button6.Visible = false;
                 }
             }
             conn.Close();
@@ -175,6 +180,11 @@ namespace WebApplication2
 
             Response.Redirect("Friends.aspx");
 
+        }
+
+        protected void Message_Button_Click(Object sender, EventArgs e)
+        {
+            Response.Redirect("Chat.aspx");
         }
     }
 }

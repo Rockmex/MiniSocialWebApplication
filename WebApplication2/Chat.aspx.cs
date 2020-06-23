@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,6 +11,66 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                if (Session["FID"] == null)
+                {
+                    Response.Redirect("Home.aspx");
+                }
+                else
+                {
+                    if (Count() == 0)
+                    {
+                        GridView1.Visible = false;
+                        Label_display.Text = "This is your first time chatting. Please write something.";
+                    }
+                    else
+                    {
+                        ShowResult();
+                    }
+                }
+            }
+        }
+
+        protected void Button_Click_Send(object sender, EventArgs e)
+        {
+            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                // time value have issue
+                string insertQuery = "insert into ChatLog (SenderId, Message, ReceiverId,Time) values ('" + Session["UID"] + "', @Msg,'" + Session["FID"] + "', getdate())";
+
+                SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
+
+                cmdInsert.Parameters.AddWithValue("@Msg", MessageBox.Text);
+
+                cmdInsert.ExecuteNonQuery();
+
+                conn.Close();
+            }
+
+            Response.Redirect("Chat.aspx");
+        }
+
+        private void ShowResult()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT SenderId, Message, Time FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "' ORDER BY TIME ASC";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridView1.DataSource = dataTable;
+            GridView1.DataBind();
+        }
+
+        private int Count()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
 
         }
     }
