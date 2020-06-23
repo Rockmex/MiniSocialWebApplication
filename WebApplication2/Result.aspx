@@ -19,7 +19,7 @@
                                 <asp:BoundField DataField="lname" HeaderText="Last Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="Button1" runat="server" Text="Go" CommandArgument='<%# Eval("UID") %>' OnCommand="Button1_Click"/>
+                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("UID") %>' OnCommand="Button1_Click"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

@@ -124,12 +124,16 @@ namespace WebApplication2
             string updateQuery = "UPDATE FriendRelationship SET status = 0 WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
             string updateQuery_2 = "UPDATE FriendRelationship SET status = 0 WHERE User1_Id = '" + Session["FID"] + "' AND User2_Id = '" + Session["UID"] + "'";
 
+            string insertLogQuery = "insert into EventLog values  ('" + Session["UID"] + "','" + Session["FID"] + "')";
+
             SqlCommand cmdUpdate = new SqlCommand(updateQuery, conn);
             SqlCommand cmdUpdate_2 = new SqlCommand(updateQuery_2, conn);
+            SqlCommand cmdInsertLog = new SqlCommand(insertLogQuery, conn);
 
 
             cmdUpdate.ExecuteNonQuery();
             cmdUpdate_2.ExecuteNonQuery();
+            cmdInsertLog.ExecuteNonQuery();
 
 
             conn.Close();
