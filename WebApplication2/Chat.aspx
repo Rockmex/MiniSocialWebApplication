@@ -13,12 +13,13 @@
                     </table>
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                             <Columns>
+                                <asp:BoundField DataField="MessageId" HeaderText="MessageId" visible="False"/>
                                 <asp:BoundField DataField="SenderId" HeaderText="SenderId" />
                                 <asp:BoundField DataField="Message" HeaderText="Message" />
                                 <asp:BoundField DataField="Time" HeaderText="Time" />
                                 <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:Button ID="Button2" runat="server" Text="Delete" CommandArgument='<%# Eval("SenderId") %>' OnCommand="Button_Click_Delete"/>
+                                            <asp:Button ID="Button2" runat="server" Text="Delete" CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
                                         </ItemTemplate>
                                 </asp:TemplateField>
 

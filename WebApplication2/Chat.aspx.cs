@@ -52,11 +52,38 @@ namespace WebApplication2
             Response.Redirect("Chat.aspx");
         }
 
+        protected void Button_Click_Delete(object sender, CommandEventArgs e)
+        {
+            Session["MID"] = e.CommandArgument;
+
+            if (e.CommandArgument != null)
+            {
+                using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                {
+                    conn.Open();
+
+                    string deleteQuery = "DELETE FROM ChatLog WHERE MessageId = '" + Session["MID"] + "'";
+
+                    SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
+
+                    cmdDelete.ExecuteNonQuery();
+
+                    conn.Close();
+                }
+
+                Response.Redirect("Chat.aspx");
+            }
+            else
+            {
+                Response.Redirect("Home.aspx");
+            }
+        }
+
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT SenderId, Message, Time FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "' ORDER BY TIME ASC";
+            string searchCmd = "SELECT MessageId, SenderId, Message, Time FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "' ORDER BY TIME ASC";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
