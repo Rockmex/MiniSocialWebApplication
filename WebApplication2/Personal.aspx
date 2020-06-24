@@ -26,6 +26,26 @@
 
     <div class="personal_friends">
     <h2>Personal Friends</h2>
+        <table>
+                        <tr>
+                            <td colspan="2" class="td_center"><asp:Label ID="FriendListLabel" Text="Friend List" runat="server" ></asp:Label></td>
+                        </tr>      
+                         <tr>
+                            <td colspan="2" class="td_center"><asp:Label ID="NoFriendLabel" Text="No Friend Yet." runat="server" ></asp:Label></td>
+                        </tr>
+         </table>
+        <asp:GridView ID="GridviewFriendList" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="User2_Id" HeaderText="FID" />
+                                <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
+                                <asp:BoundField DataField="lname" HeaderText="Last Name" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_Redirect"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
     </div>
 
     <div class="personal_postarea">

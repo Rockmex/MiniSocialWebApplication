@@ -19,6 +19,7 @@ namespace WebApplication2
                 }
                 else
                 {
+                    /* Notification Part*/
                     if (Count() == 0)
                     {
                         GridView1.Visible = false;
@@ -28,6 +29,18 @@ namespace WebApplication2
                     {
                         ShowResult();
                         Label_display.Text = "There are" + Count() + " new notifications.";
+                    }
+
+                    /* Friend List Part*/
+                    if (CountFriends() == 0)
+                    {
+                        GridviewFriendList.Visible = false;
+                        NoFriendLabel.Visible = true;
+                    }
+                    else
+                    {
+                        ShowFriends();
+                        NoFriendLabel.Visible = false;
                     }
                 }
             }
@@ -81,6 +94,12 @@ namespace WebApplication2
         {
             Response.Redirect("Edit.aspx");
         }
+
+        protected void Button_Click_Redirect(Object sender, CommandEventArgs e)
+        {
+            Session["FID"] = e.CommandArgument;
+            Response.Redirect("Friends.aspx");
+        }
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -114,6 +133,27 @@ namespace WebApplication2
             cmdDelete.ExecuteNonQuery();
 
             conn.Close();
+        }
+
+        private void ShowFriends()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT FriendRelationship.User2_Id, Fname, Lname FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridviewFriendList.DataSource = dataTable;
+            GridviewFriendList.DataBind();
+        }
+
+        private int CountFriends()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND status = 1";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
     }
 }
