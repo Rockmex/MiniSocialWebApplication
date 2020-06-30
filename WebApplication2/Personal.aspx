@@ -54,7 +54,7 @@
                         <tr>
                             <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="XX Notifications" runat="server" ></asp:Label></td>
                         </tr>                           
-                    </table>
+        </table>
                         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="UID" HeaderText="Friend ID" />
@@ -78,6 +78,25 @@
     <div class="personal_post">
     <h2>Chat Room</h2>
         <asp:Button ID="Button3" runat="server" Text="Redirect" OnClick="Button_Click_RedirectRoom" />
+    <table>
+                        <tr>
+                            <td colspan="2" class="td_center"><asp:Label ID="RoomListLabel" Text="Chart Room List" runat="server" ></asp:Label></td>
+                        </tr>      
+                         <tr>
+                            <td colspan="2" class="td_center"><asp:Label ID="NoRoomListLabel" Text="No Chart Room Yet." runat="server" ></asp:Label></td>
+                        </tr>
+         </table>
+        <asp:GridView ID="GridviewRoomList" runat="server" AutoGenerateColumns="False">
+                            <Columns>
+                                <asp:BoundField DataField="RoomId" HeaderText="Room ID" />
+                                <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("RoomId") %>' OnCommand="Button_Click_RedirectChatRoom"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
     </div> 
 
 </asp:Content>

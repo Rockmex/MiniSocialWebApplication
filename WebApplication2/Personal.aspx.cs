@@ -42,6 +42,18 @@ namespace WebApplication2
                         ShowFriends();
                         NoFriendLabel.Visible = false;
                     }
+
+                    /* Chat Room List Part*/
+                    if (CountRooms() == 0)
+                    {
+                        GridviewFriendList.Visible = false;
+                        NoRoomListLabel.Visible = true;
+                    }
+                    else
+                    {
+                        ShowRooms();
+                        NoRoomListLabel.Visible = false;
+                    }
                 }
             }
         }
@@ -105,6 +117,12 @@ namespace WebApplication2
         {
             Response.Redirect("Redirect.aspx");
         }
+
+        protected void Button_Click_RedirectChatRoom(Object sender, CommandEventArgs e)
+        {
+            Session["RID"] = e.CommandArgument;
+            Response.Redirect("Personal.aspx");
+        }
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -150,6 +168,27 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridviewFriendList.DataSource = dataTable;
             GridviewFriendList.DataBind();
+        }
+
+        private void ShowRooms()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT RoomId, RoomName FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridviewRoomList.DataSource = dataTable;
+            GridviewRoomList.DataBind();
+        }
+
+        private int CountRooms()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
         private int CountFriends()

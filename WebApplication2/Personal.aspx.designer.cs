@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class WebForm4
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class WebForm4 {
+        
         /// <summary>
         /// Button1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
-
+        
         /// <summary>
         /// FriendListLabel control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label FriendListLabel;
-
+        
         /// <summary>
         /// NoFriendLabel control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label NoFriendLabel;
-
+        
         /// <summary>
         /// GridviewFriendList control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridviewFriendList;
-
+        
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-
+        
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-
+        
         /// <summary>
         /// Button3 control.
         /// </summary>
@@ -76,5 +74,32 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button3;
+        
+        /// <summary>
+        /// RoomListLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RoomListLabel;
+        
+        /// <summary>
+        /// NoRoomListLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NoRoomListLabel;
+        
+        /// <summary>
+        /// GridviewRoomList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridviewRoomList;
     }
 }
