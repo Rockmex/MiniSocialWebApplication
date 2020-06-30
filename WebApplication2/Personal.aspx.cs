@@ -100,6 +100,11 @@ namespace WebApplication2
             Session["FID"] = e.CommandArgument;
             Response.Redirect("Friends.aspx");
         }
+
+        protected void Button_Click_RedirectRoom(Object sender, EventArgs e)
+        {
+            Response.Redirect("Redirect.aspx");
+        }
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);

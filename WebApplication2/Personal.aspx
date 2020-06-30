@@ -76,7 +76,8 @@
 
 
     <div class="personal_post">
-    <h2>Personal posts</h2>
+    <h2>Chat Room</h2>
+        <asp:Button ID="Button3" runat="server" Text="Edit" OnClick="Button_Click_RedirectChat" />
     </div> 
 
 </asp:Content>
