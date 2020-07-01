@@ -120,8 +120,8 @@ namespace WebApplication2
 
         protected void Button_Click_RedirectChatRoom(Object sender, CommandEventArgs e)
         {
-            Session["RID"] = e.CommandArgument;
-            Response.Redirect("Personal.aspx");
+            Session["RoomId"] = e.CommandArgument;
+            Response.Redirect("ChatRoom.aspx");
         }
         private void ShowResult()
         {
@@ -174,7 +174,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT RoomId, RoomName FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT IDwithChar, RoomName FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);

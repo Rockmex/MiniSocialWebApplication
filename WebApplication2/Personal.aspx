@@ -88,11 +88,11 @@
          </table>
         <asp:GridView ID="GridviewRoomList" runat="server" AutoGenerateColumns="False">
                             <Columns>
-                                <asp:BoundField DataField="RoomId" HeaderText="Room ID" />
+                                <asp:BoundField DataField="IDwithChar" HeaderText="Room ID" />
                                 <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("RoomId") %>' OnCommand="Button_Click_RedirectChatRoom"/>
+                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Button_Click_RedirectChatRoom"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
