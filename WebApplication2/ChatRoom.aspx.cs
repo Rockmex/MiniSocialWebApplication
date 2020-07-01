@@ -22,7 +22,7 @@ namespace WebApplication2
                 {
                     if (Count() == 0)
                     {
-                        GridView1.Visible = false;
+                        GridView_ChatBox.Visible = false;
                         Label_display.Text = "This is your first time chatting. Please write something.";
                     }
                     else
@@ -87,8 +87,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_ChatBox.DataSource = dataTable;
+            GridView_ChatBox.DataBind();
         }
 
         private int Count()
