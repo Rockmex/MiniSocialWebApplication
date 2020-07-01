@@ -42,7 +42,8 @@ namespace WebApplication2
             var Rid = Generate_Rid() + 1;
 
             conn.Open();
-            string AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId) values (@Rid,@Rname,'" + Session["UID"] + "')";
+            /*      If isCreator is 0, it mean current user is submember. 1 refer current user is creator      */
+            string AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,'" + Session["UID"] + "',1)";
             SqlCommand cmdInsert = new SqlCommand(AddRoom, conn);
             cmdInsert.Parameters.AddWithValue("Rid", Rid);
             cmdInsert.Parameters.AddWithValue("Rname", rname.Text);
@@ -60,7 +61,7 @@ namespace WebApplication2
 
                     
                     conn.Open();
-                    AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId) values (@Rid,@Rname,@Fid)";
+                    AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,@Fid,0)";
                     SqlCommand cmdInsert_2 = new SqlCommand(AddRoom, conn);
                     cmdInsert_2.Parameters.AddWithValue("Rid", Rid);
                     cmdInsert_2.Parameters.AddWithValue("Rname", rname.Text);
