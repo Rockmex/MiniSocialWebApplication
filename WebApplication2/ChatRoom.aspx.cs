@@ -114,14 +114,14 @@ namespace WebApplication2
 
         private void ShowMember()
         {
-            /*SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT MemberId FROM ChatRoom WHERE RoomId = '" + Session["RoomId"] + "'";
+            string searchCmd = "SELECT MemberId FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
             GridviewMemberList.DataSource = dataTable;
-            GridviewMemberList.DataBind();*/
+            GridviewMemberList.DataBind();
         }
 
         private int Count()

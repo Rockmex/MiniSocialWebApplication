@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class ChatRoom {
-        
+namespace WebApplication2
+{
+
+
+    public partial class ChatRoom
+    {
+
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-        
+
         /// <summary>
         /// GridViewChatBox control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewChatBox;
-        
+
         /// <summary>
         /// MessageBox control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MessageBox;
-        
+
         /// <summary>
         /// Button_Send control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Send;
-        
+
         /// <summary>
         /// Label_MemberList control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MemberList;
-        
+
         /// <summary>
         /// GridviewMemberList control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridviewMemberList;
-        
+
         /// <summary>
         /// Button_Add_New_Member control.
         /// </summary>

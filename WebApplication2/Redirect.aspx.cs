@@ -189,14 +189,14 @@ namespace WebApplication2
 
         private void ShowFriends2()
         {
-            /*SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT UId, Fname, Lname FROM UserInfo INNER JOIN ChatRoom ON UserInfo.UID = ChatRoom.MemberId WHERE ChatRoom.RoomId = '" + Session["RoomId"] + "'";
+            string searchCmd = "SELECT UId, Fname, Lname FROM UserInfo INNER JOIN ChatRoom ON UserInfo.UID = ChatRoom.MemberId WHERE ChatRoom.IDwithChar = '" + Session["RoomId"] + "'";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
             GridView1.DataSource = dataTable;
-            GridView1.DataBind();*/
+            GridView1.DataBind();
         }
 
         private int CountFriends()
