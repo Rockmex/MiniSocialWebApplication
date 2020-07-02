@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class ChatRoom
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class ChatRoom {
+        
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -22,16 +20,16 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-
+        
         /// <summary>
-        /// GridView_ChatBox control.
+        /// GridViewChatBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_ChatBox;
-
+        protected global::System.Web.UI.WebControls.GridView GridViewChatBox;
+        
         /// <summary>
         /// MessageBox control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MessageBox;
-
+        
         /// <summary>
         /// Button_Send control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Send;
-
+        
         /// <summary>
         /// Label_MemberList control.
         /// </summary>
@@ -58,16 +56,16 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MemberList;
-
+        
         /// <summary>
-        /// Gridview_MemberList control.
+        /// GridviewMemberList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gridview_MemberList;
-
+        protected global::System.Web.UI.WebControls.GridView GridviewMemberList;
+        
         /// <summary>
         /// Button_Add_New_Member control.
         /// </summary>

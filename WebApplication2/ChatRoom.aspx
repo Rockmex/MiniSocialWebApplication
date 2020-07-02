@@ -11,7 +11,7 @@
                             <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="Chat Room" runat="server" ></asp:Label></td>
                         </tr>                           
                     <tr>
-                        <asp:GridView ID="GridView_ChatBox" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridViewChatBox" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="MessageId" HeaderText="MessageId" visible="False"/>
                                 <asp:BoundField DataField="SenderId" HeaderText="SenderId" />
@@ -38,7 +38,7 @@
                             <td colspan="2" class="td_center"><asp:Label ID="Label_MemberList" Text="Member List" runat="server" ></asp:Label></td>
                         </tr>
                             <tr>
-                                <asp:GridView ID="Gridview_MemberList" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView ID="GridviewMemberList" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="MemberId" HeaderText="Member Id" />
                                 <asp:TemplateField>
