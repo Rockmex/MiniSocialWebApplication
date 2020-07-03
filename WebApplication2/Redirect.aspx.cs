@@ -25,12 +25,17 @@ namespace WebApplication2
                         {
                             GridView1.Visible = false;
                             Label_display.Text = "Sorry, You can't create a chat room without at least a friend can chat with";
+                            Button1.Visible = false;
+                            Button2.Visible = false;
+
                         }
                         else
                         {
                             Label_display.Text = "Please select the friend that you wish to add";
                             GridView1.Visible = true;
                             ShowFriends();
+                            Button1.Visible = true;
+                            Button2.Visible = false;
                         }
                     }
                     else
@@ -39,6 +44,8 @@ namespace WebApplication2
                         {
                             GridView1.Visible = false;
                             Label_display.Text = "Sorry, You can't edit a chat room without at least a friend can chat with";
+                            Button1.Visible = false;
+                            Button2.Visible = false;
                         }
                         else
                         {
@@ -47,6 +54,8 @@ namespace WebApplication2
                             rname.Visible = false;
                             GridView1.Visible = true;
                             ShowFriends2();
+                            Button1.Visible = false;
+                            Button2.Visible = true;
                         }
                     }
                 }
@@ -165,7 +174,7 @@ namespace WebApplication2
 
             Response.Redirect("Personal.aspx");
         }
-        
+
         private int Generate_Rid()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -191,7 +200,8 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT UId, Fname, Lname FROM UserInfo INNER JOIN ChatRoom ON UserInfo.UID = ChatRoom.MemberId WHERE ChatRoom.IDwithChar = '" + Session["RoomId"] + "'";
+            //string searchCmd = "SELECT UId, Fname, Lname FROM UserInfo INNER JOIN ChatRoom ON UserInfo.UID = ChatRoom.MemberId WHERE ChatRoom.IDwithChar != '" + Session["RoomId"] + "'";
+            string searchCmd = "SELECT UId, Fname, Lname FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1 AND UId NOT IN (SELECT MemberId FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "')";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);

@@ -61,7 +61,7 @@
                                 </asp:GridView>
                             </tr>
                             <tr>
-                                <td colspan="2" align="center"><asp:Button ID="Button1" runat="server" Text="Create" OnClick="Button_Click_CreatRoom" /><asp:Button ID="Button2" runat="server" Text="Create" OnClick="Button_Click_ExAddFriend" /></td>
+                                <td colspan="2" align="center"><asp:Button ID="Button1" runat="server" Text="Create" OnClick="Button_Click_CreatRoom" /><asp:Button ID="Button2" runat="server" Text="Add" OnClick="Button_Click_ExAddFriend" /></td>
                             </tr>
                         </table>
                      </div>
