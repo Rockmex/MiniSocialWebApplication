@@ -147,7 +147,7 @@ namespace WebApplication2
 
         protected void Button_Click_ExAddFriend(Object sender, EventArgs e)
         {
-            var Rid = Session["RoomId"];
+            var Rid = Session["RID"];
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 

@@ -118,9 +118,15 @@ namespace WebApplication2
             Response.Redirect("Redirect.aspx");
         }
 
+
+        /*
+         * RoomId refers to IDwithChar (varchar)
+         * RID refers to RoomId (int)
+        */
         protected void Button_Click_RedirectChatRoom(Object sender, CommandEventArgs e)
         {
             Session["RoomId"] = e.CommandArgument;
+            Session["RID"] = ShowRoomId(Session["RoomId"]);
             Response.Redirect("ChatRoom.aspx");
         }
         private void ShowResult()
@@ -196,6 +202,15 @@ namespace WebApplication2
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
             string searchCmd = "SELECT count(*) FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND status = 1";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
+
+        private int ShowRoomId(object idwithchar)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
