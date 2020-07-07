@@ -35,7 +35,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button1_Click(Object sender, EventArgs e)
+        protected void Button_Click_Search(Object sender, EventArgs e)
         {
             Session["result"] = Search_target.Text;
             Response.Redirect("Result.aspx");

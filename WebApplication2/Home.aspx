@@ -10,7 +10,7 @@
                     <table>
                         <tr>
                             <td><asp:TextBox ID="Search_target" runat="server"></asp:TextBox></td>
-                            <td><asp:Button ID="Button1" runat="server" Text="Search" onclick="Button1_Click" /></td>
+                            <td><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" /></td>
                         </tr>
                         <tr>
                             <td colspan="2" class="td_center"><h3>Weclome</h3></td>
@@ -24,7 +24,7 @@
                             </tr>
                         </table>
                         <br/>
-                        <asp:DataList ID="Datalist_Post" runat="server">
+                        <asp:DataList ID="Datalist_Post" DataKeyField="PostId" runat="server">
                             <ItemTemplate>
                             <table style="width:300px" id="Table_PostContent">
                                 <tr>
@@ -32,19 +32,26 @@
                                         <asp:Image ID="Profile_Image" src="./img/my.jpg" runat="server" width="50px" height="50px" />  <!-- src change to ImageUrl = Eval Later -->
                                     </td>
                                     <td valign="top">
-                                        <asp:Label ID="Post_Content" runat="server" Text=<%# Eval("Content") %>/>
+                                        <asp:Label ID="Post_Content" runat="server" Text="This is the post content"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="Name" runat="server" Text=<%# Eval("SenderId") %> Font-Size="Small"></asp:Label>
+                                        <asp:Label ID="Name" runat="server" Text="UserName" Font-Size="Small"></asp:Label>
                                     </td>
                                     <td style="text-align: right">
-                                        <asp:Button ID="Like_Button" runat="server" Text="Like" OnClick="Button_Click_Like" />
-                                        <asp:Button ID="Comment_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment" />
+                                        <asp:Button ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
+                                        <asp:Button ID="CommentDisplay_Button" runat="server" Text="Comment" OnClick="Button_Click_CommentDisplay" />
+                                        <asp:Button ID="Share_Button" runat="server" Text="Share" OnClick="Button_Click_Share" />
                                     </td>
                                 </tr>
                             </table>
+                                <table id="Table_CommentArea">
+                                    <tr>
+                                        <td><asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
+                                        <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment"/></td>
+                                    </tr>
+                                </table>
                             </ItemTemplate>
                         </asp:DataList>
                         </div>
