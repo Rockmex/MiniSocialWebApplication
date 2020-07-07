@@ -15,7 +15,7 @@
         <div class ="main">
             <div class ="overlay"></div>
                 <div class ="topbar">
-                    <div class="logo">LOGO</div>
+                    <%--<div class="logo">LOGO</div>--%>
                         <ul id="ulSiteMenu">
                             <li><a href="Home.aspx">Home</a></li>
                             <li><a href="Login.aspx">Login</a></li>

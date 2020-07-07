@@ -6,7 +6,10 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Email"] == null)
+            {
+                Update_Button.Visible = false;
+            }
         }
 
         protected void Button1_Click(Object sender, EventArgs e)
