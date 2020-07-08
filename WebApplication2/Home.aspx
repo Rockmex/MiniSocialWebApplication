@@ -29,27 +29,27 @@
                             <table style="width:300px" id="Table_PostContent">
                                 <tr>
                                     <td>
-                                        <asp:Image ID="Profile_Image" src="./img/my.jpg" runat="server" width="50px" height="50px" />  <!-- src change to ImageUrl = Eval Later -->
+                                        <asp:Image ID="Profile_Image" src="./img/my.jpg" runat="server" width="50px" height="50px" />  <!-- src change to ImageUrl = Eval Later(Future might use senderId) -->
                                     </td>
                                     <td valign="top">
-                                        <asp:Label ID="Post_Content" runat="server" Text="This is the post content"/>
+                                        <%#Eval("content")%>   <!-- User Message Here -->
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="Name" runat="server" Text="UserName" Font-Size="Small"></asp:Label>
+                                        <%#Eval("Fname")%><%#Eval("Lname")%>  <!-- User Name Here -->
                                     </td>
                                     <td style="text-align: right">
-                                        <asp:Button ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
-                                        <asp:Button ID="CommentDisplay_Button" runat="server" Text="Comment" OnClick="Button_Click_CommentDisplay" />
-                                        <asp:Button ID="Share_Button" runat="server" Text="Share" OnClick="Button_Click_Share" />
+                                        <asp:LinkButton ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
+                                        <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
+                                        <asp:LinkButton ID="Share_Button" runat="server" Text="Share" OnClick="Button_Click_Share" CommandArgument='<%# Eval("PostId") %>'/>
                                     </td>
                                 </tr>
                             </table>
                                 <table id="Table_CommentArea">
                                     <tr>
                                         <td><asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
-                                        <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment"/></td>
+                                        <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>'/></td>
                                     </tr>
                                 </table>
                             </ItemTemplate>

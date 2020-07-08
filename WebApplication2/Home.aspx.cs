@@ -17,21 +17,8 @@ namespace WebApplication2
             }
             else
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                conn.Open();
-                string getFnameCmd = "select Fname from UserInfo where Email = '" + Session["Email"] + "'";
-                SqlCommand getFname = new SqlCommand(getFnameCmd, conn);
-                SqlDataReader reader = getFname.ExecuteReader();
-                if (reader.Read())
-                {
-                    Label_UserName.Text = reader.GetValue(0).ToString();
-                }
-                else
-                {
-                    Response.Write("Error: Unable to get Fname");
-                }
-
-                conn.Close();
+                ShowUser();
+                ShowPost();
             }
         }
 
@@ -61,15 +48,15 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Like(Object sender, EventArgs e)
+        protected void Button_Click_Like(Object sender, CommandEventArgs e)
         {
-            //Session["PostId"] = e.CommandArgument;
+            Session["PostId"] = e.CommandArgument;
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 conn.Open();
 
-                string updateInfocmd = "update Post SET LikeCounts = LikeCounts + 1 Where PostId = '" + Session["PostId"] + "'";
+                string updateInfocmd = "UPDATE Post SET LikeCounts = LikeCounts + 1 Where PostId = '" + Session["PostId"] + "'";
 
                 SqlCommand cmdInsert = new SqlCommand(updateInfocmd, conn);
 
@@ -81,14 +68,14 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Comment(Object sender, EventArgs e)
+        protected void Button_Click_Comment_Display(Object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_CommentMsg(Object sender, EventArgs e)
+        protected void Button_Click_Comment(Object sender, CommandEventArgs e)
         {
-            //Session["PostId"] = e.CommandArgument;
+            Session["PostId"] = e.CommandArgument;
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -106,6 +93,44 @@ namespace WebApplication2
             }
 
             Response.Redirect("Home.aspx");
+        }
+
+        
+        protected void Button_Click_Share(Object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowUser()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string getFnameCmd = "select Fname from UserInfo where Email = '" + Session["Email"] + "'";
+            SqlCommand getFname = new SqlCommand(getFnameCmd, conn);
+            SqlDataReader reader = getFname.ExecuteReader();
+            if (reader.Read())
+            {
+                Label_UserName.Text = reader.GetValue(0).ToString();
+            }
+            else
+            {
+                Response.Write("Error: Unable to get Fname");
+            }
+
+            conn.Close();
+        }
+
+        private void ShowPost()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            //string getPostCmd = "select senderId,content LikeCounts, Commentcounts FROM Post ";
+            string getPostCmd = "select PostId,Fname, Lname, senderId,content FROM Post INNER JOIN UserInfo ON senderId = UID"; 
+            SqlCommand getPost = new SqlCommand(getPostCmd, conn);
+            Datalist_Post.DataSource = getPost.ExecuteReader();
+            Datalist_Post.DataBind();
+
+            conn.Close();
         }
     }
 }
