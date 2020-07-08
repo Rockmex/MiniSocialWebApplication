@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WebApplication2.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="WebApplication2.WebForm1" EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -31,14 +31,16 @@
                                     <td>
                                         <asp:Image ID="Profile_Image" src="./img/my.jpg" runat="server" width="50px" height="50px" />  <!-- src change to ImageUrl = Eval Later(Future might use senderId) -->
                                     </td>
-                                    <td valign="top">
+                                    <td>
+                                        <%#Eval("Fname")%><%#Eval("Lname")%>  <!-- User Name Here -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                     <td valign="top">
                                         <%#Eval("content")%>   <!-- User Message Here -->
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <%#Eval("Fname")%><%#Eval("Lname")%>  <!-- User Name Here -->
-                                    </td>
                                     <td style="text-align: right">
                                         <asp:LinkButton ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
                                         <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
@@ -46,10 +48,10 @@
                                     </td>
                                 </tr>
                             </table>
-                                <table id="Table_CommentArea">
+                                <table ID="Table_CommentArea" runat="server">
                                     <tr>
                                         <td><asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
-                                        <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnClick="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>'/></td>
+                                        <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>'/></td>
                                     </tr>
                                 </table>
                             </ItemTemplate>

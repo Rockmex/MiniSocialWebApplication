@@ -11,14 +11,17 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Email"] == null)
+            if (!Page.IsPostBack)
             {
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
-                ShowUser();
-                ShowPost();
+                if (Session["Email"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    ShowUser();
+                    ShowPost();
+                }
             }
         }
 
