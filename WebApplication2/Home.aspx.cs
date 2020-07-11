@@ -36,7 +36,7 @@ namespace WebApplication2
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 conn.Open();
-                
+
                 string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts) values ('" + Session["UID"] + "', @Msg,0,0)";
 
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
@@ -71,8 +71,9 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Comment_Display(Object sender, EventArgs e)
+        protected void Button_Click_Comment_Display(Object sender, CommandEventArgs e)
         {
+            Session["PostId"] = e.CommandArgument;
             Response.Redirect("Home.aspx");
         }
 
@@ -98,7 +99,7 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        
+
         protected void Button_Click_Share(Object sender, EventArgs e)
         {
 
@@ -128,12 +129,32 @@ namespace WebApplication2
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
             //string getPostCmd = "select senderId,content LikeCounts, Commentcounts FROM Post ";
-            string getPostCmd = "select PostId,Fname, Lname, senderId,content FROM Post INNER JOIN UserInfo ON senderId = UID"; 
+            string getPostCmd = "select PostId,Fname, Lname, senderId,content FROM Post INNER JOIN UserInfo ON senderId = UID";
             SqlCommand getPost = new SqlCommand(getPostCmd, conn);
-            Datalist_Post.DataSource = getPost.ExecuteReader();
-            Datalist_Post.DataBind();
-
+            Post_ListView.DataSource = getPost.ExecuteReader();
+            Post_ListView.DataBind();
             conn.Close();
         }
+
+        protected void Post_DataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
+            {
+                //DataTable dataTable = new DataTable();
+                string postId = ((Label)e.Item.FindControl("PostId")).Text;
+                GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
+
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                string getPostCmd = "select Fname, Content FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
+                SqlCommand getComment = new SqlCommand(getPostCmd, conn);
+
+                gridView.DataSource = getComment.ExecuteReader();
+                gridView.DataBind();
+
+                conn.Close();
+            }
+        }
     }
+
 }

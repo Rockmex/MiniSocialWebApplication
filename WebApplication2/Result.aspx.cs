@@ -62,6 +62,7 @@ namespace WebApplication2
             //Session["CurrentTable"] = dataTable;
             GridView1.DataSource = dataTable;
             GridView1.DataBind();
+            conn.Close();
         }
 
         private int Count()
