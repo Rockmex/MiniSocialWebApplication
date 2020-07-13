@@ -21,6 +21,8 @@ namespace WebApplication2
                 {
                     ShowUser();
                     ShowPost();
+                    
+                    
                 }
             }
         }
@@ -73,8 +75,17 @@ namespace WebApplication2
 
         protected void Button_Click_Comment_Display(Object sender, CommandEventArgs e)
         {
-            Session["PostId"] = e.CommandArgument;
-            Response.Redirect("Home.aspx");
+            if (Session["SelectPostId"] == null)
+            {
+                Session["SelectPostId"] = e.CommandArgument;
+                Response.Redirect("Home.aspx");
+            }
+            else
+            {
+                Session["SelectPostId"] = null;
+                Response.Redirect("Home.aspx");
+            }
+            
         }
 
         protected void Button_Click_Comment(Object sender, CommandEventArgs e)
@@ -89,7 +100,9 @@ namespace WebApplication2
 
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
+                // Comment_Textbox can't put in here ?
                 cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
+                
 
                 cmdInsert.ExecuteNonQuery();
 
@@ -140,19 +153,23 @@ namespace WebApplication2
         {
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
-                //DataTable dataTable = new DataTable();
-                string postId = ((Label)e.Item.FindControl("PostId")).Text;
-                GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
+                if (Session["SelectPostId"] != null)
+                {
+                    //DataTable dataTable = new DataTable();
+                    string postId = ((Label)e.Item.FindControl("PostId")).Text;
 
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                conn.Open();
-                string getPostCmd = "select Fname, Content FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
-                SqlCommand getComment = new SqlCommand(getPostCmd, conn);
+                    GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
 
-                gridView.DataSource = getComment.ExecuteReader();
-                gridView.DataBind();
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                    conn.Open();
+                    string getPostCmd = "select Fname, Content FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
+                    SqlCommand getComment = new SqlCommand(getPostCmd, conn);
 
-                conn.Close();
+                    gridView.DataSource = getComment.ExecuteReader();
+                    gridView.DataBind();
+
+                    conn.Close();
+                }
             }
         }
     }
