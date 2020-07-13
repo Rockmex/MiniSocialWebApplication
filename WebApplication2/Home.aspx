@@ -68,12 +68,13 @@
                                         </td>
                                     </tr>
                                 </table>
+                                <asp:Panel ID="CommentArea" runat="server">
                                 <table ID="Table_CommentArea" runat="server">
                                     <tr>
                                         <td><asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
                                         <td><asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>'/></td>
                                     </tr>
-                                </table>
+                                </table></asp:Panel>
                             </ItemTemplate>
                         </asp:ListView>
                         </div>

@@ -41,6 +41,8 @@ namespace WebApplication2
 
                 string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts) values ('" + Session["UID"] + "', @Msg,0,0)";
 
+                
+
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
                 cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
@@ -90,18 +92,24 @@ namespace WebApplication2
 
         protected void Button_Click_Comment(Object sender, CommandEventArgs e)
         {
-            Session["PostId"] = e.CommandArgument;
+            Button button = (Button)sender;
+            var item = (ListViewItem)button.NamingContainer;
+            var label = (Label)item.FindControl("PostId");
+            var postId = label.Text;
+            Session["PostId"] = postId;
 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 conn.Open();
+
+                var textBox = (TextBox)item.FindControl("Comment_Textbox");
 
                 string insertQuery = "insert into Comment (PostId, Content, SenderId) values ('" + Session["PostId"] + "', @Msg,'" + Session["UID"] + "')";
 
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
                 // Comment_Textbox can't put in here ?
-                cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
+                cmdInsert.Parameters.AddWithValue("@Msg", textBox.Text);
                 
 
                 cmdInsert.ExecuteNonQuery();
@@ -115,7 +123,11 @@ namespace WebApplication2
 
         protected void Button_Click_Share(Object sender, EventArgs e)
         {
+            LinkButton button = (LinkButton)sender;
+            var item = (ListViewItem)button.NamingContainer;
+            var label = (Label)item.FindControl("PostId");
 
+            Response.Write(label.Text);
         }
 
         private void ShowUser()
@@ -151,6 +163,9 @@ namespace WebApplication2
 
         protected void Post_DataBound(object sender, ListViewItemEventArgs e)
         {
+            var table = (Panel)e.Item.FindControl("CommentArea");
+            table.Visible = false;
+
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
                 if (Session["SelectPostId"] != null)
@@ -167,6 +182,8 @@ namespace WebApplication2
 
                     gridView.DataSource = getComment.ExecuteReader();
                     gridView.DataBind();
+
+                    table.Visible = true;
 
                     conn.Close();
                 }
