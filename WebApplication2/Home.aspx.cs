@@ -75,11 +75,16 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Comment_Display(Object sender, CommandEventArgs e)
+        protected void Button_Click_Comment_Display(Object sender, EventArgs e)
         {
             if (Session["SelectPostId"] == null)
             {
-                Session["SelectPostId"] = e.CommandArgument;
+                LinkButton button = (LinkButton)sender;
+                var item = (ListViewItem)button.NamingContainer;
+                var label = (Label)item.FindControl("PostId");
+                var postId = label.Text;
+
+                Session["SelectPostId"] = postId;
                 Response.Redirect("Home.aspx");
             }
             else
@@ -168,10 +173,18 @@ namespace WebApplication2
 
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
-                if (Session["SelectPostId"] != null)
-                {
                     //DataTable dataTable = new DataTable();
                     string postId = ((Label)e.Item.FindControl("PostId")).Text;
+                    var p = postId;
+
+                    string t = " ";
+
+                if (Session["SelectPostId"] != null)
+                {
+                   t = Session["SelectPostId"].ToString();
+                    
+                }
+                    
 
                     GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
 
@@ -180,13 +193,18 @@ namespace WebApplication2
                     string getPostCmd = "select Fname, Content FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
                     SqlCommand getComment = new SqlCommand(getPostCmd, conn);
 
+                   
+                   if (p == t)
+                   {
+
                     gridView.DataSource = getComment.ExecuteReader();
                     gridView.DataBind();
 
                     table.Visible = true;
+                    }
 
                     conn.Close();
-                }
+                    
             }
         }
     }
