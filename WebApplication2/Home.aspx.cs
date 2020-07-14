@@ -25,12 +25,6 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Search(Object sender, EventArgs e)
-        {
-            Session["result"] = Search_target.Text;
-            Response.Redirect("Result.aspx");
-        }
-
         protected void Button_Click_Post(Object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))

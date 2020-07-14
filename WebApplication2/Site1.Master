@@ -23,6 +23,8 @@
                             <li><a href="Personal.aspx">Personal</a></li>
                             <li><a href="Friends.aspx">Friends</a></li>
                             <li><a href="App.aspx">App</a></li>
+                            <li><asp:TextBox ID="Search_target" runat="server"></asp:TextBox></li>
+                            <li><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" /></li>
                             <li><asp:Button ID="Update_Button" Text="Log Out" OnClick="Button1_Click" runat="server" /></li>
                     </ul>
             </div> 
