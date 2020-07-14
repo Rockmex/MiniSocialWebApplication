@@ -4,14 +4,13 @@ using System.Data.SqlClient;
 
 namespace WebApplication2
 {
-    public partial class WebForm10 : System.Web.UI.Page
+    public partial class WebForm9 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
-        protected void Button1_Click(Object sender, EventArgs e)
+        protected void Button_Click_Update(Object sender, EventArgs e)
         {
             try
             {
@@ -19,11 +18,12 @@ namespace WebApplication2
                 conn.Open();
 
 
-                string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
+                string updateInfocmd = "update UserInfo SET Email = @email where Email = '" + Session["Email"] + "'";
                 SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
-                UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
+                UpdateInfo.Parameters.AddWithValue("@email", new_email.Text);
 
                 UpdateInfo.ExecuteNonQuery();
+                Session["Email"] = new_email.Text;
 
                 Response.Write("Update Sucess !!");
 
@@ -35,7 +35,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button2_Click(Object sender, EventArgs e)
+        protected void Button_Click_Back(Object sender, EventArgs e)
         {
             Response.Redirect("Edit.aspx");
         }

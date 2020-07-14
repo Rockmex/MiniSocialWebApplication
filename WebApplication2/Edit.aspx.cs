@@ -24,9 +24,9 @@ namespace WebApplication2
 
                     if (reader.Read())
                     {
-                        Label_Email.Text = reader["Email"].ToString();
-                        Label_Phone.Text = reader["Tel"].ToString();
-                        Label_Password.Text = reader["Password"].ToString();
+                        Label_ShowEmail.Text = reader["Email"].ToString();
+                        Label_ShowPhone.Text = reader["Tel"].ToString();
+                        Label_ShowPass.Text = reader["Password"].ToString();
                     }
                     else
                     {
@@ -38,22 +38,22 @@ namespace WebApplication2
             }
         }
 
-        protected void Button1_Click(Object sender, EventArgs e)
+        protected void Button_Click_EditEmail(Object sender, EventArgs e)
         {
-            Response.Redirect("E1.aspx");
+            Response.Redirect("Edit_Email.aspx");
         }
 
-        protected void Button2_Click(Object sender, EventArgs e)
+        protected void Button_Click_EditPhone(Object sender, EventArgs e)
         {
-            Response.Redirect("E2.aspx");
+            Response.Redirect("Edit_Phone.aspx");
         }
 
-        protected void Button3_Click(Object sender, EventArgs e)
+        protected void Button_Click_EditPassword(Object sender, EventArgs e)
         {
-            Response.Redirect("E3.aspx");
+            Response.Redirect("Edit_Password.aspx");
         }
 
-        protected void Button4_Click(Object sender, EventArgs e)
+        protected void Button_Click_Back(Object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
         }

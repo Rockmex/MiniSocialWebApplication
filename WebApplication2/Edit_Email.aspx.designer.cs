@@ -7,45 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class WebForm10 {
-        
+namespace WebApplication2
+{
+
+
+    public partial class WebForm9
+    {
+
         /// <summary>
-        /// label1 control.
+        /// label_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label1;
-        
+        protected global::System.Web.UI.WebControls.Label label_Email;
+
         /// <summary>
-        /// new_phone control.
+        /// new_email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox new_phone;
-        
+        protected global::System.Web.UI.WebControls.TextBox new_email;
+
         /// <summary>
-        /// Update_Button control.
+        /// Button_Update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Update_Button;
-        
+        protected global::System.Web.UI.WebControls.Button Button_Update;
+
         /// <summary>
-        /// Back_Button control.
+        /// Button_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Back_Button;
+        protected global::System.Web.UI.WebControls.Button Button_Back;
     }
 }

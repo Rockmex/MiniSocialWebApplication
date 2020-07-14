@@ -21,7 +21,7 @@ namespace WebApplication2
                 {
                     if (Count() == 0)
                     {
-                        GridView1.Visible = false;
+                        GridView_SearchResult.Visible = false;
                         Label_display.Text = "No such result.";
                     }
                     else
@@ -33,7 +33,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button1_Click(object sender, CommandEventArgs e)
+        protected void Button_Click_View(object sender, CommandEventArgs e)
         {
             if (e.CommandArgument != null)
             {
@@ -59,9 +59,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            //Session["CurrentTable"] = dataTable;
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_SearchResult.DataSource = dataTable;
+            GridView_SearchResult.DataBind();
             conn.Close();
         }
 

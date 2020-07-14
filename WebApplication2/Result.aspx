@@ -12,14 +12,14 @@
                             <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="We Found XX results " runat="server" ></asp:Label></td>
                         </tr>                           
                     </table>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridView_SearchResult" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="UID" HeaderText="UID" />
                                 <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
                                 <asp:BoundField DataField="lname" HeaderText="Last Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("UID") %>' OnCommand="Button1_Click"/>
+                                        <asp:Button ID="Button_View" runat="server" Text="View" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_View"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

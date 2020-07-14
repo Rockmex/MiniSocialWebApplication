@@ -12,16 +12,16 @@
                   <td colspan="2" class="td_center"><h3>Login Page</h3></td>
              </tr>
              <tr>
-                 <td class="td_left"><asp:Label ID= "Label1" runat ="server" Text=" Email: "></asp:Label></td>
+                 <td class="td_left"><asp:Label ID= "Label_Email" runat ="server" Text=" Email: "></asp:Label></td>
                  <td class="td_right"><asp:TextBox  ID="email" runat ="server"></asp:TextBox></td>
             </tr>
             <tr>
-                 <td class="td_left"><asp:Label ID= "Label2" runat ="server" Text=" Password: "></asp:Label></td>
+                 <td class="td_left"><asp:Label ID= "Label_Password" runat ="server" Text=" Password: "></asp:Label></td>
                  <td class="td_right"><asp:TextBox  ID="password" runat ="server"></asp:TextBox></td>
             </tr>
 
             <tr>
-                 <td colspan="2" align="center"><asp:Button ID="Login_Button" runat="server" Text="Login" OnClick="Login_Button_Click" />
+                 <td colspan="2" align="center"><asp:Button ID="Login_Button" runat="server" Text="Login" OnClick="Button_Click_Login" />
             </tr>
         </table>
                 </div>

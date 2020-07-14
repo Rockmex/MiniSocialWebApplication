@@ -7,47 +7,49 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class WebForm4 {
-        
+namespace WebApplication2
+{
+
+
+    public partial class WebForm4
+    {
+
         /// <summary>
-        /// Button1 control.
+        /// Button_Edit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-        
+        protected global::System.Web.UI.WebControls.Button Button_Edit;
+
         /// <summary>
-        /// FriendListLabel control.
+        /// Label_FriendList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FriendListLabel;
-        
+        protected global::System.Web.UI.WebControls.Label Label_FriendList;
+
         /// <summary>
-        /// NoFriendLabel control.
+        /// Label_NoFriend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NoFriendLabel;
-        
+        protected global::System.Web.UI.WebControls.Label Label_NoFriend;
+
         /// <summary>
-        /// GridviewFriendList control.
+        /// Gridview_FriendList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridviewFriendList;
-        
+        protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
+
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -56,50 +58,50 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-        
+
         /// <summary>
-        /// GridView1 control.
+        /// GridView_FriendNotification control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
+        protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
+
         /// <summary>
-        /// Button3 control.
+        /// Button_RedirectRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
-        
+        protected global::System.Web.UI.WebControls.Button Button_RedirectRoom;
+
         /// <summary>
-        /// RoomListLabel control.
+        /// Label_RoomList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RoomListLabel;
-        
+        protected global::System.Web.UI.WebControls.Label Label_RoomList;
+
         /// <summary>
-        /// NoRoomListLabel control.
+        /// Label_NoRoomList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NoRoomListLabel;
-        
+        protected global::System.Web.UI.WebControls.Label Label_NoRoomList;
+
         /// <summary>
-        /// GridviewRoomList control.
+        /// Gridview_RoomList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridviewRoomList;
+        protected global::System.Web.UI.WebControls.GridView Gridview_RoomList;
     }
 }

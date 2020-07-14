@@ -7,63 +7,47 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class WebForm11 {
-        
+namespace WebApplication2
+{
+
+
+    public partial class WebForm10
+    {
+
         /// <summary>
-        /// label1 control.
+        /// label_phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label1;
-        
+        protected global::System.Web.UI.WebControls.Label label_phone;
+
         /// <summary>
-        /// old_password control.
+        /// new_phone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox old_password;
-        
+        protected global::System.Web.UI.WebControls.TextBox new_phone;
+
         /// <summary>
-        /// label2 control.
+        /// Button_Update control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
-        
+        protected global::System.Web.UI.WebControls.Button Button_Update;
+
         /// <summary>
-        /// new_password control.
+        /// Button_Back control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox new_password;
-        
-        /// <summary>
-        /// Update_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Update_Button;
-        
-        /// <summary>
-        /// Back_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Back_Button;
+        protected global::System.Web.UI.WebControls.Button Button_Back;
     }
 }

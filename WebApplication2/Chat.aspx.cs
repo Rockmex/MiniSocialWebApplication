@@ -21,7 +21,7 @@ namespace WebApplication2
                 {
                     if (Count() == 0)
                     {
-                        GridView1.Visible = false;
+                        GridView_Chat.Visible = false;
                         Label_display.Text = "This is your first time chatting. Please write something.";
                     }
                     else
@@ -37,7 +37,6 @@ namespace WebApplication2
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 conn.Open();
-                // time value have issue
                 string insertQuery = "insert into ChatLog (SenderId, Message, ReceiverId,Time) values ('" + Session["UID"] + "', @Msg,'" + Session["FID"] + "', getdate())";
 
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
@@ -79,6 +78,9 @@ namespace WebApplication2
             }
         }
 
+        /*
+         *  ShowResult() takes data from database, bind to the gridview and display them. 
+         */
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -87,10 +89,13 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_Chat.DataSource = dataTable;
+            GridView_Chat.DataBind();
         }
 
+        /*
+         * Count() counts if there is any message between users
+         */
         private int Count()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);

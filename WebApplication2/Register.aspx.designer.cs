@@ -15,13 +15,13 @@ namespace WebApplication2
     {
 
         /// <summary>
-        /// Label_1 control.
+        /// Label_Gender control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_1;
+        protected global::System.Web.UI.WebControls.Label Label_Gender;
 
         /// <summary>
         /// gender control.
@@ -42,13 +42,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
 
         /// <summary>
-        /// Label_2 control.
+        /// Label_Fname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_2;
+        protected global::System.Web.UI.WebControls.Label Label_Fname;
 
         /// <summary>
         /// first_name control.
@@ -60,13 +60,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox first_name;
 
         /// <summary>
-        /// Label3 control.
+        /// Label_lname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label_lname;
 
         /// <summary>
         /// last_name control.
@@ -78,13 +78,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox last_name;
 
         /// <summary>
-        /// Label_3 control.
+        /// Label_DOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_3;
+        protected global::System.Web.UI.WebControls.Label Label_DOB;
 
         /// <summary>
         /// date_of_birth control.
@@ -96,13 +96,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox date_of_birth;
 
         /// <summary>
-        /// Label_4 control.
+        /// Label_Tel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_4;
+        protected global::System.Web.UI.WebControls.Label Label_Tel;
 
         /// <summary>
         /// telephone control.
@@ -114,13 +114,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox telephone;
 
         /// <summary>
-        /// Label_5 control.
+        /// Label_Email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_5;
+        protected global::System.Web.UI.WebControls.Label Label_Email;
 
         /// <summary>
         /// email control.
@@ -132,13 +132,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// Label_6 control.
+        /// Label_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_6;
+        protected global::System.Web.UI.WebControls.Label Label_Password;
 
         /// <summary>
         /// password control.
@@ -150,12 +150,12 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// Button1 control.
+        /// Button_Submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button_Submit;
     }
 }

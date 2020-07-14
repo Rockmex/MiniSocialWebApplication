@@ -15,12 +15,12 @@
     </div>
 
     <div class="button_list">
-            <asp:Button ID="Button1" runat="server" Text="Add Friend" OnClick="Request_Button_Click"/>
-            <asp:Button ID="Button2" runat="server" Text="Cancel Add Friend" OnClick="Delete_Button_Click"/>
-            <asp:Button ID="Button3" runat="server" Text="Re-Add Friend" OnClick="Re_Add_Friend_Button_Click"/>
-            <asp:Button ID="Button4" runat="server" Text="Block" OnClick="Block_Button_Click"/>
-            <asp:Button ID="Button5" runat="server" Text="Unblock" OnClick="Unblock_Button_Click"/>
-            <asp:Button ID="Button6" runat="server" Text="Message" OnClick="Message_Button_Click"/>
+            <asp:Button ID="Button_AddFriend" runat="server" Text="Add Friend" OnClick="Button_Click_Request"/>
+            <asp:Button ID="Button_CancelAddFriend" runat="server" Text="Cancel Add Friend" OnClick="Button_Click_Delete"/>
+            <asp:Button ID="Button_ReAddFriend" runat="server" Text="Re-Add Friend" OnClick="Button_Click_Re_Add_Friend"/>
+            <asp:Button ID="Button_Block" runat="server" Text="Block" OnClick="Button_Click_Block"/>
+            <asp:Button ID="Button_Unblock" runat="server" Text="Unblock" OnClick="Button_Click_Unblock"/>
+            <asp:Button ID="Button_Message" runat="server" Text="Message" OnClick="Button_Click_Message"/>
     </div>
 
     <div class="personal_info">

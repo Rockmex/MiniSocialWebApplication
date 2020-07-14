@@ -12,39 +12,39 @@
                                 <td colspan="2" class="td_center"><h3>Create Chat Room</h3></td>
                             </tr>
                             <tr>
-                                <td class="td_left"><asp:Label ID="Label_1" runat="server" Text="Room Name:"></asp:Label></td>
+                                <td class="td_left"><asp:Label ID="Label_Room_Name" runat="server" Text="Room Name:"></asp:Label></td>
                                 <td class="td_right"><asp:TextBox ID="rname" runat="server"></asp:TextBox></td>
                             </tr>
                             <tr>
                                  <td colspan="2" class="td_center"><asp:Label ID="Label_display"  runat="server" ></asp:Label></td>
                             </tr> 
                             <tr>
-                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                                <asp:GridView ID="GridView_ChatRoom" runat="server" AutoGenerateColumns="False">
                                 <Columns>
                                     <asp:TemplateField HeaderText="Friend ID">  
                                         <EditItemTemplate>  
-                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("UId") %>'></asp:TextBox>  
+                                            <asp:TextBox ID="TextBox_UID" runat="server" Text='<%# Bind("UId") %>'></asp:TextBox>  
                                         </EditItemTemplate>
                                         <ItemTemplate>
-                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("UId") %>'></asp:Label>  
+                                            <asp:Label ID="Label_UID" runat="server" Text='<%# Bind("UId") %>'></asp:Label>  
                                         </ItemTemplate>  
                                     </asp:TemplateField>
 
                                     <asp:TemplateField HeaderText="First Name">  
                                         <EditItemTemplate>  
-                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Fname") %>'></asp:TextBox>  
+                                            <asp:TextBox ID="TextBox_Fname" runat="server" Text='<%# Bind("Fname") %>'></asp:TextBox>  
                                         </EditItemTemplate>  
                                         <ItemTemplate>  
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Fname") %>'></asp:Label>  
+                                            <asp:Label ID="Label_Fname" runat="server" Text='<%# Bind("Fname") %>'></asp:Label>  
                                         </ItemTemplate>  
                                     </asp:TemplateField>
 
                                     <asp:TemplateField HeaderText="Last Name">  
                                         <EditItemTemplate>  
-                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Lname") %>'></asp:TextBox>  
+                                            <asp:TextBox ID="TextBox_Lname" runat="server" Text='<%# Bind("Lname") %>'></asp:TextBox>  
                                         </EditItemTemplate>  
                                         <ItemTemplate>  
-                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Lname") %>'></asp:Label>  
+                                            <asp:Label ID="Label_Lname" runat="server" Text='<%# Bind("Lname") %>'></asp:Label>  
                                         </ItemTemplate>  
                                     </asp:TemplateField>
 
@@ -61,7 +61,7 @@
                                 </asp:GridView>
                             </tr>
                             <tr>
-                                <td colspan="2" align="center"><asp:Button ID="Button1" runat="server" Text="Create" OnClick="Button_Click_CreatRoom" /><asp:Button ID="Button2" runat="server" Text="Add" OnClick="Button_Click_ExAddFriend" /></td>
+                                <td colspan="2" align="center"><asp:Button ID="Button_CreateRoom" runat="server" Text="Create" OnClick="Button_Click_CreatRoom" /><asp:Button ID="Button_ExAddFriend" runat="server" Text="Add" OnClick="Button_Click_ExAddFriend" /></td>
                             </tr>
                         </table>
                      </div>

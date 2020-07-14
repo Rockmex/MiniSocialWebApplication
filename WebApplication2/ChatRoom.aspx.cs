@@ -22,7 +22,7 @@ namespace WebApplication2
                 {
                     if (Count() == 0)
                     {
-                        GridViewChatBox.Visible = false;
+                        GridView_ChatBox.Visible = false;
                         Label_display.Text = "This is your first time chatting. Please write something.";
                     }
                     else
@@ -100,6 +100,7 @@ namespace WebApplication2
             Session["Case"] = 1;
             Response.Redirect("Redirect.aspx");
         }
+
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
@@ -108,8 +109,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridViewChatBox.DataSource = dataTable;
-            GridViewChatBox.DataBind();
+            GridView_ChatBox.DataSource = dataTable;
+            GridView_ChatBox.DataBind();
         }
 
         private void ShowMember()
@@ -120,8 +121,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridviewMemberList.DataSource = dataTable;
-            GridviewMemberList.DataBind();
+            Gridview_MemberList.DataSource = dataTable;
+            Gridview_MemberList.DataBind();
         }
 
         private int Count()
@@ -134,6 +135,10 @@ namespace WebApplication2
 
         }
 
+
+        /*
+         *  CheckRoom() : checks if user(UID) is in the chatroom(RoomId with char) 
+         */
         private int CheckRoom()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);

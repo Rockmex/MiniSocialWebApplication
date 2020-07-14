@@ -23,39 +23,39 @@ namespace WebApplication2
                     {
                         if (CountFriends() == 0)
                         {
-                            GridView1.Visible = false;
+                            GridView_ChatRoom.Visible = false;
                             Label_display.Text = "Sorry, You can't create a chat room without at least a friend can chat with";
-                            Button1.Visible = false;
-                            Button2.Visible = false;
+                            Button_CreateRoom.Visible = false;
+                            Button_ExAddFriend.Visible = false;
 
                         }
                         else
                         {
                             Label_display.Text = "Please select the friend that you wish to add";
-                            GridView1.Visible = true;
+                            GridView_ChatRoom.Visible = true;
                             ShowFriends();
-                            Button1.Visible = true;
-                            Button2.Visible = false;
+                            Button_CreateRoom.Visible = true;
+                            Button_ExAddFriend.Visible = false;
                         }
                     }
                     else
                     {
                         if (CountFriends() == 0)
                         {
-                            GridView1.Visible = false;
+                            GridView_ChatRoom.Visible = false;
                             Label_display.Text = "Sorry, You can't edit a chat room without at least a friend can chat with";
-                            Button1.Visible = false;
-                            Button2.Visible = false;
+                            Button_CreateRoom.Visible = false;
+                            Button_ExAddFriend.Visible = false;
                         }
                         else
                         {
                             Label_display.Text = "Please select the friend that you wish to add";
-                            Label_1.Visible = false;
+                            Label_Room_Name.Visible = false;
                             rname.Visible = false;
-                            GridView1.Visible = true;
+                            GridView_ChatRoom.Visible = true;
                             ShowFriends2();
-                            Button1.Visible = false;
-                            Button2.Visible = true;
+                            Button_CreateRoom.Visible = false;
+                            Button_ExAddFriend.Visible = true;
                         }
                     }
                 }
@@ -80,7 +80,7 @@ namespace WebApplication2
 
             conn.Close();
 
-            foreach (GridViewRow gvrow in GridView1.Rows)
+            foreach (GridViewRow gvrow in GridView_ChatRoom.Rows)
             {   
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
@@ -121,7 +121,7 @@ namespace WebApplication2
 
             conn.Close();
 
-            foreach (GridViewRow gvrow in GridView1.Rows)
+            foreach (GridViewRow gvrow in GridView_ChatRoom.Rows)
             {
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
@@ -151,7 +151,7 @@ namespace WebApplication2
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-            foreach (GridViewRow gvrow in GridView1.Rows)
+            foreach (GridViewRow gvrow in GridView_ChatRoom.Rows)
             {
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
@@ -192,8 +192,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_ChatRoom.DataSource = dataTable;
+            GridView_ChatRoom.DataBind();
         }
 
         private void ShowFriends2()
@@ -205,8 +205,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_ChatRoom.DataSource = dataTable;
+            GridView_ChatRoom.DataBind();
         }
 
         private int CountFriends()

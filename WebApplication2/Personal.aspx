@@ -17,7 +17,7 @@
 
     <div class="personal_info">
     <h2>Personal Info</h2>
-    <asp:Button ID="Button1" runat="server" Text="Edit" OnClick="Button_Click_Edit" />
+    <asp:Button ID="Button_Edit" runat="server" Text="Edit" OnClick="Button_Click_Edit" />
     </div> 
 
     <div class="personal_pictures">
@@ -28,20 +28,20 @@
     <h2>Personal Friends</h2>
         <table>
                         <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="FriendListLabel" Text="Friend List" runat="server" ></asp:Label></td>
+                            <td colspan="2" class="td_center"><asp:Label ID="Label_FriendList" Text="Friend List" runat="server" ></asp:Label></td>
                         </tr>      
                          <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="NoFriendLabel" Text="No Friend Yet." runat="server" ></asp:Label></td>
+                            <td colspan="2" class="td_center"><asp:Label ID="Label_NoFriend" Text="No Friend Yet." runat="server" ></asp:Label></td>
                         </tr>
          </table>
-        <asp:GridView ID="GridviewFriendList" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="Gridview_FriendList" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="User2_Id" HeaderText="FID" />
                                 <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
                                 <asp:BoundField DataField="lname" HeaderText="Last Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_Redirect"/>
+                                        <asp:Button ID="Button_Redirect" runat="server" Text="View" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_Redirect"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -55,19 +55,19 @@
                             <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="XX Notifications" runat="server" ></asp:Label></td>
                         </tr>                           
         </table>
-                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                        <asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="UID" HeaderText="Friend ID" />
                                 <asp:BoundField DataField="Fname" HeaderText="First Name" />
                                 <asp:BoundField DataField="Lname" HeaderText="Last Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="Button1" runat="server" Text="Accept" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Accept"/>
+                                        <asp:LinkButton ID="Button_Accept" runat="server" Text="Accept" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Accept"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:LinkButton ID="Button2" runat="server" Text="Decline" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Decline"/>
+                                        <asp:LinkButton ID="Button_Decline" runat="server" Text="Decline" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Decline"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
@@ -77,22 +77,22 @@
 
     <div class="personal_post">
     <h2>Chat Room</h2>
-        <asp:Button ID="Button3" runat="server" Text="Redirect" OnClick="Button_Click_RedirectRoom" />
+        <asp:Button ID="Button_RedirectRoom" runat="server" Text="Redirect" OnClick="Button_Click_RedirectRoom" />
     <table>
                         <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="RoomListLabel" Text="Chart Room List" runat="server" ></asp:Label></td>
+                            <td colspan="2" class="td_center"><asp:Label ID="Label_RoomList" Text="Chart Room List" runat="server" ></asp:Label></td>
                         </tr>      
                          <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="NoRoomListLabel" Text="No Chart Room Yet." runat="server" ></asp:Label></td>
+                            <td colspan="2" class="td_center"><asp:Label ID="Label_NoRoomList" Text="No Chart Room Yet." runat="server" ></asp:Label></td>
                         </tr>
          </table>
-        <asp:GridView ID="GridviewRoomList" runat="server" AutoGenerateColumns="False">
+        <asp:GridView ID="Gridview_RoomList" runat="server" AutoGenerateColumns="False">
                             <Columns>
                                 <asp:BoundField DataField="IDwithChar" HeaderText="Room ID" />
                                 <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
                                 <asp:TemplateField>
                                     <ItemTemplate>
-                                        <asp:Button ID="Button1" runat="server" Text="View" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Button_Click_RedirectChatRoom"/>
+                                        <asp:Button ID="Button_RedirectChatRoom" runat="server" Text="View" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Button_Click_RedirectChatRoom"/>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

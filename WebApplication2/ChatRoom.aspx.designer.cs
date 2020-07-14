@@ -24,13 +24,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_display;
 
         /// <summary>
-        /// GridViewChatBox control.
+        /// GridView_ChatBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewChatBox;
+        protected global::System.Web.UI.WebControls.GridView GridView_ChatBox;
 
         /// <summary>
         /// MessageBox control.
@@ -60,13 +60,13 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_MemberList;
 
         /// <summary>
-        /// GridviewMemberList control.
+        /// Gridview_MemberList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridviewMemberList;
+        protected global::System.Web.UI.WebControls.GridView Gridview_MemberList;
 
         /// <summary>
         /// Button_Add_New_Member control.

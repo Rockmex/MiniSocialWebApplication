@@ -83,9 +83,9 @@
     <Content Include="App.aspx" />
     <Content Include="About.aspx" />
     <Content Include="Edit.aspx" />
-    <Content Include="E1.aspx" />
-    <Content Include="E2.aspx" />
-    <Content Include="E3.aspx" />
+    <Content Include="Edit_Email.aspx" />
+    <Content Include="Edit_Phone.aspx" />
+    <Content Include="Edit_Password.aspx" />
     <Content Include="Result.aspx" />
     <Content Include="Redirect.aspx" />
   </ItemGroup>
@@ -168,26 +168,26 @@
     <Compile Include="Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="E1.aspx.cs">
-      <DependentUpon>E1.aspx</DependentUpon>
+    <Compile Include="Edit_Email.aspx.cs">
+      <DependentUpon>Edit_Email.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="E1.aspx.designer.cs">
-      <DependentUpon>E1.aspx</DependentUpon>
+    <Compile Include="Edit_Email.aspx.designer.cs">
+      <DependentUpon>Edit_Email.aspx</DependentUpon>
     </Compile>
-    <Compile Include="E2.aspx.cs">
-      <DependentUpon>E2.aspx</DependentUpon>
+    <Compile Include="Edit_Phone.aspx.cs">
+      <DependentUpon>Edit_Phone.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="E2.aspx.designer.cs">
-      <DependentUpon>E2.aspx</DependentUpon>
+    <Compile Include="Edit_Phone.aspx.designer.cs">
+      <DependentUpon>Edit_Phone.aspx</DependentUpon>
     </Compile>
-    <Compile Include="E3.aspx.cs">
-      <DependentUpon>E3.aspx</DependentUpon>
+    <Compile Include="Edit_Password.aspx.cs">
+      <DependentUpon>Edit_Password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="E3.aspx.designer.cs">
-      <DependentUpon>E3.aspx</DependentUpon>
+    <Compile Include="Edit_Password.aspx.designer.cs">
+      <DependentUpon>Edit_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Result.aspx.cs">
       <DependentUpon>Result.aspx</DependentUpon>

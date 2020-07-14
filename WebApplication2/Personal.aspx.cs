@@ -22,7 +22,7 @@ namespace WebApplication2
                     /* Notification Part*/
                     if (Count() == 0)
                     {
-                        GridView1.Visible = false;
+                        GridView_FriendNotification.Visible = false;
                         Label_display.Text = "No New Notifications";
                     }
                     else
@@ -34,25 +34,25 @@ namespace WebApplication2
                     /* Friend List Part*/
                     if (CountFriends() == 0)
                     {
-                        GridviewFriendList.Visible = false;
-                        NoFriendLabel.Visible = true;
+                        Gridview_FriendList.Visible = false;
+                        Label_NoFriend.Visible = true;
                     }
                     else
                     {
                         ShowFriends();
-                        NoFriendLabel.Visible = false;
+                        Label_NoFriend.Visible = false;
                     }
 
                     /* Chat Room List Part*/
                     if (CountRooms() == 0)
                     {
-                        GridviewFriendList.Visible = false;
-                        NoRoomListLabel.Visible = true;
+                        Gridview_FriendList.Visible = false;
+                        Label_NoRoomList.Visible = true;
                     }
                     else
                     {
                         ShowRooms();
-                        NoRoomListLabel.Visible = false;
+                        Label_NoRoomList.Visible = false;
                     }
                 }
             }
@@ -137,8 +137,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridView1.DataSource = dataTable;
-            GridView1.DataBind();
+            GridView_FriendNotification.DataSource = dataTable;
+            GridView_FriendNotification.DataBind();
         }
 
         private int Count()
@@ -172,8 +172,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridviewFriendList.DataSource = dataTable;
-            GridviewFriendList.DataBind();
+            Gridview_FriendList.DataSource = dataTable;
+            Gridview_FriendList.DataBind();
         }
 
         private void ShowRooms()
@@ -184,8 +184,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            GridviewRoomList.DataSource = dataTable;
-            GridviewRoomList.DataBind();
+            Gridview_RoomList.DataSource = dataTable;
+            Gridview_RoomList.DataBind();
         }
 
         private int CountRooms()

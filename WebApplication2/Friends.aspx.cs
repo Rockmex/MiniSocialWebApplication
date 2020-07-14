@@ -16,12 +16,12 @@ namespace WebApplication2
 
             if (cmdCheck.ExecuteScalar() == null)
             {
-                Button1.Visible = true;
-                Button2.Visible = false;
-                Button3.Visible = false;
-                Button4.Visible = false;
-                Button5.Visible = false;
-                Button6.Visible = false;
+                Button_AddFriend.Visible = true;
+                Button_CancelAddFriend.Visible = false;
+                Button_ReAddFriend.Visible = false;
+                Button_Block.Visible = false;
+                Button_Unblock.Visible = false;
+                Button_Message.Visible = false;
             }
             else
             {
@@ -29,45 +29,45 @@ namespace WebApplication2
 
                 if (status == 1)
                 {
-                    Button1.Visible = false;
-                    Button2.Visible = false;
-                    Button3.Visible = false;
-                    Button4.Visible = true;
-                    Button5.Visible = false;
-                    Button6.Visible = true;
+                    Button_AddFriend.Visible = false;
+                    Button_CancelAddFriend.Visible = false;
+                    Button_ReAddFriend.Visible = false;
+                    Button_Block.Visible = true;
+                    Button_Unblock.Visible = false;
+                    Button_Message.Visible = true;
                 }
                 else if (status == 0)
                 {
-                    Button1.Visible = false;
-                    Button2.Visible = true;
-                    Button3.Visible = false;
-                    Button4.Visible = false;
-                    Button5.Visible = false;
-                    Button6.Visible = false;
+                    Button_AddFriend.Visible = false;
+                    Button_CancelAddFriend.Visible = true;
+                    Button_ReAddFriend.Visible = false;
+                    Button_Block.Visible = false;
+                    Button_Unblock.Visible = false;
+                    Button_Message.Visible = false;
                 }
                 else if (status == 2)
                 {
-                    Button1.Visible = false;
-                    Button2.Visible = false;
-                    Button3.Visible = true;
-                    Button4.Visible = false;
-                    Button5.Visible = false;
-                    Button6.Visible = false;
+                    Button_AddFriend.Visible = false;
+                    Button_CancelAddFriend.Visible = false;
+                    Button_ReAddFriend.Visible = true;
+                    Button_Block.Visible = false;
+                    Button_Unblock.Visible = false;
+                    Button_Message.Visible = false;
                 }
                 else if (status == 3)
                 {
-                    Button1.Visible = false;
-                    Button2.Visible = false;
-                    Button3.Visible = false;
-                    Button4.Visible = false;
-                    Button5.Visible = true;
-                    Button6.Visible = false;
+                    Button_AddFriend.Visible = false;
+                    Button_CancelAddFriend.Visible = false;
+                    Button_ReAddFriend.Visible = false;
+                    Button_Block.Visible = false;
+                    Button_Unblock.Visible = true;
+                    Button_Message.Visible = false;
                 }
             }
             conn.Close();
         }
 
-        protected void Request_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Request(Object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -93,7 +93,7 @@ namespace WebApplication2
             Response.Write("Request send");
         }
 
-        protected void Delete_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Delete(Object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -116,7 +116,7 @@ namespace WebApplication2
             Response.Write("Request has been canceled");
         }
 
-        protected void Re_Add_Friend_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Re_Add_Friend(Object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -142,7 +142,7 @@ namespace WebApplication2
 
         }
 
-        protected void Block_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Block(Object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -164,7 +164,7 @@ namespace WebApplication2
 
         }
 
-        protected void Unblock_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Unblock(Object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -186,7 +186,7 @@ namespace WebApplication2
 
         }
 
-        protected void Message_Button_Click(Object sender, EventArgs e)
+        protected void Button_Click_Message(Object sender, EventArgs e)
         {
             Response.Redirect("Chat.aspx");
         }
