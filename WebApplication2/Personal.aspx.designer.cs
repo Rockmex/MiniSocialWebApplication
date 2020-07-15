@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class WebForm4
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class WebForm4 {
+        
         /// <summary>
         /// Button_Edit control.
         /// </summary>
@@ -22,16 +20,16 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Edit;
-
+        
         /// <summary>
-        /// FileUpload control.
+        /// ImgUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload;
-
+        protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
+        
         /// <summary>
         /// Button_Upload_Picture control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Upload_Picture;
-
+        
         /// <summary>
         /// Label_FriendList control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_FriendList;
-
+        
         /// <summary>
         /// Label_NoFriend control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_NoFriend;
-
+        
         /// <summary>
         /// Gridview_FriendList control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
-
+        
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-
+        
         /// <summary>
         /// GridView_FriendNotification control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
-
+        
         /// <summary>
         /// Button_RedirectRoom control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_RedirectRoom;
-
+        
         /// <summary>
         /// Label_RoomList control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_RoomList;
-
+        
         /// <summary>
         /// Label_NoRoomList control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_NoRoomList;
-
+        
         /// <summary>
         /// Gridview_RoomList control.
         /// </summary>

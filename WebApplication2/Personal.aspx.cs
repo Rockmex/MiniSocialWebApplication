@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,6 +20,7 @@ namespace WebApplication2
                 }
                 else
                 {
+                    
                     /* Notification Part*/
                     if (Count() == 0)
                     {
@@ -120,7 +122,7 @@ namespace WebApplication2
 
         protected void Button_Click_UploadPicture(Object sender, EventArgs e)
         {
-
+            Imgupload();
         }
 
         /*
@@ -217,6 +219,28 @@ namespace WebApplication2
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
+
+        private void Imgupload()
+        {
+            if (ImgUpload.HasFile)
+            {
+                int imgSize = ImgUpload.PostedFile.ContentLength;
+                byte[] imgarray = new byte[imgSize];
+                HttpPostedFile image = ImgUpload.PostedFile;
+                image.InputStream.Read(imgarray, 0, imgSize);
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                String query = "Insert into ImageDB (UID,ImageName,Image) values ('" + Session["UID"] + "',@Name, @Image)";
+                SqlCommand cmdImg = new SqlCommand(query, conn);
+                cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
+                cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
+                cmdImg.ExecuteNonQuery();
+                /*Label1.Visible = true;
+                Label1.Text = "Image Is Uploaded successfully";
+                imagebindGrid();*/
+                conn.Close();
+            }
         }
     }
 }
