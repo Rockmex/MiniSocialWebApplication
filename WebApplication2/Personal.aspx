@@ -22,6 +22,8 @@
 
     <div class="personal_pictures">
     <h2>Personal Pictures</h2>
+        <asp:FileUpload ID="FileUpload" runat="server" />
+        <asp:Button ID="Button_Upload_Picture" runat="server" Text="Upload" OnClick="Button_Click_UploadPicture" />
     </div>
 
     <div class="personal_friends">

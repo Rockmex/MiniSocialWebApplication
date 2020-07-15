@@ -118,6 +118,10 @@ namespace WebApplication2
             Response.Redirect("Redirect.aspx");
         }
 
+        protected void Button_Click_UploadPicture(Object sender, EventArgs e)
+        {
+
+        }
 
         /*
          * RoomId refers to IDwithChar (varchar)
