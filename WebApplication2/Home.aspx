@@ -16,6 +16,9 @@
                         <table id="Table_PostArea">
                             <tr>
                                 <td><asp:TextBox ID="Post_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
+                            </tr>
+                            <tr>
+                                <td> <asp:FileUpload ID="ImgUpload" runat="server" /></td>
                                 <td><asp:Button ID="Post_Button" runat="server" Text="Post" OnClick="Button_Click_Post"/></td>
                             </tr>
                         </table>
