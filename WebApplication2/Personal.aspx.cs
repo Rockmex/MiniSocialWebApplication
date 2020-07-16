@@ -20,7 +20,9 @@ namespace WebApplication2
                 }
                 else
                 {
-                    
+                    /* Dispaly Images Part*/
+                    DisplayImg();
+
                     /* Notification Part*/
                     if (Count() == 0)
                     {
@@ -225,14 +227,17 @@ namespace WebApplication2
         {
             if (ImgUpload.HasFile)
             {
+                var Imgid = CountImg() + 1;
+
                 int imgSize = ImgUpload.PostedFile.ContentLength;
                 byte[] imgarray = new byte[imgSize];
                 HttpPostedFile image = ImgUpload.PostedFile;
                 image.InputStream.Read(imgarray, 0, imgSize);
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-                String query = "Insert into ImageDB (UID,ImageName,Image) values ('" + Session["UID"] + "',@Name, @Image)";
+                String query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
                 SqlCommand cmdImg = new SqlCommand(query, conn);
+                cmdImg.Parameters.AddWithValue("@IID", Imgid);
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
                 cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
                 cmdImg.ExecuteNonQuery();
@@ -241,6 +246,44 @@ namespace WebApplication2
                 imagebindGrid();*/
                 conn.Close();
             }
+        }
+
+        private int CountImg()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            conn.Open();
+
+            string searchCmd = "SELECT COUNT(*) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            cmdCheck.ExecuteScalar();
+            int found = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            conn.Close();
+
+            
+            conn.Open();
+            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            SqlCommand GenerateCheck = new SqlCommand(GenerateCmd, conn);
+            
+            if(found == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(GenerateCheck.ExecuteScalar());
+            }
+            
+        }
+        public void DisplayImg()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT image FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            SqlCommand com = new SqlCommand(searchCmd, conn);
+            SqlDataReader dr = com.ExecuteReader();
+            Datalist_Images.DataSource = dr;
+            Datalist_Images.DataBind();
         }
     }
 }
