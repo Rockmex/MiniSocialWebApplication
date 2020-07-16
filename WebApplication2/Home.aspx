@@ -50,6 +50,11 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>
+                                            <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#Eval("Image") %>'/>
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td style="text-align:right">
                                             <asp:LinkButton ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
                                             <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
