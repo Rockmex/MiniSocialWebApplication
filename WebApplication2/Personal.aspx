@@ -29,8 +29,7 @@
                 <td>
                     <asp:DataList ID="Datalist_Images" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
                                         <ItemTemplate>
-                                            <asp:Image ID="Image" runat="server" Height="70" 
-                                                ImageUrl='<%#Eval("Image") %>' Width="100" />
+                                            <asp:Image ID="Image" runat="server" Height="70" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("Image") %>' Width="100" />
                                         </ItemTemplate>
                                     </asp:DataList>
                 </td>

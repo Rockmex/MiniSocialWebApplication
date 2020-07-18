@@ -1,0 +1,39 @@
+﻿using System;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+
+namespace WebApplication2
+{
+    /// <summary>
+    /// Summary description for Handler1
+    /// </summary>
+    public class Handler1 : IHttpHandler
+    {
+
+        //WebForm4 cls = new WebForm4();
+        public void ProcessRequest(HttpContext context)
+        {
+            //string displayimgid = context.Request.QueryString["id_Image"].ToString();
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            
+            string convertCmd = " SELECT image FROM ImageDB WHERE ImageId =1";
+            SqlCommand com = new SqlCommand(convertCmd, conn);
+            SqlDataReader dr = com.ExecuteReader();
+            dr.Read();
+            context.Response.BinaryWrite((Byte[])dr[0]);
+            context.Response.End();
+        }
+
+        public bool IsReusable
+        {
+            get
+            {
+                return false;
+            }
+        }
+    }
+}

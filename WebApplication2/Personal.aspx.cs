@@ -241,9 +241,7 @@ namespace WebApplication2
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
                 cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
                 cmdImg.ExecuteNonQuery();
-                /*Label1.Visible = true;
-                Label1.Text = "Image Is Uploaded successfully";
-                imagebindGrid();*/
+                /*imagebindGrid();*/
                 conn.Close();
             }
         }
