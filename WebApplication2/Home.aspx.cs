@@ -41,6 +41,9 @@ namespace WebApplication2
 
                     cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
                     cmdInsert.Parameters.AddWithValue("@IID", imgID);
+
+
+                    cmdInsert.ExecuteNonQuery();
                 }
                 else
                 {
@@ -160,7 +163,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string getPostCmd = "select PostId,Fname, Lname, senderId,content, image FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID)";
+            string getPostCmd = "select PostId,Fname, Lname, senderId,content, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID)";
             SqlCommand getPost = new SqlCommand(getPostCmd, conn);
             Post_ListView.DataSource = getPost.ExecuteReader();
             Post_ListView.DataBind();
@@ -171,7 +174,6 @@ namespace WebApplication2
         {
             var table = (Panel)e.Item.FindControl("CommentArea");
             table.Visible = false;
-
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
                     string postId = ((Label)e.Item.FindControl("PostId")).Text;
@@ -260,6 +262,7 @@ namespace WebApplication2
             }
 
         }
+
     }
 
 }

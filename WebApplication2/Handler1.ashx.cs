@@ -15,17 +15,23 @@ namespace WebApplication2
         //WebForm4 cls = new WebForm4();
         public void ProcessRequest(HttpContext context)
         {
-            //string displayimgid = context.Request.QueryString["id_Image"].ToString();
+            string displayimgid = context.Request.QueryString["id_Image"].ToString();
 
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            conn.Open();
+            if (displayimgid == "") 
+            {
+                context.Response.Close();
+            }
+            else { 
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
             
-            string convertCmd = " SELECT image FROM ImageDB WHERE ImageId =1";
-            SqlCommand com = new SqlCommand(convertCmd, conn);
-            SqlDataReader dr = com.ExecuteReader();
-            dr.Read();
-            context.Response.BinaryWrite((Byte[])dr[0]);
-            context.Response.End();
+                string convertCmd = " SELECT image FROM ImageDB WHERE imageID = '" + displayimgid + "'";
+                SqlCommand com = new SqlCommand(convertCmd, conn);
+                SqlDataReader dr = com.ExecuteReader();
+                dr.Read();
+                context.Response.BinaryWrite((Byte[])dr[0]);
+                context.Response.End();
+            }
         }
 
         public bool IsReusable

@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#Eval("Image") %>'/>
+                                            <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' onerror="this.style.display='none'" Height="200px" Width="300px"/>
                                         </td>
                                     </tr>
                                     <tr>

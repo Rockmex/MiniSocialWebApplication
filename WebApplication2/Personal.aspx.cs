@@ -277,7 +277,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT image FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT imageID FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
             SqlCommand com = new SqlCommand(searchCmd, conn);
             SqlDataReader dr = com.ExecuteReader();
             Datalist_Images.DataSource = dr;
