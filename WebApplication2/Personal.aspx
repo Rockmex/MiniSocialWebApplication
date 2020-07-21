@@ -12,7 +12,9 @@
     </div>
 
     <div class="profile-picture">
-        <img src="./img/my.jpg" width="150px" height="150px">
+        <asp:Image ID="Profile_Image" runat="server" Height="150px" Width="150px"/>
+        <br />
+        <asp:Button ID="Edit_Profile_Image" runat="server" Text="Edit" OnClick="Button_Click_Edit_Profile_Image"/>
     </div>
 
     <div class="personal_info">
@@ -28,10 +30,10 @@
             <tr>
                 <td>
                     <asp:DataList ID="Datalist_Images" runat="server" RepeatColumns="3" RepeatDirection="Horizontal">
-                                        <ItemTemplate>
-                                            <asp:Image ID="Image" runat="server" Height="70" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' Width="100" />
-                                        </ItemTemplate>
-                                    </asp:DataList>
+                         <ItemTemplate>
+                              <asp:Image ID="Image" runat="server" Height="70" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' Width="100" />
+                         </ItemTemplate>
+                    </asp:DataList>
                 </td>
             </tr>
         </table>

@@ -22,6 +22,7 @@ namespace WebApplication2
                 {
                     /* Dispaly Images Part*/
                     DisplayImg();
+                    DisplayPersonalImg();
 
                     /* Notification Part*/
                     if (Count() == 0)
@@ -136,6 +137,11 @@ namespace WebApplication2
             Session["RoomId"] = e.CommandArgument;
             Session["RID"] = ShowRoomId(Session["RoomId"]);
             Response.Redirect("ChatRoom.aspx");
+        }
+
+        protected void Button_Click_Edit_Profile_Image(Object sender, EventArgs e)
+        {
+            Response.Redirect("Edit_Personal_Image.aspx");
         }
         private void ShowResult()
         {
@@ -282,6 +288,16 @@ namespace WebApplication2
             SqlDataReader dr = com.ExecuteReader();
             Datalist_Images.DataSource = dr;
             Datalist_Images.DataBind();
+        }
+        public void DisplayPersonalImg()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = '" + Session["UID"] + "'";
+            SqlCommand com = new SqlCommand(searchCmd, conn);
+            com.ExecuteScalar();
+            int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
+            Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
         }
     }
 }

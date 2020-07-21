@@ -74,6 +74,7 @@
     <Content Include="Chat.aspx" />
     <Content Include="ChatRoom.aspx" />
     <Content Include="css\Style.css" />
+    <Content Include="Edit_Personal_Image.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -103,6 +104,13 @@
     </Compile>
     <Compile Include="ChatRoom.aspx.designer.cs">
       <DependentUpon>ChatRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Personal_Image.aspx.cs">
+      <DependentUpon>Edit_Personal_Image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Edit_Personal_Image.aspx.designer.cs">
+      <DependentUpon>Edit_Personal_Image.aspx</DependentUpon>
     </Compile>
     <Compile Include="Handler1.ashx.cs">
       <DependentUpon>Handler1.ashx</DependentUpon>
