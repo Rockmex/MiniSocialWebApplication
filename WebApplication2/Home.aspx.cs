@@ -139,6 +139,20 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
+        protected void Button_Click_Comment_Delete(Object sender, CommandEventArgs e)
+        {
+            string commentID = e.CommandArgument.ToString();
+            if (isCommentor(commentID)) { 
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                string deleteQuery = "DELETE FROM Comment WHERE commentID = '" + commentID + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
+                SqlCommand delete = new SqlCommand(deleteQuery, conn);
+                delete.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("Home.aspx");
+                }
+        }
+
 
         protected void Button_Click_Share(Object sender, EventArgs e)
         {
@@ -172,7 +186,8 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string getPostCmd = "select PostId,Fname, Lname, senderId,content,LikeCounts,CommentCounts, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID)";
+            string getPostCmd = "select PostId,Fname, Lname, senderId,content,LikeCounts,CommentCounts, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID) WHERE senderId = '" + Session["UID"] + "' OR senderId IN" +
+                "(SELECT User2_id FROM FriendRelationship WHERE User1_id = '" + Session["UID"] + "' AND Status = 1)";
             SqlCommand getPost = new SqlCommand(getPostCmd, conn);
             Post_ListView.DataSource = getPost.ExecuteReader();
             Post_ListView.DataBind();
@@ -200,7 +215,7 @@ namespace WebApplication2
 
                     SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                     conn.Open();
-                    string getPostCmd = "select Fname, Content FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
+                    string getPostCmd = "select Fname, Content, CommentId FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
                     SqlCommand getComment = new SqlCommand(getPostCmd, conn);
 
                    
@@ -270,6 +285,25 @@ namespace WebApplication2
                 return Convert.ToInt32(GenerateCheck.ExecuteScalar());
             }
 
+        }
+
+        private bool isCommentor(string CommentId)
+        {
+            bool isCommentor = false;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string query = "SELECT SenderId FROM Comment WHERE CommentId = '" + CommentId + "'";
+            SqlCommand queryCommand = new SqlCommand(query, conn);
+            var senderID = queryCommand.ExecuteScalar().ToString();
+            if (senderID != Session["UID"].ToString())
+            {
+                Response.Write("<script>alert('You can only delete your own Comments')</script>");
+            }
+            else
+            {
+                isCommentor = true;
+            }
+            return isCommentor;
         }
 
     }

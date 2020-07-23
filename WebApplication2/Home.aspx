@@ -71,6 +71,11 @@
                                                 <Columns>
                                                     <asp:BoundField DataField="Fname" HeaderText="Fname" />
                                                     <asp:BoundField DataField="Content" HeaderText="Content" />
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:Button ID="Button_Delete" runat="server" Text="Delete" CommandArgument='<%# Eval("CommentId") %>' OnCommand="Button_Click_Comment_Delete"/>
+                                                        </ItemTemplate>
+                                                     </asp:TemplateField>
                                                 </Columns>
                                             </asp:GridView>
                                         </td>
