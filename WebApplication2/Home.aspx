@@ -38,7 +38,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Image ID="Profile_Image" src="./img/my.jpg" runat="server" width="50px" height="50px" />
+                                            <asp:Image ID="Profile_Image"  runat="server" width="50px" height="50px" />
                                         </td>
                                         <td>
                                             <%#Eval("Fname")%><%#Eval("Lname")%>

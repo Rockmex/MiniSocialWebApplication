@@ -23,8 +23,8 @@ namespace WebApplication2
 
                 if (temp != 1)
                 {
-
-                    Response.Write("User does not exist.");
+                    //Response.Write("User does not exist.");
+                    Response.Write("<script>alert('User " + email.Text + " does not exist.') </script>");
                 }
                 else
                 {

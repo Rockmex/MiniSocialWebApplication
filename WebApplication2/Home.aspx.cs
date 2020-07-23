@@ -64,22 +64,31 @@ namespace WebApplication2
         protected void Button_Click_Like(Object sender, CommandEventArgs e)
         {
             Session["PostId"] = e.CommandArgument;
-
-            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            if (IsLike() == 0)
             {
-                conn.Open();
+                using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                {
+                    conn.Open();
 
-                string updateInfocmd = "UPDATE Post SET LikeCounts = LikeCounts + 1 Where PostId = '" + Session["PostId"] + "'";
+                    string updateInfocmd = "UPDATE Post SET LikeCounts = LikeCounts + 1 Where PostId = '" + Session["PostId"] + "'";
 
-                SqlCommand cmdInsert = new SqlCommand(updateInfocmd, conn);
+                    SqlCommand cmdUpdate = new SqlCommand(updateInfocmd, conn);
 
-                cmdInsert.ExecuteNonQuery();
+                    cmdUpdate.ExecuteNonQuery();
 
-                conn.Close();
+                    string insertInfocmd = "insert into CheckLike(PostId,UID) values ('" + Session["PostId"] + "','" + Session["UID"] + "')";
+
+                    SqlCommand cmdInsert = new SqlCommand(insertInfocmd, conn);
+
+                    cmdInsert.ExecuteNonQuery();
+
+                    conn.Close();
+                }
             }
 
             Response.Redirect("Home.aspx");
         }
+
 
         protected void Button_Click_Comment_Display(Object sender, EventArgs e)
         {
@@ -196,6 +205,7 @@ namespace WebApplication2
 
         protected void Post_DataBound(object sender, ListViewItemEventArgs e)
         {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             var table = (Panel)e.Item.FindControl("CommentArea");
             table.Visible = false;
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
@@ -213,7 +223,7 @@ namespace WebApplication2
 
                     GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
 
-                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                    
                     conn.Open();
                     string getPostCmd = "select Fname, Content, CommentId FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
                     SqlCommand getComment = new SqlCommand(getPostCmd, conn);
@@ -231,6 +241,17 @@ namespace WebApplication2
                     conn.Close();
                     
             }
+
+            // Profile_image relocate
+            var Profile_Image = (Image)e.Item.FindControl("Profile_Image");
+
+            conn.Open();
+            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = '" + Session["UID"] + "'";
+            SqlCommand com = new SqlCommand(searchCmd, conn);
+            com.ExecuteScalar();
+            int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
+            Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
         }
         private string Imgupload()
         {
@@ -305,6 +326,16 @@ namespace WebApplication2
             }
             return isCommentor;
         }
+
+        private int IsLike()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT COUNT(*) FROM CheckLike WHERE PostId = '" + Session["PostId"] + "' AND UID = '" + Session["UID"] + "' ";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
+
 
     }
 
