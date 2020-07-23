@@ -42,6 +42,15 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
 
         /// <summary>
+        /// Label_GenderExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_GenderExp;
+
+        /// <summary>
         /// Label_Fname control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox first_name;
+
+        /// <summary>
+        /// Label_FnameEXp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_FnameEXp;
 
         /// <summary>
         /// Label_lname control.
@@ -78,6 +96,15 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox last_name;
 
         /// <summary>
+        /// Label_lnameExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_lnameExp;
+
+        /// <summary>
         /// Label_DOB control.
         /// </summary>
         /// <remarks>
@@ -94,6 +121,15 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox date_of_birth;
+
+        /// <summary>
+        /// Label_DOBExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_DOBExp;
 
         /// <summary>
         /// Label_Tel control.
@@ -114,6 +150,15 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox telephone;
 
         /// <summary>
+        /// Label_TelExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_TelExp;
+
+        /// <summary>
         /// Label_Email control.
         /// </summary>
         /// <remarks>
@@ -132,6 +177,15 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
+        /// Label_EmailExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_EmailExp;
+
+        /// <summary>
         /// Label_Password control.
         /// </summary>
         /// <remarks>
@@ -148,6 +202,15 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
+
+        /// <summary>
+        /// Label_PasswordExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_PasswordExp;
 
         /// <summary>
         /// Button_Submit control.

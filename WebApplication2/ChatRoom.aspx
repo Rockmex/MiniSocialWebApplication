@@ -12,22 +12,19 @@
                         </tr>                           
                     <tr>
                         <asp:GridView ID="GridView_ChatBox" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:BoundField DataField="MessageId" HeaderText="MessageId" visible="False"/>
-                                <asp:BoundField DataField="SenderId" HeaderText="SenderId" />
-                                <asp:BoundField DataField="Message" HeaderText="Message" />
-                                <asp:BoundField DataField="Time" HeaderText="Time" />
-                                <asp:TemplateField>
-                                        <ItemTemplate>
-                                            <asp:Button ID="Button_Delete" runat="server" Text="Delete" CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
-                                        </ItemTemplate>
-                                </asp:TemplateField>
-
-                            </Columns>
+                        <Columns>
+                            <asp:BoundField DataField="MessageId" HeaderText="MessageId" visible="False"/>
+                            <asp:BoundField DataField="Fname" HeaderText="Name" />
+                            <asp:BoundField DataField="Message" HeaderText="Message" />
+                            <asp:BoundField DataField="Time" HeaderText="Time" />
+                            <asp:TemplateField>
+                                <ItemTemplate>
+                                    <asp:Button ID="Button_Delete" runat="server" Text="Delete" CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
+                                </ItemTemplate>
+                             </asp:TemplateField>
+                         </Columns>
                         </asp:GridView>
-
                     </tr>
-                     
                             <tr>
                                 <td><asp:TextBox ID="MessageBox" runat="server"></asp:TextBox></td>
                                 <td><asp:Button ID="Button_Send" runat="server" Text="Send" onclick="Button_Click_Send"/></td>

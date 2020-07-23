@@ -229,7 +229,7 @@ namespace WebApplication2
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
-        private void Imgupload()
+        private void Imgupload() //Added refresh page.
         {
             if (ImgUpload.HasFile)
             {
@@ -247,29 +247,29 @@ namespace WebApplication2
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
                 cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
                 cmdImg.ExecuteNonQuery();
-                /*imagebindGrid();*/
                 conn.Close();
+                Response.Redirect("Personal.aspx");
             }
         }
 
-        private int CountImg()
+        private int CountImg()  //Fixed generate id error.
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
             conn.Open();
 
-            string searchCmd = "SELECT COUNT(*) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT COUNT(*) FROM ImageDB";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             cmdCheck.ExecuteScalar();
             int found = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
 
-            
+
             conn.Open();
-            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB";
             SqlCommand GenerateCheck = new SqlCommand(GenerateCmd, conn);
-            
-            if(found == 0)
+
+            if (found == 0)
             {
                 return 0;
             }
@@ -277,7 +277,7 @@ namespace WebApplication2
             {
                 return Convert.ToInt32(GenerateCheck.ExecuteScalar());
             }
-            
+
         }
         public void DisplayImg()
         {

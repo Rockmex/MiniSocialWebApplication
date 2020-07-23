@@ -11,17 +11,18 @@
     </div>
 
     <div class="profile-picture">
-        <img src="./img/my.jpg" width="150px" height="150px">
-    </div>
+			<asp:Image ID="Profile_Image" runat="server" Height="150px" Width="150px"/>
+	</div>
 
     <div class="button_list">
             <asp:Button ID="Button_AddFriend" runat="server" Text="Add Friend" OnClick="Button_Click_Request"/>
-            <asp:Button ID="Button_CancelAddFriend" runat="server" Text="Cancel Add Friend" OnClick="Button_Click_Delete"/>
+            <asp:Button ID="Button_CancelAddFriend" runat="server" Text="Cancel Add Friend" OnClick="Button_Click_Cancel"/>
             <asp:Button ID="Button_ReAddFriend" runat="server" Text="Re-Add Friend" OnClick="Button_Click_Re_Add_Friend"/>
             <asp:Button ID="Button_Block" runat="server" Text="Block" OnClick="Button_Click_Block"/>
             <asp:Button ID="Button_Unblock" runat="server" Text="Unblock" OnClick="Button_Click_Unblock"/>
             <asp:Button ID="Button_Message" runat="server" Text="Message" OnClick="Button_Click_Message"/>
-    </div>
+            <asp:Button ID="Button_Delete" runat="server" Text="Delete" OnClick="Button_Click_Delete" />
+	</div>
 
     <div class="personal_info">
     <h2>Personal Info</h2>

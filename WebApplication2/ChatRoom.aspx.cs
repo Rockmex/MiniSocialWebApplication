@@ -51,24 +51,23 @@ namespace WebApplication2
 
         protected void Button_Click_Delete(object sender, CommandEventArgs e)
         {
-            Session["MID"] = e.CommandArgument;
-
             if (e.CommandArgument != null)
             {
-                using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                Session["MID"] = e.CommandArgument;
+                if (isSender())
                 {
-                    conn.Open();
+                    using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                    {
+                        conn.Open();
+                        string deleteQuery = "DELETE FROM ChatLog WHERE MessageId = '" + Session["MID"] + "' AND SenderId = '" + Session["UID"] + "'";
 
-                    string deleteQuery = "DELETE FROM ChatLog WHERE MessageId = '" + Session["MID"] + "'";
+                        SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
 
-                    SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
+                        cmdDelete.ExecuteNonQuery();
 
-                    cmdDelete.ExecuteNonQuery();
-
-                    conn.Close();
+                        conn.Close();
+                    }
                 }
-
-                Response.Redirect("ChatRoom.aspx");
             }
             else
             {
@@ -79,20 +78,15 @@ namespace WebApplication2
         protected void Button_Click_RemoveMember(object sender, CommandEventArgs e)
         {
             Session["MemberId"] = e.CommandArgument;
-
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            conn.Open();
-
-            string deleteQuery = "DELETE FROM ChatRoom WHERE MemberId = '" + Session["MemberId"] + "'";
-
-            SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
-
-
-            cmdDelete.ExecuteNonQuery();
-
-            conn.Close();
-
-            Response.Redirect("ChatRoom.aspx");
+            if (isCreator())
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                string deleteQuery = "DELETE FROM ChatRoom WHERE MemberId = '" + Session["MemberId"] + "'";
+                SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
+                cmdDelete.ExecuteNonQuery();
+                conn.Close();
+            }
         }
 
         protected void Button_Click_AddNewMember(object sender, EventArgs e)
@@ -105,7 +99,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT MessageId, SenderId, Message, Time FROM ChatLog WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
+            string searchCmd = "SELECT MessageId, Fname, Message, Time FROM ChatLog INNER JOIN UserInfo ON SenderId = UID WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
@@ -156,6 +150,45 @@ namespace WebApplication2
             string searchCmd = "SELECT RoomName FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             return cmdCheck.ExecuteScalar().ToString();
+        }
+
+        private bool isCreator()
+        {
+            bool isCreator = false;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            //Missing RID. FIX IT!!!!
+            string query = "SELECT isCreator FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "' AND IDwithChar = '" + Session["RoomId"] + "'";
+            SqlCommand queryCommand = new SqlCommand(query, conn);
+            var senderID = Convert.ToInt32(queryCommand.ExecuteScalar().ToString());
+            if (senderID != 1)
+            {
+                Response.Write("<script>alert('You are not the creator')</script>");
+            }
+            else
+            {
+                isCreator = true;
+            }
+            return isCreator;
+        }
+
+        private bool isSender()
+        {
+            bool isSender = false;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string query = "SELECT SenderId FROM ChatLog WHERE MessageId = '" + Session["MID"] + "'";
+            SqlCommand queryCommand = new SqlCommand(query, conn);
+            var senderID = queryCommand.ExecuteScalar().ToString();
+            if (senderID != Session["UID"].ToString())
+            {
+                Response.Write("<script>alert('You can only delete your own messages')</script>");
+            }
+            else
+            {
+                isSender = true;
+            }
+            return isSender;
         }
     }
 }

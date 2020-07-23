@@ -17,7 +17,7 @@
             </tr>
             <tr>
                  <td class="td_left"><asp:Label ID= "Label_Password" runat ="server" Text=" Password: "></asp:Label></td>
-                 <td class="td_right"><asp:TextBox  ID="password" runat ="server"></asp:TextBox></td>
+                 <td class="td_right"><asp:TextBox  ID="password" runat ="server" TextMode="Password"></asp:TextBox></td>
             </tr>
 
             <tr>

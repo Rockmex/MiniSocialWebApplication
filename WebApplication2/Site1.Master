@@ -16,6 +16,7 @@
             <div class ="overlay"></div>
                 <div class ="topbar">
                     <%--<div class="logo">LOGO</div>--%>
+                       <img src="./img/logo.png"  width="100px" height:"100px" />
                         <ul id="ulSiteMenu">
                             <li><a href="Home.aspx">Home</a></li>
                             <li><a href="Login.aspx">Login</a></li>

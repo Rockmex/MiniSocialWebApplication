@@ -15,6 +15,15 @@ namespace WebApplication2
     {
 
         /// <summary>
+        /// Profile_Image control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Profile_Image;
+
+        /// <summary>
         /// Button_AddFriend control.
         /// </summary>
         /// <remarks>
@@ -67,5 +76,14 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Message;
+
+        /// <summary>
+        /// Button_Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Delete;
     }
 }

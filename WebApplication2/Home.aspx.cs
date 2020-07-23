@@ -113,6 +113,7 @@ namespace WebApplication2
             {
                 conn.Open();
 
+
                 var textBox = (TextBox)item.FindControl("Comment_Textbox");
 
                 string insertQuery = "insert into Comment (PostId, Content, SenderId) values ('" + Session["PostId"] + "', @Msg,'" + Session["UID"] + "')";
@@ -120,9 +121,17 @@ namespace WebApplication2
                 SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
                 cmdInsert.Parameters.AddWithValue("@Msg", textBox.Text);
-                
 
                 cmdInsert.ExecuteNonQuery();
+
+
+
+                string updateInfocmd = "UPDATE Post SET CommentCounts = CommentCounts + 1 Where PostId = '" + Session["PostId"] + "'";
+
+                SqlCommand cmdUpdate = new SqlCommand(updateInfocmd, conn);
+
+                cmdUpdate.ExecuteNonQuery();
+
 
                 conn.Close();
             }
@@ -163,7 +172,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string getPostCmd = "select PostId,Fname, Lname, senderId,content, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID)";
+            string getPostCmd = "select PostId,Fname, Lname, senderId,content,LikeCounts,CommentCounts, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID)";
             SqlCommand getPost = new SqlCommand(getPostCmd, conn);
             Post_ListView.DataSource = getPost.ExecuteReader();
             Post_ListView.DataBind();
