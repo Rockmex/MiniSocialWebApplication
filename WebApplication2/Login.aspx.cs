@@ -23,8 +23,7 @@ namespace WebApplication2
 
                 if (temp != 1)
                 {
-                    //Response.Write("User does not exist.");
-                    Response.Write("<script>alert('User " + email.Text + " does not exist.') </script>");
+                    errorMessageHidden.Value = "User does not exist.";
                 }
                 else
                 {
@@ -41,7 +40,7 @@ namespace WebApplication2
                     }
                     else
                     {
-                        Response.Write("Password does not match");
+                        errorMessageHidden.Value = "Password does not match";
                     }
                 }
 
@@ -49,7 +48,7 @@ namespace WebApplication2
             }
             catch (Exception ex)
             {
-                Response.Write("Error: " + ex.ToString());
+                errorMessageHidden.Value = "Error: " + ex.ToString();
             }
         }
 

@@ -31,18 +31,19 @@ namespace WebApplication2
 
                     UpdateInfo.ExecuteNonQuery();
 
-                    Response.Write("Update Sucess !!");
+                    errorMessageHidden.Value = "Update Sucess !!";
+                    Response.Redirect("Edit.aspx");
                 }
                 else
                 {
-                    Response.Write("Error: Old Password not match");
+                    errorMessageHidden.Value = "Error: Old Password not match";
                 }
 
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Response.Write("Update Error:" + ex.ToString());
+                errorMessageHidden.Value = "Update Error:" + ex.ToString();
             }
         }
 

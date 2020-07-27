@@ -34,17 +34,18 @@ namespace WebApplication2
                     cmdInsert.Parameters.AddWithValue("@password", password.Text);
                     cmdInsert.ExecuteNonQuery();
 
-                    Response.Write("Register Succesfully!");
+                    errorMessageHidden.Value = "Register Succesfully!";
+                    Response.Redirect("Login.aspx");
                 }
                 else
                 {
-                    Response.Write("User already exist.");
+                    errorMessageHidden.Value = "User already exist.";
                 }
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Response.Write("Error: " + ex.ToString());
+                errorMessageHidden.Value = "Error: " + ex.ToString();
             }
         }
     }

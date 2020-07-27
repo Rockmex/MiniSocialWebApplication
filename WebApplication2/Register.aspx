@@ -7,6 +7,11 @@
 		<div class="rg_center">
             <div class="rg_form">
                 <div class="word">
+                    <asp:HiddenField Value="" ID="errorMessageHidden" runat="server"/>
+                        <script type="text/javascript">
+                            var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
+                            if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
+                        </script>
                     <table>
                             <tr>
                                 <td colspan="2" class="td_center"><h3>Register Page</h3></td>

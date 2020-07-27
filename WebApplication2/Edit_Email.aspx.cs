@@ -25,13 +25,14 @@ namespace WebApplication2
                 UpdateInfo.ExecuteNonQuery();
                 Session["Email"] = new_email.Text;
 
-                Response.Write("Update Sucess !!");
+                errorMessageHidden.Value = "Update Sucess !!";
+                Response.Redirect("Edit.aspx");
 
                 conn.Close();
             }
             catch (Exception ex)
             {
-                Response.Write("Update Error:" + ex.ToString());
+                errorMessageHidden.Value = "Update Error:" + ex.ToString();
             }
         }
 

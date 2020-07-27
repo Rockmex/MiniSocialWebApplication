@@ -5,6 +5,11 @@
     <div class="rg_layout">
 	<div class="rg_center">
             <div class="rg_form">
+				<asp:HiddenField Value="" ID="errorMessageHidden" runat="server"/>
+                        <script type="text/javascript">
+                            var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
+                            if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
+                        </script>
                     <table>
 						<tr>
 							<td colspan="2" class="td_center"><h3>Edit_Phone</h3></td>						
