@@ -11,6 +11,10 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 if (CheckRoom() == 0)

@@ -14,7 +14,14 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DisplayPersonalImg();
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else 
+            {
+                DisplayPersonalImg();
+            }
         }
 
         protected void Button_Click_Update(Object sender, EventArgs e)

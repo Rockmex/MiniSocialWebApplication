@@ -8,66 +8,73 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DisplayPersonalImg();
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-            conn.Open();
-
-            Button_Delete.Visible = false;
-            string checkUser = "SELECT Status FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
-            SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
-
-            if (cmdCheck.ExecuteScalar() == null)
+            if (Session["Email"] == null)
             {
-                Button_AddFriend.Visible = true;
-                Button_CancelAddFriend.Visible = false;
-                Button_ReAddFriend.Visible = false;
-                Button_Block.Visible = false;
-                Button_Unblock.Visible = false;
-                Button_Message.Visible = false;
+                Response.Redirect("Login.aspx");
             }
             else
             {
-                int status = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+                DisplayPersonalImg();
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
 
-                if (status == 1)
+                Button_Delete.Visible = false;
+                string checkUser = "SELECT Status FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
+                SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
+
+                if (cmdCheck.ExecuteScalar() == null)
                 {
-                    Button_AddFriend.Visible = false;
+                    Button_AddFriend.Visible = true;
                     Button_CancelAddFriend.Visible = false;
-                    Button_ReAddFriend.Visible = false;
-                    Button_Block.Visible = true;
-                    Button_Unblock.Visible = false;
-                    Button_Message.Visible = true;
-                    Button_Delete.Visible = true;
-                }
-                else if (status == 0)
-                {
-                    Button_AddFriend.Visible = false;
-                    Button_CancelAddFriend.Visible = true;
                     Button_ReAddFriend.Visible = false;
                     Button_Block.Visible = false;
                     Button_Unblock.Visible = false;
                     Button_Message.Visible = false;
                 }
-                else if (status == 2)
+                else
                 {
-                    Button_AddFriend.Visible = false;
-                    Button_CancelAddFriend.Visible = false;
-                    Button_ReAddFriend.Visible = true;
-                    Button_Block.Visible = false;
-                    Button_Unblock.Visible = false;
-                    Button_Message.Visible = false;
+                    int status = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+
+                    if (status == 1)
+                    {
+                        Button_AddFriend.Visible = false;
+                        Button_CancelAddFriend.Visible = false;
+                        Button_ReAddFriend.Visible = false;
+                        Button_Block.Visible = true;
+                        Button_Unblock.Visible = false;
+                        Button_Message.Visible = true;
+                        Button_Delete.Visible = true;
+                    }
+                    else if (status == 0)
+                    {
+                        Button_AddFriend.Visible = false;
+                        Button_CancelAddFriend.Visible = true;
+                        Button_ReAddFriend.Visible = false;
+                        Button_Block.Visible = false;
+                        Button_Unblock.Visible = false;
+                        Button_Message.Visible = false;
+                    }
+                    else if (status == 2)
+                    {
+                        Button_AddFriend.Visible = false;
+                        Button_CancelAddFriend.Visible = false;
+                        Button_ReAddFriend.Visible = true;
+                        Button_Block.Visible = false;
+                        Button_Unblock.Visible = false;
+                        Button_Message.Visible = false;
+                    }
+                    else if (status == 3)
+                    {
+                        Button_AddFriend.Visible = false;
+                        Button_CancelAddFriend.Visible = false;
+                        Button_ReAddFriend.Visible = false;
+                        Button_Block.Visible = false;
+                        Button_Unblock.Visible = true;
+                        Button_Message.Visible = false;
+                    }
                 }
-                else if (status == 3)
-                {
-                    Button_AddFriend.Visible = false;
-                    Button_CancelAddFriend.Visible = false;
-                    Button_ReAddFriend.Visible = false;
-                    Button_Block.Visible = false;
-                    Button_Unblock.Visible = true;
-                    Button_Message.Visible = false;
-                }
+                conn.Close();
             }
-            conn.Close();
         }
 
         protected void Button_Click_Request(Object sender, EventArgs e)

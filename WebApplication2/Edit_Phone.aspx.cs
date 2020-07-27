@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace WebApplication2
 {
@@ -8,7 +9,10 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Email"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void Button_Click_Update(Object sender, EventArgs e)
@@ -25,8 +29,7 @@ namespace WebApplication2
 
                 UpdateInfo.ExecuteNonQuery();
 
-                errorMessageHidden.Value = "Update Sucess !!";
-                Response.Redirect("Edit.aspx");
+                ScriptManager.RegisterStartupScript(this, this.GetType(),"alert","alert('Updated sucessfully!!');window.location ='Personal.aspx';",true);
 
                 conn.Close();
             }

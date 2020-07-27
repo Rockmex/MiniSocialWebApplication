@@ -26,7 +26,7 @@ namespace WebApplication2
                     {
                         Label_ShowEmail.Text = reader["Email"].ToString();
                         Label_ShowPhone.Text = reader["Tel"].ToString();
-                        Label_ShowPass.Text = reader["Password"].ToString();
+                        //Label_ShowPass.Text = reader["Password"].ToString();
                     }
                     else
                     {

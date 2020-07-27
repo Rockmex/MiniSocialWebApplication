@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace WebApplication2
 {
@@ -34,8 +35,7 @@ namespace WebApplication2
                     cmdInsert.Parameters.AddWithValue("@password", password.Text);
                     cmdInsert.ExecuteNonQuery();
 
-                    errorMessageHidden.Value = "Register Succesfully!";
-                    Response.Redirect("Login.aspx");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Register sucessfully!!');window.location ='Login.aspx';", true);
                 }
                 else
                 {

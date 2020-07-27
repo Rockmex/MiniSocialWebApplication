@@ -13,7 +13,7 @@ namespace WebApplication2
         {
             if (!Page.IsPostBack)
             {
-                if (Session["UID"] == null)
+                if (Session["UID"] == null || Session["Email"] == null)
                 {
                     Response.Redirect("Login.aspx");
                 }
