@@ -19,7 +19,7 @@
                                 <asp:BoundField DataField="Time" HeaderText="Time" />
                                 <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:Button ID="Button_Delete" runat="server" Text="Delete" CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
+                                            <asp:Button ID="Button_Delete" runat="server" Text="Delete" Visible='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? true : false %>' CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
                                         </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>

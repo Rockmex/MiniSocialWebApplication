@@ -64,26 +64,26 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-            conn.Open();
+            //conn.Open();
 
-            string searchCmd = "SELECT COUNT(*) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
-            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
-            cmdCheck.ExecuteScalar();
-            int found = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
-            conn.Close();
+            //string searchCmd = "SELECT COUNT(*) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            //SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            //cmdCheck.ExecuteScalar();
+            //int found = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            //conn.Close();
 
             conn.Open();
-            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB";
             SqlCommand GenerateCheck = new SqlCommand(GenerateCmd, conn);
 
-            if (found == 0)
-            {
-                return 0;
-            }
-            else
-            {
+            //if (found == 0)
+            //{
+            //    return 0;
+            //}
+            //else
+            //{
                 return Convert.ToInt32(GenerateCheck.ExecuteScalar());
-            }
+            //}
 
         }
 

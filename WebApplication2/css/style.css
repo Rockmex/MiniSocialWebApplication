@@ -1,96 +1,99 @@
-﻿body{
-    margin:0;
-    padding:0;
-    background:#fafafa;
+﻿body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    min-height: 100vh;
+    font-family: montserrat;
+    background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;
+    box-sizing: border-box;
 }
 
-.main{
+}
+
+.main {
     position: relative;
-    height: 100vh;
-    width:100%;
-    top:0;
-    left:0;
-    right:0;
-}
-
-.main .overlay {
-    position: absolute;
-    height: 100%;
+    height: 15vh;
     width: 100%;
     top: 0;
-    Left: 0;
-    z-index: 0;
+    left: 0;
+    right: 0;
+}
+
+    .main .overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        Left: 0;
+        z-index: 0;
     }
 
-.main .topbar {
-    position: absolute;
-    height: auto;
-    width: 100%;
-    margin: 2% 0;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    padding: 10px 0;
-}
+    .main .topbar {
+        position: absolute;
+        height: auto;
+        width: 100%;
+        margin: 2% 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        padding: 10px 0;
+    }
 
-.main .topbar .logo{
-    position: relative;
-    height:auto;
-    width:10%;
-    left:10%;
-    float: left;
-    font-family:'Lato', sans-serif;
-    font-size:35px;
-    font-weight:600;
-    cursor:pointer;
-    text-shadow: 0px 0.5px 5px rgba(0,0,0,0.2);
-    transition: 0.1s ease-in-out;
-}
+
+
+        .main .topbar .logo {
+            position: relative;
+            height: auto;
+            width: 10%;
+            left: 10%;
+            float: left;
+            font-family: 'Lato', sans-serif;
+            font-size: 35px;
+            font-weight: 600;
+            cursor: pointer;
+            text-shadow: 0px 0.5px 5px rgba(0,0,0,0.2);
+            transition: 0.1s ease-in-out;
+        }
 
     .main .logo:hover {
         color: rgba(0,0,0,0);
     }
 
-.main.topbar ul {
-    position: relative;
-    float: right;
-    width: 50%;
-    right: -14%;
-    height: auto;
-    margin: auto;
-}
-  
-.main .topbar ul li{
-    list-style-type: none;
-    display:inline-block;
-    border:1px solid rgba(0,0,0,0);
-    border-radius: 2px;
-    padding:10px;
-    transition: 0.2s ease-in-out;
-    box-shadow: 0px 0.5px 5px rgba(0,0,0,0);
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.main .topbar ul li a {
-    color: rgba(0,0,0,0.5);
-    text-decoration: none;
-    font-family:'cinzel',sans-serif;
-    font-size: 15px;
-    font-weight:300;
-    display: block;
+    .main.topbar ul {
+        position: relative;
+        float: right;
+        width: 50%;
+        right: -14%;
+        height: auto;
+        margin: auto;
     }
 
-.mian .topbar ul li:hover{
-    background:rgba(0,0,0,0.4);
-}
+        .main .topbar ul li {
+            list-style-type: none;
+            display: inline-block;
+            border: 1px solid rgba(0,0,0,0);
+            border-radius: 2px;
+            padding: 10px;
+            transition: 0.2s ease-in-out;
+            box-shadow: 0px 0.5px 5px rgba(0,0,0,0);
+            box-sizing: border-box;
+            cursor: pointer;
+        }
 
-#Form1{
-    position:fixed;
-    top:100px;
-    left:450px;
-}
+            .main .topbar ul li a {
+                color: rgba(0,0,0,0.5);
+                text-decoration: none;
+                font-family: 'cinzel',sans-serif;
+                font-size: 15px;
+                font-weight: 300;
+                display: block;
+            }
 
+            .main .topbar ul li:hover {
+                background: rgba(0,0,0,0.4);
+            }
+
+/*============================== personal page ==============================*/
 .coverpad {
     position: absolute;
     height: 360px;
@@ -174,47 +177,20 @@
     background: blue;
 }
 
-
-
-.rg_layout {
-    width: 450px;
-    height: 450px;
-    border: 5px solid #ffffff;
-    border-radius: 40px;
-    background-color: white;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.rg_center {
-    float: left;
-    width: 450px;
-}
+/* ==================Home =======================================*/
 
 .word {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -250px;
-    margin-left: -250px;
-    height: 53px;
+    width: 500px;
+    position: relative;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 50px;
 }
 
-.td_center {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;
-}
-
-.td_left {
-    width: 100px;
-    text-align: right;
-    height: 45px;
-}
-
-.td_right {
-    padding-left: 10px;
-}
+/* ===================================edit =============================*/
 
 #old_email, #new_email, #old_phone, #new_phone, #old_password, #new_password {
     width: 251px;
@@ -241,7 +217,23 @@
     left: 20%;
 }
 
+/*===============================global =================================*/
 
-.hidden{
+.hidden {
     display: none;
 }
+
+.Form1 {
+    position: relative;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.divider {
+    width: 50px;
+    height: auto;
+    display: inline-block;
+}
+

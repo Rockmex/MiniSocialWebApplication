@@ -24,6 +24,9 @@ namespace WebApplication2
                     DisplayImg();
                     DisplayPersonalImg();
 
+                    /* Dispaly personal info Part*/
+                    DisplayInfo();
+
                     /* Notification Part*/
                     if (Count() == 0)
                     {
@@ -283,7 +286,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT imageID FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT TOP 9 imageID FROM ImageDB WHERE UId = '" + Session["UID"] + "' ORDER BY imageID DESC";
             SqlCommand com = new SqlCommand(searchCmd, conn);
             SqlDataReader dr = com.ExecuteReader();
             Datalist_Images.DataSource = dr;
@@ -298,6 +301,32 @@ namespace WebApplication2
             com.ExecuteScalar();
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
             Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+        }
+
+        protected void Button_Click_Redirect_MorePic(object sender, EventArgs e)
+        {
+            Response.Redirect("Gallery.aspx");
+        }
+
+        public void DisplayInfo()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string getInfoCmd = "select [Fname],[DOB],[Email],[Tel] from UserInfo where Email = '" + Session["Email"] + "'";
+            SqlCommand getInfo = new SqlCommand(getInfoCmd, conn);
+            SqlDataReader reader = getInfo.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Label_ShowName.Text = reader["Fname"].ToString();
+                Label_ShowDOB.Text = reader["DOB"].ToString();
+                Label_ShowEmail.Text = reader["Email"].ToString();
+                Label_ShowPhone.Text = reader["Tel"].ToString();
+            }
+            else
+            {
+                Response.Write("Error: Unable to get User info");
+            }
         }
     }
 }

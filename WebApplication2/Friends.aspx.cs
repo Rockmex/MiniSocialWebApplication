@@ -22,6 +22,10 @@ namespace WebApplication2
                 string checkUser = "SELECT Status FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND User2_Id = '" + Session["FID"] + "'";
                 SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
 
+                //Display friends personal info part
+                DisplayInfo();
+
+                //Display friends request part
                 if (cmdCheck.ExecuteScalar() == null)
                 {
                     Button_AddFriend.Visible = true;
@@ -233,5 +237,27 @@ namespace WebApplication2
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
             Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
         }
+
+        public void DisplayInfo()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string getInfoCmd = "select [Fname],[DOB],[Email],[Tel] from UserInfo where UID = '" + Session["FID"] + "'";
+            SqlCommand getInfo = new SqlCommand(getInfoCmd, conn);
+            SqlDataReader reader = getInfo.ExecuteReader();
+
+            if (reader.Read())
+            {
+                Label_ShowName.Text = reader["Fname"].ToString();
+                Label_ShowDOB.Text = reader["DOB"].ToString();
+                Label_ShowEmail.Text = reader["Email"].ToString();
+                Label_ShowPhone.Text = reader["Tel"].ToString();
+            }
+            else
+            {
+                Response.Write("Error: Unable to get User info");
+            }
+        }
+
     }
 }

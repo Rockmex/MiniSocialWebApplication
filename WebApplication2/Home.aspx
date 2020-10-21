@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="Form1">
+    <div class="Form1">
         <div class="rg_layout">
 		    <div class="rg_center">
                 <div class="rg_form">
@@ -25,7 +25,7 @@
                         <br/>
                         <asp:ListView runat="server" ID="Post_ListView" OnItemDataBound="Post_DataBound" >
                             <LayoutTemplate>
-                                <div style="height:600px; overflow:auto;">
+                                <div>
                                         <tr id="itemPlaceholder" runat="server" />
                                 </div>
                             </LayoutTemplate>
@@ -39,8 +39,7 @@
                                     <tr>
                                         <td>
                                             <asp:Image ID="Profile_Image"  runat="server" width="50px" height="50px" />
-                                        </td>
-                                        <td>
+                                        
                                             <%#Eval("Fname")%><%#Eval("Lname")%>
                                         </td>
                                     </tr>
@@ -50,18 +49,19 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Like: <%#Eval("LikeCounts")%></td>
-                                        <td>Comments :<%#Eval("CommentCounts")%></td>
-                                    </tr>
-                                    <tr>
                                         <td>
                                             <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' onerror="this.style.display='none'" Height="200px" Width="300px"/>
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td>Like: <%#Eval("LikeCounts")%></td>
+                                        <td>Comments :<%#Eval("CommentCounts")%></td>
+                                    </tr>
+                                    <tr>
                                         <td style="text-align:right">
                                             <asp:LinkButton ID="Like_Button" runat="server" Text="Like" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
                                             <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
+                                            <asp:LinkButton ID="Delete_Button" runat="server" Text="Delete" OnCommand="Button_Click_Post_Delete" CommandArgument='<%# Eval("PostId") %>'/>
                                             <asp:LinkButton ID="Share_Button" runat="server" Text="Share" OnCommand="Button_Click_Share" CommandArgument='<%# Eval("PostId") %>'/>
                                         </td>
                                     </tr>

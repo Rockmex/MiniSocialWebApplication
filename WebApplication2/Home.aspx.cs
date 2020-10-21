@@ -89,7 +89,6 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-
         protected void Button_Click_Comment_Display(Object sender, EventArgs e)
         {
             if (Session["SelectPostId"] == null)
@@ -108,6 +107,21 @@ namespace WebApplication2
                 Response.Redirect("Home.aspx");
             }
             
+        }
+
+        protected void Button_Click_Post_Delete(Object sender, CommandEventArgs e)
+        {
+            string postId = e.CommandArgument.ToString();
+            if (isPoster(postId))
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                string deleteQuery = "DELETE FROM Post WHERE PostId = '" + postId + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
+                SqlCommand delete = new SqlCommand(deleteQuery, conn);
+                delete.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("Home.aspx");
+            }
         }
 
         protected void Button_Click_Comment(Object sender, CommandEventArgs e)
@@ -133,14 +147,11 @@ namespace WebApplication2
 
                 cmdInsert.ExecuteNonQuery();
 
-
-
                 string updateInfocmd = "UPDATE Post SET CommentCounts = CommentCounts + 1 Where PostId = '" + Session["PostId"] + "'";
 
                 SqlCommand cmdUpdate = new SqlCommand(updateInfocmd, conn);
 
                 cmdUpdate.ExecuteNonQuery();
-
 
                 conn.Close();
             }
@@ -195,8 +206,8 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string getPostCmd = "select PostId,Fname, Lname, senderId,content,LikeCounts,CommentCounts, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID) WHERE senderId = '" + Session["UID"] + "' OR senderId IN" +
-                "(SELECT User2_id FROM FriendRelationship WHERE User1_id = '" + Session["UID"] + "' AND Status = 1)";
+            string getPostCmd = "select TOP 50 PostId,Fname, Lname, senderId,content,LikeCounts,CommentCounts, Post.imageID FROM ((Post INNER JOIN UserInfo ON senderId = UID) LEFT JOIN ImageDB ON Post.ImageId = ImageDB.ImageID) WHERE senderId = '" + Session["UID"] + "' OR senderId IN" +
+                "(SELECT User2_id FROM FriendRelationship WHERE User1_id = '" + Session["UID"] + "' AND Status = 1) ORDER BY PostId DESC";
             SqlCommand getPost = new SqlCommand(getPostCmd, conn);
             Post_ListView.DataSource = getPost.ExecuteReader();
             Post_ListView.DataBind();
@@ -325,6 +336,25 @@ namespace WebApplication2
                 isCommentor = true;
             }
             return isCommentor;
+        }
+
+        private bool isPoster(string PostId)
+        {
+            bool isPoster = false;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string query = "SELECT SenderId FROM Post WHERE PostId = '" + PostId + "'";
+            SqlCommand queryCommand = new SqlCommand(query, conn);
+            var senderID = queryCommand.ExecuteScalar().ToString();
+            if (senderID != Session["UID"].ToString())
+            {
+                Response.Write("<script>alert('You can only delete your own Posts')</script>");
+            }
+            else
+            {
+                isPoster = true;
+            }
+            return isPoster;
         }
 
         private int IsLike()

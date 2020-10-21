@@ -1,0 +1,47 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    min-height: 100vh;
+    font-family: montserrat;
+    background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;
+    box-sizing: border-box;
+}
+
+.ln_layout {
+    width: 280px;
+    height: 150px;
+    padding: 80px 40px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    margin-top: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+    .ln_layout h1 {
+        color: azure;
+        text-align: center;
+        margin-top: -30px;
+    }
+
+    .ln_layout p1 {
+        text-align: left;
+        margin-bottom: -10px;
+    }
+
+.ln_td_right {
+    margin-bottom: -10px;
+}
+
+.ln_td_left {
+    color: white;
+}
+
+.Login_Button {
+    margin-top: 20px;
+    background-color: #b0c4de;
+    width: 70px;
+    height: 30px;
+}

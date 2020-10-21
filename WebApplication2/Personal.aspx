@@ -20,7 +20,25 @@
     <div class="personal_info">
     <h2>Personal Info</h2>
     <asp:Button ID="Button_Edit" runat="server" Text="Edit" OnClick="Button_Click_Edit" />
-    </div> 
+    <table>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Name" Text="Name: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowName" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_DOB" Text="Date of Birth: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowDOB" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Phone" Text="Phone: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowPhone" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Email" Text="Email: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowEmail" runat="server" ></asp:Label></td>
+        </tr>
+    </table>
+    </div>
 
     <div class="personal_pictures">
     <h2>Personal Pictures</h2>
@@ -35,6 +53,11 @@
                          </ItemTemplate>
                     </asp:DataList>
                 </td>
+           <tr>
+                <td>
+                    <asp:Button ID="Button_Redirect_MorePic" runat="server" Text="More.." OnClick="Button_Click_Redirect_MorePic" />
+                </td>
+            </tr>
             </tr>
         </table>
     </div>
@@ -92,7 +115,7 @@
 
     <div class="personal_post">
     <h2>Chat Room</h2>
-        <asp:Button ID="Button_RedirectRoom" runat="server" Text="Redirect" OnClick="Button_Click_RedirectRoom" />
+        <asp:Button ID="Button_RedirectRoom" runat="server" Text="Create" OnClick="Button_Click_RedirectRoom" />
     <table>
                         <tr>
                             <td colspan="2" class="td_center"><asp:Label ID="Label_RoomList" Text="Chart Room List" runat="server" ></asp:Label></td>

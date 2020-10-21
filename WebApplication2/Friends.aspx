@@ -26,6 +26,24 @@
 
     <div class="personal_info">
     <h2>Personal Info</h2>
+    <table>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Name" Text="Name: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowName" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_DOB" Text="Date of Birth: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowDOB" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Phone" Text="Phone: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowPhone" runat="server" ></asp:Label></td>
+        </tr>
+        <tr>
+            <td class="td_left"><asp:Label ID= "label_Email" Text="Email: " runat="server"></asp:Label></td>
+            <td class="td_right"><asp:Label ID="Label_ShowEmail" runat="server" ></asp:Label></td>
+        </tr>
+    </table>
     </div> 
 
     <div class="personal_pictures">

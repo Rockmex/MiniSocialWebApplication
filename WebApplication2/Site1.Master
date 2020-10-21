@@ -4,8 +4,8 @@
 
 <html>
 <head runat="server">
-    <title>Winter Project </title>
-    <link href="css/style.css" rel="stylesheet" />
+    <title>4900 Project </title>
+    <link href="css/Style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 <%--</head>--%>
@@ -13,7 +13,6 @@
 <body>
     <form id="form1" runat="server">
         <div class ="main">
-            <div class ="overlay"></div>
                 <div class ="topbar">
                     <%--<div class="logo">LOGO</div>--%>
                        <img src="./img/logo.png"  width="100px" height:"100px" />
@@ -22,7 +21,6 @@
                             <li><a href="Login.aspx">Login</a></li>
                             <li><a href="Register.aspx">Register</a></li>
                             <li><a href="Personal.aspx">Personal</a></li>
-                            <li><a href="Friends.aspx">Friends</a></li>
                             <li><a href="App.aspx">App</a></li>
                             <li><asp:TextBox ID="Search_target" runat="server"></asp:TextBox></li>
                             <li><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" /></li>

@@ -24,6 +24,15 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_display;
 
         /// <summary>
+        /// SenderId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SenderId;
+
+        /// <summary>
         /// GridView_ChatBox control.
         /// </summary>
         /// <remarks>
@@ -76,5 +85,14 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Add_New_Member;
+
+        /// <summary>
+        /// Button_Drop_Room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Drop_Room;
     }
 }

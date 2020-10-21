@@ -9,6 +9,7 @@
                     <table style="float:left">
                         <tr>
                             <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="Chat Room" runat="server" ></asp:Label></td>
+                            <td><asp:Label ID="SenderId" Visible="false" runat="server" Text='<%# Eval("SenderId") %>' /></td>
                         </tr>                           
                     <tr>
                         <asp:GridView ID="GridView_ChatBox" runat="server" AutoGenerateColumns="False">
@@ -19,7 +20,7 @@
                             <asp:BoundField DataField="Time" HeaderText="Time" />
                             <asp:TemplateField>
                                 <ItemTemplate>
-                                    <asp:Button ID="Button_Delete" runat="server" Text="Delete" CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
+                                    <asp:Button ID="Button_Delete" runat="server" Text="Delete" Visible='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? true : false %>' CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
                                 </ItemTemplate>
                              </asp:TemplateField>
                          </Columns>
@@ -32,7 +33,7 @@
                         </table>
                         <table style="float:left;">
                             <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="Label_MemberList" Text="Member List" runat="server" ></asp:Label></td>
+                            <td class="td_center"><asp:Label ID="Label_MemberList" Text="Member List" runat="server" ></asp:Label></td>
                         </tr>
                             <tr>
                                 <asp:GridView ID="Gridview_MemberList" runat="server" AutoGenerateColumns="False">
@@ -47,7 +48,10 @@
                         </asp:GridView>
                             </tr>
                             <tr>
-                                <td colspan="2" align="center"><asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
+                                <td colspan="2" style="text-align:center;">
+                                    <asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
+                                    <asp:Button ID="Button_Drop_Room" runat="server" Text="Delete Room" OnClick="Button_Click_RemoveRoom" />
+                                </td>
                             </tr>
                         </table>
                         </div>

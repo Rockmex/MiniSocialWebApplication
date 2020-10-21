@@ -99,11 +99,39 @@ namespace WebApplication2
             Response.Redirect("Redirect.aspx");
         }
 
+        protected void Button_Click_LeaveChat(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string deleteQuery = "DELETE FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "' AND RoomId = '" + Session["RID"] +"'";
+            SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
+            cmdDelete.ExecuteNonQuery();
+            conn.Close();
+            Response.Redirect("Personal.aspx");
+        }
+
+        protected void Button_Click_RemoveRoom(object sender, EventArgs e)
+        {
+            if (isCreator())
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+                string deleteQuery_1 = "DELETE FROM ChatLog WHERE ReceiverId = '" + Session["RoomId"] + "'";
+                string deleteQuery_2 = "DELETE FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
+                SqlCommand cmdDelete_1 = new SqlCommand(deleteQuery_1, conn);
+                SqlCommand cmdDelete_2 = new SqlCommand(deleteQuery_2, conn);
+                cmdDelete_1.ExecuteNonQuery();
+                cmdDelete_2.ExecuteNonQuery();
+                conn.Close();
+                Response.Redirect("Personal.aspx");
+            }
+        }
+
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT MessageId, Fname, Message, Time FROM ChatLog INNER JOIN UserInfo ON SenderId = UID WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
+            string searchCmd = "SELECT SenderId, MessageId, Fname, Message, Time FROM ChatLog INNER JOIN UserInfo ON SenderId = UID WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);

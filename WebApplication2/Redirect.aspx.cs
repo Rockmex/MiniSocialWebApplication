@@ -85,7 +85,7 @@ namespace WebApplication2
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
                 {
-                    var FID = gvrow.FindControl("Label1") as Label;
+                    var FID = gvrow.FindControl("Label_UID") as Label;
 
                     
                     conn.Open();
@@ -126,7 +126,7 @@ namespace WebApplication2
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
                 {
-                    var FID = gvrow.FindControl("Label1") as Label;
+                    var FID = gvrow.FindControl("Label_UID") as Label;
 
 
                     conn.Open();
@@ -156,7 +156,7 @@ namespace WebApplication2
                 var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
                 if (checkbox.Checked)
                 {
-                    var FID = gvrow.FindControl("Label1") as Label;
+                    var FID = gvrow.FindControl("Label_UID") as Label;
 
 
                     conn.Open();
@@ -179,7 +179,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT COUNT (DISTINCT RoomId) FROM ChatRoom";
+            string searchCmd = "SELECT MAX (RoomId) FROM ChatRoom";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
