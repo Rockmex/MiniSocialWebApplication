@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplication2.WebForm3" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site2.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplication2.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="css/register_layout.css" rel="stylesheet" type="text/css"/>
 </asp:Content>
@@ -93,7 +93,7 @@
                                 <td colspan="2" align="center"><asp:Button ID="Button_Submit" runat="server" CssClass="btn_submit" Text="submit" OnClick="Button_Click_Submit" />
                             </tr>
                             <tr>
-                                <td colspan="2" class="redirect"><b>Have an account? &nbsp </b><a href="Login.apsx">Login</a></td>
+                                <td colspan="2" class="redirect"><b>Have an account? &nbsp </b><a href="Login.aspx">Login</a></td>
                             </tr>
                         </table>
                      </div>

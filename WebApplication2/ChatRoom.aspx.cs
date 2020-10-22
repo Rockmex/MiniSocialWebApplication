@@ -127,6 +127,11 @@ namespace WebApplication2
             }
         }
 
+        protected void Button_Click_Back(object sender, EventArgs e)
+        {
+            Response.Redirect("Personal.aspx");
+        }
+
         private void ShowResult()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);

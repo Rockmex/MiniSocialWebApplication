@@ -8,11 +8,11 @@ namespace WebApplication2
         {
             if (Session["Email"] == null)
             {
-                Update_Button.Visible = false;
+                LogOut_Button.Visible = false;
             }
         }
 
-        protected void Button1_Click(Object sender, EventArgs e)
+        protected void Button_Click_LogOut(Object sender, EventArgs e)
         {
             Session["Email"] = null;
             Response.Redirect("Login.aspx");

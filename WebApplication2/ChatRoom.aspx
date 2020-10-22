@@ -48,12 +48,14 @@
                         </asp:GridView>
                             </tr>
                             <tr>
-                                <td colspan="2" style="text-align:center;">
+                                <td style="text-align:center;">
                                     <asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
                                     <asp:Button ID="Button_Drop_Room" runat="server" Text="Delete Room" OnClick="Button_Click_RemoveRoom" />
                                 </td>
                             </tr>
                         </table>
+                        <asp:Button ID="Button_Back" runat="server" Text="Back" OnClick="Button_Click_Back" />
+                        <asp:Button ID="Button_Leave_Room" runat="server" Text="Leave Room" OnClick="Button_Click_LeaveChat" />
                         </div>
                     </div>
                 </div>

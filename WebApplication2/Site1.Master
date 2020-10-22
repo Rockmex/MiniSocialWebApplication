@@ -22,9 +22,13 @@
                             <li><a href="Register.aspx">Register</a></li>
                             <li><a href="Personal.aspx">Personal</a></li>
                             <li><a href="App.aspx">App</a></li>
-                            <li><asp:TextBox ID="Search_target" runat="server"></asp:TextBox></li>
-                            <li><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" /></li>
-                            <li><asp:Button ID="Update_Button" Text="Log Out" OnClick="Button1_Click" runat="server" /></li>
+                            <li>
+                                <asp:TextBox ID="Search_target" runat="server"/>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Search_target" ValidationGroup="Search_Group" ErrorMessage="*" ForeColor="Red"/>
+                                <!-- To let Validator only valid for one button, have to add same value to the element ValidationGroup for the TextBox and Button -->
+                            </li>
+                            <li><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" ValidationGroup="Search_Group"/></li>
+                            <li><asp:Button ID="LogOut_Button" Text="Log Out" OnClick="Button_Click_LogOut" runat="server" /></li>
                     </ul>
             </div> 
       </div>
