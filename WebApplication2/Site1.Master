@@ -29,9 +29,9 @@
                             </li>
                             <li><asp:Button ID="Search_Button" runat="server" Text="Search" onclick="Button_Click_Search" ValidationGroup="Search_Group"/></li>
                             <li><asp:Button ID="LogOut_Button" Text="Log Out" OnClick="Button_Click_LogOut" runat="server" /></li>
-                    </ul>
-            </div> 
-      </div>
+                        </ul>
+                </div> 
+            </div>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

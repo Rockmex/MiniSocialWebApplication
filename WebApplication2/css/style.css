@@ -19,14 +19,14 @@
     right: 0;
 }
 
-    .main .overlay {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        Left: 0;
-        z-index: 0;
-    }
+.main .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    Left: 0;
+    z-index: 0;
+}
 
     .main .topbar {
         position: absolute;
@@ -180,14 +180,19 @@
 /* ==================Home =======================================*/
 
 .word {
-    width: 500px;
+    width: 561px;
     position: relative;
     margin: auto;
     background-color: white;
     border: 1px solid white;
     border-radius: 20px;
-    padding: 5px;
     padding-left: 50px;
+    top: 256px;
+    left: 49px;
+    height: 293px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 /* ===================================edit =============================*/
@@ -235,5 +240,15 @@
     width: 50px;
     height: auto;
     display: inline-block;
+}
+
+.friendlist {
+    position: absolute;
+    width: 250px;
+    min-height: 1000px;
+    top: 58px;
+    background-color: Green;
+    left: 7px;
+    height: 2000px;
 }
 

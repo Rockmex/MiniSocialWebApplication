@@ -4,6 +4,31 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="Form1">
         <div class="rg_layout">
+            <div class ="friendlist">
+                            <table>
+                                <tr>
+                                    <td colspan="2" ><h3>Weclome</h3></td>
+                                    <td colspan="2" class="td_center"><asp:Label ID="Label1" runat="server" ></asp:Label></td>
+                                </tr>                           
+                            </table>
+                                 <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False">
+                                     <Columns>
+                                         <asp:BoundField DataField="UID" HeaderText="UID" />
+                                         <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
+                                         <asp:BoundField DataField="lname" HeaderText="Last Name" />
+                                         <asp:TemplateField>
+                                         </asp:TemplateField>
+                                     </Columns>
+                                 </asp:GridView>
+                                 <asp:GridView ID="Gridview_RoomList" runat="server" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:BoundField DataField="IDwithChar" HeaderText="Room ID" />
+                                        <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
+                                        <asp:TemplateField>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                  </asp:GridView>
+              </div>
 		    <div class="rg_center">
                 <div class="rg_form">
                     <div class="word">
