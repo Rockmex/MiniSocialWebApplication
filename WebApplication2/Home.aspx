@@ -13,7 +13,7 @@
                             </table>
                                  <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False">
                                      <Columns>
-                                         <asp:BoundField DataField="UID" HeaderText="UID" />
+                                         <asp:BoundField DataField="User2_Id" HeaderText="UID" />
                                          <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
                                          <asp:BoundField DataField="lname" HeaderText="Last Name" />
                                          <asp:TemplateField>

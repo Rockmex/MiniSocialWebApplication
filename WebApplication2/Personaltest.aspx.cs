@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
-    public partial class WebForm4 : System.Web.UI.Page
+    public partial class Personaltest : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -329,6 +329,20 @@ namespace WebApplication2
             {
                 Response.Write("Error: Unable to get User info");
             }
+
+        }
+
+        /*------Top Bar Functions--------*/
+        protected void Button_Click_LogOut(Object sender, EventArgs e)
+        {
+            Session["Email"] = null;
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void Button_Click_Search(Object sender, EventArgs e)
+        {
+            Session["result"] = Search_target.Text;
+            Response.Redirect("Result.aspx");
         }
     }
 }

@@ -22,6 +22,8 @@ namespace WebApplication2
                 {
                     ShowUser();
                     ShowPost();
+                    ShowFriends();
+                    ShowRooms();
                 }
             }
         }
@@ -366,6 +368,29 @@ namespace WebApplication2
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
+        private void ShowFriends()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT FriendRelationship.User2_Id, Fname, Lname FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridView_Friends.DataSource = dataTable;
+            GridView_Friends.DataBind();
+        }
+
+        private void ShowRooms()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT IDwithChar, RoomName FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            Gridview_RoomList.DataSource = dataTable;
+            Gridview_RoomList.DataBind();
+        }
 
     }
 

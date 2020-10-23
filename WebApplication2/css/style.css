@@ -181,7 +181,7 @@
 
 .word {
     width: 561px;
-    position: relative;
+    /*position: relative;*/
     margin: auto;
     background-color: white;
     border: 1px solid white;
@@ -189,7 +189,6 @@
     padding-left: 50px;
     top: 256px;
     left: 49px;
-    height: 293px;
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -245,10 +244,9 @@
 .friendlist {
     position: absolute;
     width: 250px;
-    min-height: 1000px;
     top: 58px;
     background-color: Green;
-    left: 7px;
-    height: 2000px;
+    padding-left: 7px;
+    height: 100%;
 }
 
