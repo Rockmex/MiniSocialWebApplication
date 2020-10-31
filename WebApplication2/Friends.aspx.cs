@@ -81,7 +81,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Request(Object sender, EventArgs e)
+        protected void Button_Click_Request(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -107,7 +107,7 @@ namespace WebApplication2
             Response.Write("Request send");
         }
 
-        protected void Button_Click_Cancel(Object sender, EventArgs e)
+        protected void Button_Click_Cancel(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -130,7 +130,7 @@ namespace WebApplication2
             Response.Write("Request has been canceled");
         }
 
-        protected void Button_Click_Delete(Object sender, EventArgs e)
+        protected void Button_Click_Delete(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -152,7 +152,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button_Click_Re_Add_Friend(Object sender, EventArgs e)
+        protected void Button_Click_Re_Add_Friend(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -178,7 +178,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button_Click_Block(Object sender, EventArgs e)
+        protected void Button_Click_Block(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -200,7 +200,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button_Click_Unblock(Object sender, EventArgs e)
+        protected void Button_Click_Unblock(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -222,7 +222,7 @@ namespace WebApplication2
 
         }
 
-        protected void Button_Click_Message(Object sender, EventArgs e)
+        protected void Button_Click_Message(object sender, EventArgs e)
         {
             Response.Redirect("Chat.aspx");
         }

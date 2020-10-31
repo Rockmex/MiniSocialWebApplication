@@ -1,7 +1,5 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
 
 namespace WebApplication2
@@ -17,19 +15,20 @@ namespace WebApplication2
         {
             string displayimgid = context.Request.QueryString["id_Image"].ToString();
 
-            if (displayimgid == "") 
+            if (displayimgid == "")
             {
                 context.Response.Close();
             }
-            else { 
+            else
+            {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-            
+
                 string convertCmd = " SELECT image FROM ImageDB WHERE imageID = '" + displayimgid + "'";
                 SqlCommand com = new SqlCommand(convertCmd, conn);
                 SqlDataReader dr = com.ExecuteReader();
                 dr.Read();
-                context.Response.BinaryWrite((Byte[])dr[0]);
+                context.Response.BinaryWrite((byte[])dr[0]);
                 context.Response.End();
             }
         }

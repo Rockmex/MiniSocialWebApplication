@@ -1,0 +1,97 @@
+﻿.personal {
+    position: absolute;
+    top: 10%;
+    width: 50%;
+    height: 100%;
+    left: 25%;
+}
+
+
+#main, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+.coverpad {
+    position: absolute;
+    height: 360px;
+    width: 850px;
+    left: 100px;
+    top: 160px;
+    background: white;
+    display: none;
+}
+
+.backgroud-pic {
+    position: absolute;
+    height: 360px;
+    width: 850px;
+    top: 160px;
+    left: 20%;
+    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.25);
+}
+
+.profile-pic-a {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 350px;
+    left: 23%;
+    background: white;
+    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.25);
+}
+
+.profile-picture {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    top: 350px;
+    left: 23%;
+    padding: 5px;
+}
+
+.personal_info {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    top: 58%;
+    left: 20%;
+    background: green;
+}
+
+.personal_pictures {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    top: 102%;
+    left: 20%;
+    background: red;
+}
+
+.personal_friends {
+    position: absolute;
+    width: 350px;
+    height: 400px;
+    top: 147%;
+    left: 20%;
+    background: yellow;
+}
+
+.personal_postarea {
+    position: absolute;
+    width: 470px;
+    height: 200px;
+    top: 58%;
+    left: 40%;
+    background: orange;
+}
+
+.personal_post {
+    position: absolute;
+    width: 470px;
+    height: 200px;
+    top: 80%;
+    left: 40%;
+    background: blue;
+}

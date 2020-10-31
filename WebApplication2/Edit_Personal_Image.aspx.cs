@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace WebApplication2
 {
@@ -18,19 +14,19 @@ namespace WebApplication2
             {
                 Response.Redirect("Login.aspx");
             }
-            else 
+            else
             {
                 DisplayPersonalImg();
             }
         }
 
-        protected void Button_Click_Update(Object sender, EventArgs e)
+        protected void Button_Click_Update(object sender, EventArgs e)
         {
             Imgupload();
             Response.Redirect("Personal.aspx");
         }
 
-        protected void Button_Click_Back(Object sender, EventArgs e)
+        protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
         }
@@ -47,13 +43,13 @@ namespace WebApplication2
                 image.InputStream.Read(imgarray, 0, imgSize);
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-                String query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
+                string query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
                 SqlCommand cmdImg = new SqlCommand(query, conn);
                 cmdImg.Parameters.AddWithValue("@IID", Imgid);
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
                 cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
                 cmdImg.ExecuteNonQuery();
-                String update = "UPDATE UserInfo SET ImageID = '" + Imgid + "' WHERE UID = '" + Session["UID"] + "'";
+                string update = "UPDATE UserInfo SET ImageID = '" + Imgid + "' WHERE UID = '" + Session["UID"] + "'";
                 SqlCommand updateCMD = new SqlCommand(update, conn);
                 updateCMD.ExecuteNonQuery();
                 conn.Close();
@@ -82,7 +78,7 @@ namespace WebApplication2
             //}
             //else
             //{
-                return Convert.ToInt32(GenerateCheck.ExecuteScalar());
+            return Convert.ToInt32(GenerateCheck.ExecuteScalar());
             //}
 
         }

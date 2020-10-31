@@ -15,7 +15,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Update(Object sender, EventArgs e)
+        protected void Button_Click_Update(object sender, EventArgs e)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Back(Object sender, EventArgs e)
+        protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Edit.aspx");
         }

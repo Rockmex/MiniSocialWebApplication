@@ -9,10 +9,10 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        protected void Button_Click_Submit(Object sender, EventArgs e)
+/*        protected void Button_Click_Submit(object sender, EventArgs e)
         {
             try
             {
@@ -48,5 +48,5 @@ namespace WebApplication2
                 errorMessageHidden.Value = "Error: " + ex.ToString();
             }
         }
-    }
+    */}
 }

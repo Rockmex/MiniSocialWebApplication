@@ -4,11 +4,10 @@
     text-decoration: none;
     min-height: 100vh;
     font-family: montserrat;
-    background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;
+    /*background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;*/
     box-sizing: border-box;
 }
 
-}
 
 .main {
     position: relative;
@@ -93,7 +92,7 @@
                 background: rgba(0,0,0,0.4);
             }
 
-/*============================== personal page ==============================*/
+/*============================== personal page ==============================*
 .coverpad {
     position: absolute;
     height: 360px;
@@ -176,7 +175,7 @@
     left: 40%;
     background: blue;
 }
-
+*/
 /* ==================Home =======================================*/
 
 .word {
@@ -227,13 +226,6 @@
     display: none;
 }
 
-.Form1 {
-    position: relative;
-    top: 100px;
-    left: 0;
-    width: 100%;
-    padding-top: 50px;
-}
 
 .divider {
     width: 50px;

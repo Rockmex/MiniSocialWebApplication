@@ -38,22 +38,22 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_EditEmail(Object sender, EventArgs e)
+        protected void Button_Click_EditEmail(object sender, EventArgs e)
         {
             Response.Redirect("Edit_Email.aspx");
         }
 
-        protected void Button_Click_EditPhone(Object sender, EventArgs e)
+        protected void Button_Click_EditPhone(object sender, EventArgs e)
         {
             Response.Redirect("Edit_Phone.aspx");
         }
 
-        protected void Button_Click_EditPassword(Object sender, EventArgs e)
+        protected void Button_Click_EditPassword(object sender, EventArgs e)
         {
             Response.Redirect("Edit_Password.aspx");
         }
 
-        protected void Button_Click_Back(Object sender, EventArgs e)
+        protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
         }

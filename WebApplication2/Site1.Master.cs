@@ -12,13 +12,13 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_LogOut(Object sender, EventArgs e)
+        protected void Button_Click_LogOut(object sender, EventArgs e)
         {
             Session["Email"] = null;
             Response.Redirect("Login.aspx");
         }
 
-        protected void Button_Click_Search(Object sender, EventArgs e)
+        protected void Button_Click_Search(object sender, EventArgs e)
         {
             Session["result"] = Search_target.Text;
             Response.Redirect("Result.aspx");

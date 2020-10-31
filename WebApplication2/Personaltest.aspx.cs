@@ -66,7 +66,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Accept(Object sender, CommandEventArgs e)
+        protected void Button_Click_Accept(object sender, CommandEventArgs e)
         {
             Session["FID"] = e.CommandArgument;
 
@@ -87,7 +87,7 @@ namespace WebApplication2
             Response.Redirect("Personal.aspx");
         }
 
-        protected void Button_Click_Decline(Object sender, CommandEventArgs e)
+        protected void Button_Click_Decline(object sender, CommandEventArgs e)
         {
             Session["FID"] = e.CommandArgument;
 
@@ -111,23 +111,23 @@ namespace WebApplication2
             Response.Redirect("Personal.aspx");
         }
 
-        protected void Button_Click_Edit(Object sender, EventArgs e)
+        protected void Button_Click_Edit(object sender, EventArgs e)
         {
             Response.Redirect("Edit.aspx");
         }
 
-        protected void Button_Click_Redirect(Object sender, CommandEventArgs e)
+        protected void Button_Click_Redirect(object sender, CommandEventArgs e)
         {
             Session["FID"] = e.CommandArgument;
             Response.Redirect("Friends.aspx");
         }
 
-        protected void Button_Click_RedirectRoom(Object sender, EventArgs e)
+        protected void Button_Click_RedirectRoom(object sender, EventArgs e)
         {
             Response.Redirect("Redirect.aspx");
         }
 
-        protected void Button_Click_UploadPicture(Object sender, EventArgs e)
+        protected void Button_Click_UploadPicture(object sender, EventArgs e)
         {
             Imgupload();
         }
@@ -136,14 +136,14 @@ namespace WebApplication2
          * RoomId refers to IDwithChar (varchar)
          * RID refers to RoomId (int)
         */
-        protected void Button_Click_RedirectChatRoom(Object sender, CommandEventArgs e)
+        protected void Button_Click_RedirectChatRoom(object sender, CommandEventArgs e)
         {
             Session["RoomId"] = e.CommandArgument;
             Session["RID"] = ShowRoomId(Session["RoomId"]);
             Response.Redirect("ChatRoom.aspx");
         }
 
-        protected void Button_Click_Edit_Profile_Image(Object sender, EventArgs e)
+        protected void Button_Click_Edit_Profile_Image(object sender, EventArgs e)
         {
             Response.Redirect("Edit_Personal_Image.aspx");
         }
@@ -246,7 +246,7 @@ namespace WebApplication2
                 image.InputStream.Read(imgarray, 0, imgSize);
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-                String query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
+                string query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
                 SqlCommand cmdImg = new SqlCommand(query, conn);
                 cmdImg.Parameters.AddWithValue("@IID", Imgid);
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
@@ -333,13 +333,13 @@ namespace WebApplication2
         }
 
         /*------Top Bar Functions--------*/
-        protected void Button_Click_LogOut(Object sender, EventArgs e)
+        protected void Button_Click_LogOut(object sender, EventArgs e)
         {
             Session["Email"] = null;
             Response.Redirect("Login.aspx");
         }
 
-        protected void Button_Click_Search(Object sender, EventArgs e)
+        protected void Button_Click_Search(object sender, EventArgs e)
         {
             Session["result"] = Search_target.Text;
             Response.Redirect("Result.aspx");

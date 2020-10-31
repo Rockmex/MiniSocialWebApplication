@@ -1,0 +1,278 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*Body*/
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/*The whole page container*/
+.container {
+    width: 100vw;
+    height: 100vh;
+    grid-gap: 7rem;
+    padding: 0 2rem;
+}
+
+/*Left image*/
+.img {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+    .img img {
+        width: 500px;
+    }
+
+/*Register table part*/
+.register-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+    .register-content h2 {
+        margin: 15px 0;
+        color: #333;
+        text-transform: uppercase;
+        font-size: 2.9rem;
+    }
+
+    /*Input bar*/
+    .register-content .input-div {
+        position: relative;
+        display: grid;
+        grid-template-columns: 7% 93%;
+        margin: 25px 0;
+        padding: 5px 0;
+        border-bottom: 2px solid #d9d9d9;
+    }
+
+        .register-content .input-div.first {
+            margin-top: 5px;
+        }
+
+        .register-content .input-div.text, .register-content .input-div.first {
+            margin-bottom: 4px;
+        }
+
+/*Beautify input bar*/
+.input-div > div {
+    position: relative;
+    height: 45px;
+}
+
+    .input-div > div > h5 {
+        position: absolute;
+        left: 10px;
+        text-align: left;
+        top: 50%;
+        width: 300px;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .input-div > div > input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 400px;
+        height: 100%;
+        border: none;
+        outline: none;
+        background: none;
+        padding: 0.5rem 0.7rem;
+        color: #555;
+        font-size: 1.2rem;
+        font-family: 'poppins', sans-serif;
+    }
+
+/*Add effect*/
+.input-div:before, .input-div:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #38d39f;
+    transition: .4s;
+}
+
+.input-div:before {
+    right: 50%;
+}
+
+.input-div:after {
+    left: 50%;
+}
+
+.input-div.focus:before, .input-div.focus:after {
+    width: 50%;
+}
+
+/*When focused*/
+.input-div.focus > div > h5 {
+    top: -5px;
+    font-size: 15px;
+}
+
+/*Redirect part*/
+a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: .3s;
+}
+
+    /*When point on it*/
+    a:hover {
+        color: #38d39f;
+    }
+
+/*Button Part*/
+.btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right,#32be8f, #38d39f, #32be8f );
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+    /*When pointed*/
+    .btn:hover {
+        background-position: right;
+    }
+
+/*Radio button part*/
+
+.radio {
+    --primary: hsl(250, 100%, 44%);
+    --other: hsl(0, 0%, 14%);
+    --gray: #999;
+    width: 100%;
+    min-height: inherit;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid var(--gray);
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+h3 {
+    color: var(--gray);
+    padding: 8px 10px;
+}
+
+/* label */
+label {
+    /*display: flex;*/
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 12px 0;
+    padding-left: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* input */
+.radio-input {
+    left: 50%;
+    top: 50%;
+/*    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+*/
+
+}
+
+/* .design */
+.design {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--other);
+    border-radius: 100%;
+    margin-right: 16px;
+    position: relative;
+}
+
+    .design::before, .design::after {
+        content: "";
+        display: block;
+        width: inherit;
+        height: inherit;
+        border-radius: inherit;
+        position: absolute;
+        transform: scale(0);
+        transform-origin: 7.5px 8px;
+    }
+
+    .design:before {
+        background: var(--other);
+        opacity: 0;
+        transition: .3s;
+    }
+
+    .design::after {
+        background: var(--primary);
+        opacity: .4;
+        transition: .6s;
+    }
+
+/* .text */
+.text {
+    color: var(--gray);
+    font-weight: bold;
+}
+
+
+/* checked state */
+.radio-input [type="radio"]:checked + .design::before {
+    opacity: 2;
+    transform: scale(0.6);
+}
+
+
+/* other states */
+.radio-input input[type="radio"]:hover + .design,
+.radio-input input[type="radio"]:focus + .design {
+    border: 1px solid var(--primary);
+}
+
+    .radio-input input[type="radio"]:hover + .design:before,
+    .radio-input input[type="radio"]:focus + .design:before {
+        background: var(--primary);
+    }
+
+.radio-input input[type="radio"]:hover ~ .text {
+    color: var(--primary);
+}
+
+.radio-input input[type="radio"]:focus + .design::after,
+.radio-input input[type="radio"]:active + .design::after {
+    opacity: .1;
+    transform: scale(2.6);
+}
+

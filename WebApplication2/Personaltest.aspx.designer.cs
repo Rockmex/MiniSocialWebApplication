@@ -159,6 +159,24 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_ShowEmail;
 
         /// <summary>
+        /// Label_display control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_display;
+
+        /// <summary>
+        /// GridView_FriendNotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
+
+        /// <summary>
         /// ImgUpload control.
         /// </summary>
         /// <remarks>
@@ -195,51 +213,6 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Button Button_Redirect_MorePic;
 
         /// <summary>
-        /// Label_FriendList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_FriendList;
-
-        /// <summary>
-        /// Label_NoFriend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_NoFriend;
-
-        /// <summary>
-        /// Gridview_FriendList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
-
-        /// <summary>
-        /// Label_display control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_display;
-
-        /// <summary>
-        /// GridView_FriendNotification control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
-
-        /// <summary>
         /// Button_RedirectRoom control.
         /// </summary>
         /// <remarks>
@@ -274,5 +247,32 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Gridview_RoomList;
+
+        /// <summary>
+        /// Label_FriendList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_FriendList;
+
+        /// <summary>
+        /// Label_NoFriend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_NoFriend;
+
+        /// <summary>
+        /// Gridview_FriendList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
     }
 }

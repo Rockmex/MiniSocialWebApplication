@@ -24,15 +24,6 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.HiddenField errorMessageHidden;
 
         /// <summary>
-        /// Label_Email control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Email;
-
-        /// <summary>
         /// email control.
         /// </summary>
         /// <remarks>
@@ -42,15 +33,6 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// Label_Password control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_Password;
-
-        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -58,14 +40,5 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
-
-        /// <summary>
-        /// Login_Button control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login_Button;
     }
 }

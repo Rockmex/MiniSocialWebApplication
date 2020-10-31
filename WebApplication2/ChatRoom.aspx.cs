@@ -103,7 +103,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string deleteQuery = "DELETE FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "' AND RoomId = '" + Session["RID"] +"'";
+            string deleteQuery = "DELETE FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "' AND RoomId = '" + Session["RID"] + "'";
             SqlCommand cmdDelete = new SqlCommand(deleteQuery, conn);
             cmdDelete.ExecuteNonQuery();
             conn.Close();
@@ -180,7 +180,7 @@ namespace WebApplication2
 
         }
 
-        private String getRoomName()
+        private string getRoomName()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();

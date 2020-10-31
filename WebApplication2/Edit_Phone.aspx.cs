@@ -15,7 +15,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Update(Object sender, EventArgs e)
+        protected void Button_Click_Update(object sender, EventArgs e)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace WebApplication2
 
                 UpdateInfo.ExecuteNonQuery();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(),"alert","alert('Updated sucessfully!!');window.location ='Personal.aspx';",true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
 
                 conn.Close();
             }
@@ -39,7 +39,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Back(Object sender, EventArgs e)
+        protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Edit.aspx");
         }

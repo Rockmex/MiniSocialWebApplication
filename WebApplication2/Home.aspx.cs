@@ -28,7 +28,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Post(Object sender, EventArgs e)
+        protected void Button_Click_Post(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
@@ -54,7 +54,7 @@ namespace WebApplication2
                     SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
                     cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
-                
+
                     cmdInsert.ExecuteNonQuery();
                 }
                 conn.Close();
@@ -63,7 +63,7 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Like(Object sender, CommandEventArgs e)
+        protected void Button_Click_Like(object sender, CommandEventArgs e)
         {
             Session["PostId"] = e.CommandArgument;
             if (IsLike() == 0)
@@ -91,7 +91,7 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Comment_Display(Object sender, EventArgs e)
+        protected void Button_Click_Comment_Display(object sender, EventArgs e)
         {
             if (Session["SelectPostId"] == null)
             {
@@ -108,10 +108,10 @@ namespace WebApplication2
                 Session["SelectPostId"] = null;
                 Response.Redirect("Home.aspx");
             }
-            
+
         }
 
-        protected void Button_Click_Post_Delete(Object sender, CommandEventArgs e)
+        protected void Button_Click_Post_Delete(object sender, CommandEventArgs e)
         {
             string postId = e.CommandArgument.ToString();
             if (isPoster(postId))
@@ -126,7 +126,7 @@ namespace WebApplication2
             }
         }
 
-        protected void Button_Click_Comment(Object sender, CommandEventArgs e)
+        protected void Button_Click_Comment(object sender, CommandEventArgs e)
         {
             Button button = (Button)sender;
             var item = (ListViewItem)button.NamingContainer;
@@ -161,10 +161,11 @@ namespace WebApplication2
             Response.Redirect("Home.aspx");
         }
 
-        protected void Button_Click_Comment_Delete(Object sender, CommandEventArgs e)
+        protected void Button_Click_Comment_Delete(object sender, CommandEventArgs e)
         {
             string commentID = e.CommandArgument.ToString();
-            if (isCommentor(commentID)) { 
+            if (isCommentor(commentID))
+            {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
                 string deleteQuery = "DELETE FROM Comment WHERE commentID = '" + commentID + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
@@ -172,11 +173,11 @@ namespace WebApplication2
                 delete.ExecuteNonQuery();
                 conn.Close();
                 Response.Redirect("Home.aspx");
-                }
+            }
         }
 
 
-        protected void Button_Click_Share(Object sender, EventArgs e)
+        protected void Button_Click_Share(object sender, EventArgs e)
         {
             LinkButton button = (LinkButton)sender;
             var item = (ListViewItem)button.NamingContainer;
@@ -223,36 +224,36 @@ namespace WebApplication2
             table.Visible = false;
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
-                    string postId = ((Label)e.Item.FindControl("PostId")).Text;
-                    
-                    string temp = "";
+                string postId = ((Label)e.Item.FindControl("PostId")).Text;
+
+                string temp = "";
 
                 if (Session["SelectPostId"] != null)
                 {
-                   temp = Session["SelectPostId"].ToString();
-                    
+                    temp = Session["SelectPostId"].ToString();
+
                 }
-                    
 
-                    GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
 
-                    
-                    conn.Open();
-                    string getPostCmd = "select Fname, Content, CommentId FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
-                    SqlCommand getComment = new SqlCommand(getPostCmd, conn);
+                GridView gridView = e.Item.FindControl("Comment_GridView") as GridView;
 
-                   
-                   if (postId == temp)
-                   {
+
+                conn.Open();
+                string getPostCmd = "select Fname, Content, CommentId FROM Comment INNER JOIN UserInfo ON senderId = UID where PostId = " + postId;
+                SqlCommand getComment = new SqlCommand(getPostCmd, conn);
+
+
+                if (postId == temp)
+                {
 
                     gridView.DataSource = getComment.ExecuteReader();
                     gridView.DataBind();
 
                     table.Visible = true;
-                    }
+                }
 
-                    conn.Close();
-                    
+                conn.Close();
+
             }
 
             // Profile_image relocate
@@ -279,7 +280,7 @@ namespace WebApplication2
                 image.InputStream.Read(imgarray, 0, imgSize);
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-                String query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
+                string query = "Insert into ImageDB (ImageID,UID,ImageName,Image) values (@IID,'" + Session["UID"] + "',@Name, @Image)";
                 SqlCommand cmdImg = new SqlCommand(query, conn);
                 cmdImg.Parameters.AddWithValue("@IID", Imgid);
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
