@@ -83,6 +83,8 @@
     <Content Include="Gallery.aspx" />
     <Content Include="img\avatar.svg" />
     <Content Include="img\bg.svg" />
+    <Content Include="img\I1.png" />
+    <Content Include="img\I2.png" />
     <Content Include="img\wave.png" />
     <Content Include="js\login.js" />
     <Content Include="js\register.js" />

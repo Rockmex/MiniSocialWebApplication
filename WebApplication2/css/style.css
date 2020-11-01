@@ -180,14 +180,14 @@
 
 .word {
     width: 561px;
-    /*position: relative;*/
+    position: absolute;
     margin: auto;
     background-color: white;
     border: 1px solid white;
     border-radius: 20px;
     padding-left: 50px;
-    top: 256px;
-    left: 49px;
+    top: 15%;
+    left: 30%;
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -236,9 +236,18 @@
 .friendlist {
     position: absolute;
     width: 250px;
-    top: 58px;
+    top: 15%;
     background-color: Green;
     padding-left: 7px;
     height: 100%;
 }
 
+.hb {
+    background-color: #f44336;
+    color: white;
+    width:100%;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}

@@ -393,6 +393,48 @@ namespace WebApplication2
             Gridview_RoomList.DataBind();
         }
 
+        private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            var Profile_Image = (Image)e.Item.FindControl("Profile_Image2");
+            conn.Open();
+            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = '" + Session["UID"] + "'";
+            SqlCommand com = new SqlCommand(searchCmd, conn);
+            com.ExecuteScalar();
+            int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
+            Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
+        }
+
+        protected void Button_Click_View(object sender, CommandEventArgs e)
+        {
+            if (e.CommandArgument != null)
+            {
+                Session["FID"] = e.CommandArgument;
+                string id = Session["FID"].ToString();
+                if (id.Length <= 3)
+                { 
+                    Response.Redirect("Chat.aspx");
+                }
+                else
+                {
+                    Session["RoomId"] = e.CommandArgument;
+                    Session["RID"] = ShowRoomId(Session["RoomId"]);
+                    Response.Redirect("ChatRoom.aspx");
+                }
+
+            }
+        }
+
+        private int ShowRoomId(object idwithchar)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
+
     }
 
 }

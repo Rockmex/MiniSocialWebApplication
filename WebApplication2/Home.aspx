@@ -7,27 +7,49 @@
             <div class ="friendlist">
                             <table>
                                 <tr>
-                                    <td colspan="2" ><h3>Weclome</h3></td>
-                                    <td colspan="2" class="td_center"><asp:Label ID="Label1" runat="server" ></asp:Label></td>
+                                    <td colspan="2" ><h3>Friends</h3></td>
                                 </tr>                           
-                            </table>
-                                 <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False">
+                                <tr>
+                                <td>
+                                 <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False"  GridLines="None" OnItemDataBound="ShowFriendsImg">
                                      <Columns>
-                                         <asp:BoundField DataField="User2_Id" HeaderText="UID" />
-                                         <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
-                                         <asp:BoundField DataField="lname" HeaderText="Last Name" />
+                                         <asp:BoundField DataField="User2_Id" visible="False"/>
                                          <asp:TemplateField>
+                                             <ItemTemplate>
+                                                <asp:LinkButton ID="Profile_Image2"  runat="server" Cssclass="hb" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_View">
+                                                    <asp:Image runat="server" width="50px" height="50px" ImageUrl="~/img/I1.png" />
+                                                    <%#Eval("Fname")%><%#Eval("Lname")%>
+                                                </asp:LinkButton>
+                                             </ItemTemplate>
                                          </asp:TemplateField>
                                      </Columns>
                                  </asp:GridView>
-                                 <asp:GridView ID="Gridview_RoomList" runat="server" AutoGenerateColumns="False">
+                                </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" ><h3>ChatRooms</h3></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                 <asp:GridView ID="Gridview_RoomList" runat="server" AutoGenerateColumns="False" GridLines="None">
                                     <Columns>
-                                        <asp:BoundField DataField="IDwithChar" HeaderText="Room ID" />
-                                        <asp:BoundField DataField="RoomName" HeaderText="Room Name" />
+                                        <asp:BoundField DataField="IDwithChar" visible="False"/>
+                                        <asp:TemplateField>
+                                             <ItemTemplate>
+                                                <asp:LinkButton ID="Profile_Image3"  runat="server" Cssclass="hb" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Button_Click_View" >
+                                                    <asp:Image runat="server" width="50px" height="50px" ImageUrl="~/img/I2.png" />
+                                                    <%#Eval("RoomName")%>
+                                                </asp:LinkButton>
+                                             </ItemTemplate>
+                                         </asp:TemplateField>
+                                        <asp:BoundField DataField="RoomName"  visible="False"/>
                                         <asp:TemplateField>
                                         </asp:TemplateField>
                                     </Columns>
                                   </asp:GridView>
+                                   </td>
+                                </tr>
+                                </table>
               </div>
 		    <div class="rg_center">
                 <div class="rg_form">
