@@ -6,10 +6,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <div class="Form1">
      <asp:HiddenField Value="" ID="errorMessageHidden" runat="server"/>
-                        <script type="text/javascript">
-                            var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
-                            if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
-                        </script>
      <img class="background" src="img/wave.png" />
     <div class="container" >
   <div class="img">

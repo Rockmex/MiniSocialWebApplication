@@ -9,6 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+
 /*The whole page container*/
 .container {
     width: 100vw;
@@ -186,12 +187,12 @@ h3 {
 
 /* label */
 label {
-    /*display: flex;*/
+    display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: nowrap;
     margin: 12px 0;
-    padding-left: 10px;
+    padding-left: 50px;
     cursor: pointer;
     position: relative;
 }
@@ -200,11 +201,10 @@ label {
 .radio-input {
     left: 50%;
     top: 50%;
-/*    opacity: 0;
+    opacity: 0;
     position: absolute;
     transform: translate(-50%, -50%);
     z-index: -1;
-*/
 
 }
 
@@ -249,30 +249,33 @@ label {
 
 
 /* checked state */
-.radio-input [type="radio"]:checked + .design::before {
+input:checked + .design::before {
     opacity: 2;
     transform: scale(0.6);
 }
 
 
 /* other states */
-.radio-input input[type="radio"]:hover + .design,
-.radio-input input[type="radio"]:focus + .design {
+input:hover + .design,
+input:focus + .design {
     border: 1px solid var(--primary);
 }
 
-    .radio-input input[type="radio"]:hover + .design:before,
-    .radio-input input[type="radio"]:focus + .design:before {
+    input:hover + .design:before,
+    input:focus + .design:before {
         background: var(--primary);
     }
 
-.radio-input input[type="radio"]:hover ~ .text {
+input:hover ~ .text {
     color: var(--primary);
 }
 
-.radio-input input[type="radio"]:focus + .design::after,
-.radio-input input[type="radio"]:active + .design::after {
+input:focus + .design::after,
+input:active + .design::after {
     opacity: .1;
     transform: scale(2.6);
 }
 
+.validator{
+    display:flex;
+}

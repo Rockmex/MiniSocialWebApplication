@@ -19,3 +19,7 @@ inputs.forEach(input => {
     input.addEventListener("focus", addcl);
     input.addEventListener("blur", remcl);
 });
+
+/*Alert Message*/
+var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
+if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
