@@ -18,12 +18,12 @@
                   <div class="radio">
                     <h3>Gender</h3>
                     <label>
-                      <input class="radio-input" type="radio"  name="gender" value="male"> 
+                      <input class="radio-input" type="radio"  name="gender" value="Male"> 
                       <span class="design"></span>
                       <span class="text">Male</span>
                     </label>
                     <label>
-                      <input class="radio-input"type="radio"  name="gender" value="female">
+                      <input class="radio-input"type="radio"  name="gender" value="Female">
                       <span class="design"></span>
                       <span class="text">Female</span>
                     </label>
