@@ -1,0 +1,131 @@
+﻿body {
+    background: gainsboro;
+}
+
+.chatbox {
+    background: white;
+    /* width: -webkit-fill-available; */
+    /* display: initial; */
+    justify-content: center;
+    width: 48%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+h2 {
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+    color: #0a0a0a;
+    border-bottom: 2px solid;
+    padding: 5px;
+    /* border-radius: 10px; */
+}
+
+.SenderClass {
+    left: 90%;
+    background: #0b59ce;
+    color: #ffffff;
+    border: 1px solid #0b59ce;
+}
+
+.ReceiverClass {
+    left: -98%;
+    background: #c46909;
+    color: #ffffff;
+    border: 1px solid #c46909;
+}
+
+.MainChatListClass {
+    padding: 5px;
+    max-width: 250px;
+    position: relative;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-top: 5px;
+    min-width: 220px;
+    display: table-caption;
+}
+
+.--SenderClass::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 243px;
+    top: 0px;
+    border: 10px solid;
+    border-color: transparent transparent #0b59ce #0b59ce;
+}
+
+.--ReceiverClass::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 243px;
+    top: 3px;
+    border: 10px solid;
+    border-color: #c46909 #c46909 transparent transparent;
+}
+
+.pre-scrollable {
+    max-height: 340px;
+}
+
+.datalist {
+    vertical-align: middle;
+    min-height: 480px;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+    width: -webkit-fill-available;
+    padding-bottom:10px;
+    /*flex-direction:column-reverse;*/
+}
+
+.title {
+    text-align: center;
+    color: white;
+}
+
+.panel {
+    margin: auto;
+    */ display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    /* width: 48%;*/
+}
+
+.Form1 {
+    position: relative;
+    /*top: 100px;*/
+    left: 0;
+    width: 100%;
+    padding-top: 50px;
+}
+
+.chat-textbox {
+    text-align: center;
+    margin: auto;
+    /* width: 50%; */
+    border-top: 2px solid black;
+    padding: 10px;
+}
+
+.round-image{
+    border-radius:25px;
+}
+
+.receiver-image {
+    position: relative;
+    left: -90%;
+    float:left;
+}
+
+.sender-image {
+    position: relative;
+    right: -520px;
+    float:left;
+}
+

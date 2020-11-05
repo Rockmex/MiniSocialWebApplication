@@ -102,7 +102,7 @@ body {
     bottom: -2px;
     width: 0%;
     height: 2px;
-    background-color: #38d39f;
+    background-color: #ec1da4e6;
     transition: .4s;
 }
 
@@ -136,7 +136,7 @@ a {
 
     /*When point on it*/
     a:hover {
-        color: #38d39f;
+        color: #ec1da4e6;
     }
 
 /*Button Part*/
@@ -147,7 +147,7 @@ a {
     border-radius: 25px;
     outline: none;
     border: none;
-    background-image: linear-gradient(to right,#32be8f, #38d39f, #32be8f );
+    background-image: linear-gradient(to right,#ec1da4e6, #dc0a939c, #ec1da4e6 );
     background-size: 200%;
     font-size: 1.2rem;
     color: #fff;
@@ -230,13 +230,13 @@ label {
     }
 
     .design:before {
-        background: var(--other);
+        background: var(--pink);
         opacity: 0;
         transition: .3s;
     }
 
     .design::after {
-        background: var(--primary);
+        background: var(--pink);
         opacity: .4;
         transition: .6s;
     }
@@ -258,16 +258,16 @@ input:checked + .design::before {
 /* other states */
 input:hover + .design,
 input:focus + .design {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--pink);
 }
 
     input:hover + .design:before,
     input:focus + .design:before {
-        background: var(--primary);
+        background: var(--pink);
     }
 
 input:hover ~ .text {
-    color: var(--primary);
+    color: var(--pink);
 }
 
 input:focus + .design::after,
@@ -276,6 +276,6 @@ input:active + .design::after {
     transform: scale(2.6);
 }
 
-.validator{
-    display:flex;
+.validator {
+    display: flex;
 }

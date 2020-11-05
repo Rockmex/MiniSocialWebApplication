@@ -73,6 +73,8 @@
     </Content>
     <Content Include="Chat.aspx" />
     <Content Include="ChatRoom.aspx" />
+    <Content Include="ChatTest.aspx" />
+    <Content Include="css\Chat.css" />
     <Content Include="css\login.css" />
     <Content Include="css\login_layout.css" />
     <Content Include="css\personal_layout.css" />
@@ -85,7 +87,10 @@
     <Content Include="img\bg.svg" />
     <Content Include="img\I1.png" />
     <Content Include="img\I2.png" />
-    <Content Include="img\wave.png" />
+    <Content Include="img\SocialMedia.svg" />
+    <Content Include="img\avatar-pink.svg" />
+    <Content Include="img\wave-green.png" />
+    <Content Include="img\wave-pink.png" />
     <Content Include="js\login.js" />
     <Content Include="js\register.js" />
     <Content Include="Personaltest.aspx" />
@@ -118,6 +123,13 @@
     </Compile>
     <Compile Include="ChatRoom.aspx.designer.cs">
       <DependentUpon>ChatRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChatTest.aspx.cs">
+      <DependentUpon>ChatTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChatTest.aspx.designer.cs">
+      <DependentUpon>ChatTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Edit_Personal_Image.aspx.cs">
       <DependentUpon>Edit_Personal_Image.aspx</DependentUpon>

@@ -414,7 +414,7 @@ namespace WebApplication2
                 string id = Session["FID"].ToString();
                 if (id.Length <= 3)
                 { 
-                    Response.Redirect("Chat.aspx");
+                    Response.Redirect("ChatTest.aspx");
                 }
                 else
                 {

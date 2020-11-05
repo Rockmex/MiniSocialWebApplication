@@ -6,16 +6,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
  <div class="Form1">
      <asp:HiddenField Value="" ID="errorMessageHidden" runat="server"/>
-     <img class="background" src="img/wave.png" />
+     <img class="background" src="img/wave-pink.png" />
     <div class="container" >
   <div class="img">
-    <img src="img/bg.svg"/>
+    <img src="img/SocialMedia.svg"/>
   </div>
   <div class="login-content">
     <table style="width:412px;">
       <tr>
         <td align="center">
-        <img class="avatar" src="img/avatar.svg" />
+        <img class="avatar" src="img/avatar-pink.svg" />
          </td>
       </tr>
       <tr>

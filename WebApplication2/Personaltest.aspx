@@ -17,8 +17,6 @@
                        <img src="./img/logo.png"  width="100px" height:"100px" />
                         <ul id="ulSiteMenu">
                             <li><a href="Home.aspx">Home</a></li>
-                            <li><a href="Login.aspx">Login</a></li>
-                            <li><a href="Register.aspx">Register</a></li>
                             <li><a href="Personaltest.aspx">Personal</a></li>
                             <li><a href="App.aspx">App</a></li>
                             <li>
