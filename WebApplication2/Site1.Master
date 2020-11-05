@@ -14,16 +14,13 @@
     <form id="form1" runat="server">
         <div class ="main">
                 <div class ="topbar">
-                    <%--<div class="logo">LOGO</div>--%>
                        <img src="./img/logo.png"  width="100px" height:"100px" />
                         <ul id="ulSiteMenu">
                             <li><a href="Home.aspx">Home</a></li>
-                            <%--<li><a href="Login.aspx">Login</a></li>
-                            <li><a href="Register.aspx">Register</a></li>--%>
                             <li><a href="Personaltest.aspx">Personal</a></li>
                             <li><a href="App.aspx">App</a></li>
                             <li>
-                                <asp:TextBox ID="Search_target" runat="server"/>
+                                <asp:TextBox ID="Search_target" runat="server" size="200"/>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Search_target" ValidationGroup="Search_Group" ErrorMessage="*" ForeColor="Red"/>
                                 <!-- To let Validator only valid for one button, have to add same value to the element ValidationGroup for the TextBox and Button -->
                             </li>

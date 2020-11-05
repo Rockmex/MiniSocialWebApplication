@@ -32,9 +32,10 @@
 .profile-picture {
     position: absolute;
     background-color: white;
+    border-style: groove;
     width: 155px;
     height: 155px;
-    top: 300%;
+    top: 140px;
     left: 0%;
     margin-left: 70px;
 }
@@ -42,6 +43,8 @@
 .imgClass {
     width: 150px;
     height: 150px;
+    padding: 2px;
+
 }
 
 .buttonlists {
