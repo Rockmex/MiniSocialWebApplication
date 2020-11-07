@@ -87,8 +87,12 @@
     <Content Include="Gallery.aspx" />
     <Content Include="img\avatar.svg" />
     <Content Include="img\bg.svg" />
+    <Content Include="img\comment.png" />
+    <Content Include="img\delete.png" />
     <Content Include="img\I1.png" />
     <Content Include="img\I2.png" />
+    <Content Include="img\like.png" />
+    <Content Include="img\share.png" />
     <Content Include="img\SocialMedia.svg" />
     <Content Include="img\avatar-pink.svg" />
     <Content Include="img\wave-green.png" />

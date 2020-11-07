@@ -1,4 +1,6 @@
-﻿body {
+﻿/* ================== Master 1 =======================================*/
+
+body {
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -6,6 +8,7 @@
     font-family: montserrat;
     /*background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;*/
     box-sizing: border-box;
+    background-color: gainsboro;
 }
 
 
@@ -16,43 +19,26 @@
     top: 0;
     left: 0;
     right: 0;
+    background-color: #24252A;
 }
 
-.main .overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    Left: 0;
-    z-index: 0;
-}
-
-    /*.main .topbar {
+    .main .overlay {
         position: absolute;
-        height: auto;
+        height: 100%;
         width: 100%;
-        margin: 2% 0;
+        top: 0;
+        Left: 0;
+        z-index: 0;
+    }
+
+    .main .topbar {
+        position: absolute;
+        width: 100%;
         display: flex;
         align-items: center;
         overflow: hidden;
-        padding: 10px 0;
-    }*/
-
-    .main .topbar {
-    position: absolute;
-    width: 100%;
-    align-items: center;
-    overflow: hidden;
-    display: flex;
-    left: 0px;
-    /*height: 133px;
-    margin: 2% 0;
-    padding: 10px 0;
-    top: 10px;*/
-    
-}
-
-
+        left: 100px;
+    }
 
         .main .topbar .logo {
             position: relative;
@@ -82,19 +68,19 @@
     }
 
         .main .topbar ul li {
-            list-style-type: none;
-            display: inline-block;
-            border: 1px solid rgba(0,0,0,0);
-            border-radius: 2px;
+            background-color: #ec1da4e6;
+            border-radius: 50px;
             padding: 10px;
+            display: inline-block;
+            align-items: center;
+            border: 1px solid rgba(0,0,0,0);
             transition: 0.2s ease-in-out;
             box-shadow: 0px 0.5px 5px rgba(0,0,0,0);
             box-sizing: border-box;
-            cursor: pointer;
         }
 
             .main .topbar ul li a {
-                color: rgba(0,0,0,0.5);
+                color: white;
                 text-decoration: none;
                 font-family: 'cinzel',sans-serif;
                 font-size: 15px;
@@ -106,90 +92,6 @@
                 background: rgba(0,0,0,0.4);
             }
 
-/*============================== personal page ==============================*
-.coverpad {
-    position: absolute;
-    height: 360px;
-    width: 850px;
-    left: 100px;
-    top: 160px;
-    background: white;
-    display: none;
-}
-
-.backgroud-pic {
-    position: absolute;
-    height: 360px;
-    width: 850px;
-    top: 160px;
-    left: 20%;
-    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.25);
-}
-
-.profile-pic-a {
-    position: absolute;
-    width: 160px;
-    height: 160px;
-    top: 350px;
-    left: 23%;
-    background: white;
-    -webkit-box-shadow: 0 3px 8px rgba(0,0,0,.25);
-}
-
-.profile-picture {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    top: 350px;
-    left: 23%;
-    padding: 5px;
-}
-
-.personal_info {
-    position: absolute;
-    width: 350px;
-    height: 400px;
-    top: 58%;
-    left: 20%;
-    background: green;
-}
-
-.personal_pictures {
-    position: absolute;
-    width: 350px;
-    height: 400px;
-    top: 102%;
-    left: 20%;
-    background: red;
-}
-
-.personal_friends {
-    position: absolute;
-    width: 350px;
-    height: 400px;
-    top: 147%;
-    left: 20%;
-    background: yellow;
-}
-
-.personal_postarea {
-    position: absolute;
-    width: 470px;
-    height: 200px;
-    top: 58%;
-    left: 40%;
-    background: orange;
-}
-
-.personal_post {
-    position: absolute;
-    width: 470px;
-    height: 200px;
-    top: 80%;
-    left: 40%;
-    background: blue;
-}
-*/
 /* ==================Home =======================================*/
 
 .word {
@@ -205,6 +107,19 @@
     padding-right: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+#PostArea {
+    border: 1px solid black;
+    width: 90%;
+}
+
+    #PostArea td {
+        padding: 2px;
+    }
+
+.PB {
+    margin-left: 50px;
 }
 
 /* ===================================edit =============================*/
@@ -247,21 +162,53 @@
     display: inline-block;
 }
 
+.SimgClass {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
 .friendlist {
     position: absolute;
     width: 250px;
     top: 15%;
-    background-color: Green;
-    padding-left: 7px;
+    background-color: #ec1da4e6;
+    padding-left: 10px;
     height: 100%;
 }
 
 .hb {
-    background-color: #f44336;
+    background-color: #333;
     color: white;
-    width:100%;
-    padding: 14px 25px;
+    width: 240px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+}
+
+#t01 td {
+    padding: 10px;
+}
+
+.zoom {
+    transition: transform .3s;
+    margin: 0 auto;
+}
+
+    .zoom:hover {
+        transform: scale(1.5);
+    }
+
+h3 {
+    border-bottom: double;
+}
+
+.right-menu {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    top: 15%;
+    right: 0%;
+    background-color: #ec1da4e6;
+    padding-right: 10px;
 }

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class WebForm5
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class WebForm5 {
+        
         /// <summary>
         /// Profile_Image control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Profile_Image;
-
+        
         /// <summary>
         /// Button_AddFriend control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_AddFriend;
-
+        
         /// <summary>
         /// Button_CancelAddFriend control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_CancelAddFriend;
-
+        
         /// <summary>
         /// Button_ReAddFriend control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_ReAddFriend;
-
+        
         /// <summary>
         /// Button_Block control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Block;
-
+        
         /// <summary>
         /// Button_Unblock control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Unblock;
-
+        
         /// <summary>
         /// Button_Message control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Message;
-
+        
         /// <summary>
         /// Button_Delete control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Delete;
-
+        
         /// <summary>
         /// label_Name control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Name;
-
+        
         /// <summary>
         /// Label_ShowName control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowName;
-
+        
         /// <summary>
         /// label_DOB control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_DOB;
-
+        
         /// <summary>
         /// Label_ShowDOB control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowDOB;
-
+        
         /// <summary>
         /// label_Phone control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Phone;
-
+        
         /// <summary>
         /// Label_ShowPhone control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowPhone;
-
+        
         /// <summary>
         /// label_Email control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Email;
-
+        
         /// <summary>
         /// Label_ShowEmail control.
         /// </summary>
@@ -157,5 +155,86 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowEmail;
+        
+        /// <summary>
+        /// Label_display control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_display;
+        
+        /// <summary>
+        /// GridView_FriendNotification control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
+        
+        /// <summary>
+        /// Datalist_Images control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList Datalist_Images;
+        
+        /// <summary>
+        /// Label_RoomList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_RoomList;
+        
+        /// <summary>
+        /// Label_NoRoomList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_NoRoomList;
+        
+        /// <summary>
+        /// Gridview_RoomList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gridview_RoomList;
+        
+        /// <summary>
+        /// Label_FriendList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_FriendList;
+        
+        /// <summary>
+        /// Label_NoFriend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_NoFriend;
+        
+        /// <summary>
+        /// Gridview_FriendList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
     }
 }

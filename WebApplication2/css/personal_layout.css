@@ -50,7 +50,10 @@
 .buttonlists {
     position: relative;
     background-color: white;
-    float: right;
+}
+
+.center {
+    padding: 5%;
 }
 
 .personal_info {

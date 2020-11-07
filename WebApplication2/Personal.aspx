@@ -20,13 +20,14 @@
       <tr>
          <td colspan="2">
                 <div class ="buttonlists">
-                <asp:Button ID="Edit_Profile_Image" runat="server" Text="Edit" OnClick="Button_Click_Edit_Profile_Image"/>
+                <asp:Button ID="Edit_Profile_Image" runat="server" Text="Edit Head Image" OnClick="Button_Click_Edit_Profile_Image"/>
                 </div>
          </td>
       </tr>
       <tr>
         <td>
             <div class="personal_info">
+            <div class="center">
             <h2>Personal Info</h2>
                 <asp:Button ID="Button_Edit" runat="server" Text="Edit" OnClick="Button_Click_Edit" />
                 <table>
@@ -48,9 +49,11 @@
                     </tr>
                 </table>
                 </div>
+             </div>
             </td>
         <td>
           <div class="personal_invites">
+          <div class="center">
           <h2>New Friends</h2>
           <table>
             <tr>
@@ -75,11 +78,13 @@
              </Columns>
             </asp:GridView>
          </div>
+        </div>
         </td>
       </tr>
       <tr>
         <td>
             <div class="personal_pictures">
+            <div class="center">
             <h2>Personal Pictures</h2>
             <asp:FileUpload ID="ImgUpload" runat="server"  accept=".png,.jpg,.jpeg"/>
             <asp:Button ID="Button_Upload_Picture" runat="server" Text="Upload" OnClick="Button_Click_UploadPicture" />
@@ -100,9 +105,11 @@
                   </tr>
             </table>
           </div>
+         </div>
         </td>
          <td>
              <div class="personal_rooms">
+             <div class="center">
               <h2>Chat Room</h2>
               <asp:Button ID="Button_RedirectRoom" runat="server" Text="Create" OnClick="Button_Click_RedirectRoom" />
               <table>
@@ -125,11 +132,13 @@
                  </Columns>
              </asp:GridView>
              </div>
+            </div>
         </td>
       </tr>
       <tr>
         <td>
             <div class="personal_friends">
+            <div class="center">
             <h2>Personal Friends</h2>
             <table>
                 <tr>
@@ -152,11 +161,14 @@
                  </Columns>
               </asp:GridView>
             </div>
+         </div>
         </td>
         <td>
             <div class="personal_post">
+            <div class="center">
             <h2>Personal Post</h2>
             </div>
+          </div>
         </td>
       </tr>
     </table>
