@@ -14,13 +14,12 @@ namespace WebApplication2
 
         protected void Button_Click_Submit(object sender, EventArgs e)
         {
-            string gender = RadioButtonList1.SelectedItem.Text;
-
-            if (gender != null)
+            if (Request.Form["gender"] != null)
             {
                 try
                 {
-                    
+                    string gender = Request.Form["gender"].ToString();
+
                     SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                     conn.Open();
                     string checkUser = "Select count(*) from UserInfo where Email = '" + email.Text + "'";

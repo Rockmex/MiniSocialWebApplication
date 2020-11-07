@@ -71,10 +71,12 @@
     <Content Include="App_Data\User_Info_log.ldf">
       <DependentUpon>User_Info.mdf</DependentUpon>
     </Content>
-    <Content Include="Chat.aspx" />
+    <Content Include="ChatOld.aspx" />
     <Content Include="ChatRoom.aspx" />
-    <Content Include="ChatTest.aspx" />
+    <Content Include="ChatRoomOld.aspx" />
+    <Content Include="Chat.aspx" />
     <Content Include="css\Chat.css" />
+    <Content Include="css\ChatRoom.css" />
     <Content Include="css\login.css" />
     <Content Include="css\login_layout.css" />
     <Content Include="css\personal_layout.css" />
@@ -110,12 +112,12 @@
     <Content Include="Redirect.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Chat.aspx.cs">
-      <DependentUpon>Chat.aspx</DependentUpon>
+    <Compile Include="ChatOld.aspx.cs">
+      <DependentUpon>ChatOld.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Chat.aspx.designer.cs">
-      <DependentUpon>Chat.aspx</DependentUpon>
+    <Compile Include="ChatOld.aspx.designer.cs">
+      <DependentUpon>ChatOld.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChatRoom.aspx.cs">
       <DependentUpon>ChatRoom.aspx</DependentUpon>
@@ -124,12 +126,19 @@
     <Compile Include="ChatRoom.aspx.designer.cs">
       <DependentUpon>ChatRoom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ChatTest.aspx.cs">
-      <DependentUpon>ChatTest.aspx</DependentUpon>
+    <Compile Include="ChatRoomOld.aspx.cs">
+      <DependentUpon>ChatRoomOld.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ChatTest.aspx.designer.cs">
-      <DependentUpon>ChatTest.aspx</DependentUpon>
+    <Compile Include="ChatRoomOld.aspx.designer.cs">
+      <DependentUpon>ChatRoomOld.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.aspx.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat.aspx.designer.cs">
+      <DependentUpon>Chat.aspx</DependentUpon>
     </Compile>
     <Compile Include="Edit_Personal_Image.aspx.cs">
       <DependentUpon>Edit_Personal_Image.aspx</DependentUpon>

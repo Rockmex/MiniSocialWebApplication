@@ -11,26 +11,26 @@ namespace WebApplication2
 {
 
 
-    public partial class Chat
+    public partial class ChatTest
     {
 
         /// <summary>
-        /// Label_display control.
+        /// label_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_display;
+        protected global::System.Web.UI.WebControls.Label label_name;
 
         /// <summary>
-        /// GridView_Chat control.
+        /// datalist1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_Chat;
+        protected global::System.Web.UI.WebControls.DataList datalist1;
 
         /// <summary>
         /// MessageBox control.

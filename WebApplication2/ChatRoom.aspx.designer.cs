@@ -11,35 +11,26 @@ namespace WebApplication2
 {
 
 
-    public partial class ChatRoom
+    public partial class ChatRoom1
     {
 
         /// <summary>
-        /// Label_display control.
+        /// label_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_display;
+        protected global::System.Web.UI.WebControls.Label label_name;
 
         /// <summary>
-        /// SenderId control.
+        /// datalist1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SenderId;
-
-        /// <summary>
-        /// GridView_ChatBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_ChatBox;
+        protected global::System.Web.UI.WebControls.DataList datalist1;
 
         /// <summary>
         /// MessageBox control.
@@ -94,23 +85,5 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Drop_Room;
-
-        /// <summary>
-        /// Button_Back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Back;
-
-        /// <summary>
-        /// Button_Leave_Room control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button_Leave_Room;
     }
 }

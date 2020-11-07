@@ -17,15 +17,16 @@
                 <td>
                   <div class="radio">
                     <h3>Gender</h3>
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" name="gender">
-                        <asp:ListItem value="Male">Male</asp:ListItem>
-                        <asp:ListItem value="Female">Female</asp:ListItem>
-                    </asp:RadioButtonList>
-                  </div>
-                </td>
-                <td>
-                <div class="validator">
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="RadioButtonList1" ErrorMessage="*" ForeColor="Red"/>
+                     <label>
+                      <input class="radio-input" type="radio"  name="gender" value="Male" required> 
+                      <span class="design"></span>
+                      <span class="text">Male</span>
+                    </label>
+                    <label>
+                      <input class="radio-input"type="radio"  name="gender" value="Female">
+                      <span class="design"></span>
+                      <span class="text">Female</span>
+                    </label>
                 </div>
             </td>
           </tr>

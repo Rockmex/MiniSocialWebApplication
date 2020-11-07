@@ -11,79 +11,106 @@ namespace WebApplication2
 {
 
 
-    public partial class WebForm3
+    public partial class ChatRoom
     {
 
         /// <summary>
-        /// errorMessageHidden control.
+        /// Label_display control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField errorMessageHidden;
+        protected global::System.Web.UI.WebControls.Label Label_display;
 
         /// <summary>
-        /// first_name control.
+        /// SenderId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox first_name;
+        protected global::System.Web.UI.WebControls.Label SenderId;
 
         /// <summary>
-        /// last_name control.
+        /// GridView_ChatBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox last_name;
+        protected global::System.Web.UI.WebControls.GridView GridView_ChatBox;
 
         /// <summary>
-        /// date_of_birth control.
+        /// MessageBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox date_of_birth;
+        protected global::System.Web.UI.WebControls.TextBox MessageBox;
 
         /// <summary>
-        /// telephone control.
+        /// Button_Send control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telephone;
+        protected global::System.Web.UI.WebControls.Button Button_Send;
 
         /// <summary>
-        /// email control.
+        /// Label_MemberList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.Label Label_MemberList;
 
         /// <summary>
-        /// password control.
+        /// Gridview_MemberList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.GridView Gridview_MemberList;
 
         /// <summary>
-        /// repassword control.
+        /// Button_Add_New_Member control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox repassword;
+        protected global::System.Web.UI.WebControls.Button Button_Add_New_Member;
+
+        /// <summary>
+        /// Button_Drop_Room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Drop_Room;
+
+        /// <summary>
+        /// Button_Back control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Back;
+
+        /// <summary>
+        /// Button_Leave_Room control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button_Leave_Room;
     }
 }

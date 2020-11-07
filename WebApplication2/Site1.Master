@@ -8,7 +8,6 @@
     <link href="css/Style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-<%--</head>--%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,7 +16,7 @@
                        <img src="./img/logo.png"  width="100px" height:"100px" />
                         <ul id="ulSiteMenu">
                             <li><a href="Home.aspx">Home</a></li>
-                            <li><a href="Personaltest.aspx">Personal</a></li>
+                            <li><a href="Personal.aspx">Personal</a></li>
                             <li><a href="App.aspx">App</a></li>
                             <li>
                                 <asp:TextBox ID="Search_target" runat="server" size="200"/>

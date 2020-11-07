@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
-    public partial class ChatRoom1 : System.Web.UI.Page
+    public partial class ChatRoom : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,21 +24,20 @@ namespace WebApplication2
                 }
                 else
                 {
-                 /*   if (Count() == 0)
+                    if (Count() == 0)
                     {
                         GridView_ChatBox.Visible = false;
                         Label_display.Text = "This is your first time chatting. Please write something.";
                     }
                     else
-                 */   {
+                    {
                         ShowResult();
                         ShowMember();
-                        label_name.Text = getRoomName();
+                        Label_display.Text = getRoomName();
                     }
                 }
             }
         }
-
         protected void Button_Click_Send(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
@@ -137,12 +136,12 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT SenderId, MessageId, ImageId, Fname, Message, Time FROM (ChatLog INNER JOIN UserInfo ON SenderId = UID) WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
+            string searchCmd = "SELECT SenderId, MessageId, Fname, Message, Time FROM ChatLog INNER JOIN UserInfo ON SenderId = UID WHERE ReceiverId = '" + Session["RoomId"] + "' ORDER BY TIME ASC";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            datalist1.DataSource = dataTable;
-            datalist1.DataBind();
+            GridView_ChatBox.DataSource = dataTable;
+            GridView_ChatBox.DataBind();
         }
 
         private void ShowMember()
@@ -228,7 +227,5 @@ namespace WebApplication2
             }
             return isSender;
         }
-
-
     }
 }

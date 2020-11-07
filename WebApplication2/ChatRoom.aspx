@@ -1,64 +1,55 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ChatRoom.aspx.cs" Inherits="WebApplication2.ChatRoom" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ChatRoom.aspx.cs" Inherits="WebApplication2.ChatRoom1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/chatroom.css" rel="stylesheet" type="text/css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="rg_layout">
-		    <div class="rg_center">
-                <div class="rg_form">
-                    <div class="word">
-                    <table style="float:left">
-                        <tr>
-                            <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="Chat Room" runat="server" ></asp:Label></td>
-                            <td><asp:Label ID="SenderId" Visible="false" runat="server" Text='<%# Eval("SenderId") %>' /></td>
-                        </tr>                           
-                    <tr>
-                        <asp:GridView ID="GridView_ChatBox" runat="server" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="MessageId" HeaderText="MessageId" visible="False"/>
-                            <asp:BoundField DataField="Fname" HeaderText="Name" />
-                            <asp:BoundField DataField="Message" HeaderText="Message" />
-                            <asp:BoundField DataField="Time" HeaderText="Time" />
-                            <asp:TemplateField>
-                                <ItemTemplate>
-                                    <asp:Button ID="Button_Delete" runat="server" Text="Delete" Visible='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? true : false %>' CommandArgument='<%# Eval("MessageId") %>' OnCommand="Button_Click_Delete"/>
-                                </ItemTemplate>
-                             </asp:TemplateField>
-                         </Columns>
-                        </asp:GridView>
-                    </tr>
-                            <tr>
-                                <td><asp:TextBox ID="MessageBox" runat="server"></asp:TextBox></td>
-                                <td><asp:Button ID="Button_Send" runat="server" Text="Send" onclick="Button_Click_Send"/></td>
-                            </tr>                         
-                        </table>
-                        <table style="float:left;">
-                            <tr>
-                            <td class="td_center"><asp:Label ID="Label_MemberList" Text="Member List" runat="server" ></asp:Label></td>
-                        </tr>
-                            <tr>
-                                <asp:GridView ID="Gridview_MemberList" runat="server" AutoGenerateColumns="False">
-                            <Columns>
-                                <asp:BoundField DataField="MemberId" HeaderText="Member Id" />
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:Button ID="Button_Remove_Member" runat="server" Text="Remove" CommandArgument='<%# Eval("MemberId") %>' OnCommand="Button_Click_RemoveMember"/>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                            </tr>
-                            <tr>
-                                <td style="text-align:center;">
-                                    <asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
-                                    <asp:Button ID="Button_Drop_Room" runat="server" Text="Delete Room" OnClick="Button_Click_RemoveRoom" />
-                                </td>
-                            </tr>
-                        </table>
-                        <asp:Button ID="Button_Back" runat="server" Text="Back" OnClick="Button_Click_Back" />
-                        <asp:Button ID="Button_Leave_Room" runat="server" Text="Leave Room" OnClick="Button_Click_LeaveChat" />
-                        </div>
-                    </div>
+     <div class="Form1">
+        <div class="chatbox">
+            <asp:Panel CssClass="panel" runat="server">
+                <h2><asp:Label runat="server" ID="label_name"></asp:Label></h2>
+                <div class="pre-scrollable datalist">
+                    <asp:DataList ID="datalist1" runat="server" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" RepeatLayout="Table">
+                        <ItemTemplate>
+                            <div style="display:inline-block">
+                                <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "sender-image" : "receiver-image" %>" >
+                                    <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' CssClass="round-image" Height="50px" Width="50px" />
+                                </div>
+                                <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "SenderClass" : "ReceiverClass" %> MainChatListClass">
+                                    <asp:Label ID="label1" runat="server" Text='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "You: " : Eval("Fname")+": " %>'></asp:Label>
+                                    <asp:Label ID="label2" runat="server" Text='<%# Eval("Message") %>'></asp:Label>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </div>
-               </div>
-            
+            </asp:Panel>
+            <div class="chat-textbox">
+                <table>
+                    <tr>
+                        <td style="width: 176%"><asp:TextBox ID="MessageBox" runat="server" style="width: 90%;"></asp:TextBox></td>
+                        <td><asp:Button ID="Button_Send" runat="server" Text="Send" onclick="Button_Click_Send"/></td>
+                    </tr>                         
+                </table>
+            </div>
+        </div>
+         <div class="memberlist">
+             <asp:Panel runat="server">
+                <h2><asp:Label ID="Label_MemberList" Text="Member List" runat="server" /></h2>
+                <asp:GridView ID="Gridview_MemberList" CssClass="membertable" runat="server" AutoGenerateColumns="False" CellPadding="4" GridLines="None">
+                    <Columns>
+                        <asp:BoundField DataField="MemberId" HeaderText="Member Id" Visible="true" />
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Button ID="Button_Remove_Member" runat="server" Text="Remove" CommandArgument='<%# Eval("MemberId") %>' OnCommand="Button_Click_RemoveMember" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <div class="button-layout">
+                    <asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
+                    <asp:Button ID="Button_Drop_Room" runat="server" Text="Delete Room" OnClick="Button_Click_RemoveRoom" />
+                </div>
+             </asp:Panel>
+         </div>
+    </div>
 </asp:Content>

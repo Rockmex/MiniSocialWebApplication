@@ -10,6 +10,21 @@
     width: 48%;
     margin: auto;
     border-radius: 20px;
+    display: inline-block;
+    margin-left: 20%;
+    /*position: absolute;*/
+}
+
+.memberlist {
+    /*left: 90%;*/
+    display: inline-block;
+    position: absolute;
+    /* justify-content: end; */
+    background-color: white;
+    border-radius: 20px;
+    padding: 15px;
+    width: fit-content;
+    margin-left: 5px;
 }
 
 h2 {
@@ -80,7 +95,7 @@ h2 {
     justify-content: center;
     overflow-y: scroll;
     width: -webkit-fill-available;
-    padding-bottom:10px;
+    padding-bottom: 10px;
     /*flex-direction:column-reverse;*/
 }
 
@@ -113,18 +128,29 @@ h2 {
     padding: 10px;
 }
 
-.round-image{
-    border-radius:25px;
+.round-image {
+    border-radius: 25px;
 }
 
 .receiver-image {
     position: relative;
     left: -90%;
-    float:left;
+    float: left;
 }
 
 .sender-image {
     position: relative;
     right: -520px;
-    float:left;
+    float: left;
+}
+
+.button-layout {
+    margin-top: 10px;
+    border-top: 2px solid black;
+    padding-top: 5px;
+}
+
+.membertable {
+    overflow-y: auto;
+    max-height: 450px;
 }

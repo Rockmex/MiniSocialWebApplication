@@ -168,6 +168,7 @@ a {
 .radio {
     --primary: hsl(250, 100%, 44%);
     --other: hsl(0, 0%, 14%);
+    --pink: #ec1da4e6;
     --gray: #999;
     width: 100%;
     min-height: inherit;

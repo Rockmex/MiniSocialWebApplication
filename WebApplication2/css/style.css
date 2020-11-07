@@ -27,7 +27,7 @@
     z-index: 0;
 }
 
-    .main .topbar {
+    /*.main .topbar {
         position: absolute;
         height: auto;
         width: 100%;
@@ -36,7 +36,21 @@
         align-items: center;
         overflow: hidden;
         padding: 10px 0;
-    }
+    }*/
+
+    .main .topbar {
+    position: absolute;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    left: 0px;
+    /*height: 133px;
+    margin: 2% 0;
+    padding: 10px 0;
+    top: 10px;*/
+    
+}
 
 
 
