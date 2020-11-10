@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
-    public partial class Result : System.Web.UI.Page
+    public partial class WebForm13 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace WebApplication2
                 {
                     if (Count() == 0)
                     {
-                        listview_result.Visible = false;
+                        GridView_SearchResult.Visible = false;
                         Label_display.Text = "No such result.";
                     }
                     else
@@ -55,12 +55,12 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT UID, Fname, Lname, ImageId FROM UserInfo WHERE Fname LIKE'" + Session["Result"] + "%' OR Lname LIKE'" + Session["Result"] + "%'";
+            string searchCmd = "SELECT UID, Fname, Lname FROM UserInfo WHERE Fname LIKE'" + Session["Result"] + "%' OR Lname LIKE'" + Session["Result"] + "%'";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            listview_result.DataSource = dataTable;
-            listview_result.DataBind();
+            GridView_SearchResult.DataSource = dataTable;
+            GridView_SearchResult.DataBind();
             conn.Close();
         }
 
@@ -74,5 +74,4 @@ namespace WebApplication2
 
         }
     }
-
 }

@@ -14,7 +14,7 @@ body {
 
 .main {
     position: relative;
-    height: 15vh;
+    height: 10vh;
     width: 100%;
     top: 0;
     left: 0;
@@ -102,7 +102,7 @@ body {
     border: 1px solid white;
     border-radius: 20px;
     padding-left: 50px;
-    top: 15%;
+    /*top: 15%;*/
     left: 30%;
     padding-right: 5px;
     padding-top: 5px;
@@ -171,10 +171,13 @@ body {
 .friendlist {
     position: absolute;
     width: 250px;
-    top: 15%;
+    /*top: 15%;*/
     background-color: #ec1da4e6;
     padding-left: 10px;
     height: 100%;
+    padding-bottom: 500em;
+    margin-bottom: -500em;
+    overflow: hidden;
 }
 
 .hb {
@@ -207,7 +210,7 @@ h3 {
     position: absolute;
     width: 250px;
     height: 100%;
-    top: 15%;
+    /*top: 15%;*/
     right: 0%;
     background-color: #ec1da4e6;
     padding-right: 10px;

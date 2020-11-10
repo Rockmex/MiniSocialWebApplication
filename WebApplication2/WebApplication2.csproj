@@ -82,6 +82,7 @@
     <Content Include="css\personal_layout.css" />
     <Content Include="css\register.css" />
     <Content Include="css\register_layout.css" />
+    <Content Include="css\result.css" />
     <Content Include="css\Style.css" />
     <Content Include="Edit_Personal_Image.aspx" />
     <Content Include="Gallery.aspx" />
@@ -100,6 +101,7 @@
     <Content Include="js\login.js" />
     <Content Include="js\register.js" />
     <Content Include="Personaltest.aspx" />
+    <Content Include="Result.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -112,7 +114,7 @@
     <Content Include="Edit_Email.aspx" />
     <Content Include="Edit_Phone.aspx" />
     <Content Include="Edit_Password.aspx" />
-    <Content Include="Result.aspx" />
+    <Content Include="ResultOld.aspx" />
     <Content Include="Redirect.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +174,13 @@
       <DependentUpon>Personaltest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.aspx.cs">
+      <DependentUpon>Result.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Result.aspx.designer.cs">
+      <DependentUpon>Result.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,12 +262,12 @@
     <Compile Include="Edit_Password.aspx.designer.cs">
       <DependentUpon>Edit_Password.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Result.aspx.cs">
-      <DependentUpon>Result.aspx</DependentUpon>
+    <Compile Include="ResultOld.aspx.cs">
+      <DependentUpon>ResultOld.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Result.aspx.designer.cs">
-      <DependentUpon>Result.aspx</DependentUpon>
+    <Compile Include="ResultOld.aspx.designer.cs">
+      <DependentUpon>ResultOld.aspx</DependentUpon>
     </Compile>
     <Compile Include="Redirect.aspx.cs">
       <DependentUpon>Redirect.aspx</DependentUpon>

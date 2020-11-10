@@ -6,7 +6,7 @@
 /*================================================Fixed==================================*/
 .Form1 {
     position: relative;
-    top: 100px;
+    top: 25px;
     left: 0;
     bottom: 100px;
     width: 100%;
@@ -54,6 +54,11 @@
 
 .center {
     padding: 5%;
+    padding-top:0;
+}
+
+h2 {
+    margin-top: 10px;
 }
 
 .personal_info {

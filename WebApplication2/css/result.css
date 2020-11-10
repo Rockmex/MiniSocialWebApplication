@@ -1,0 +1,48 @@
+﻿.block {
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+.image {
+    border-radius: 20px;
+    Width: 50px;
+    Height: 50px;
+    padding-left: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    color: black;
+    padding-left: 11px;
+    border-bottom: none;
+}
+
+.list {
+    width: 561px;
+    position: absolute;
+    margin: auto;
+    padding-left: 50px;
+    top: 15%;
+    left: 30%;
+    margin-top: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.label-display {
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.zoom {
+    transition: transform .3s;
+}
+
+    .zoom:hover {
+        transform: scale(1.5);
+    }

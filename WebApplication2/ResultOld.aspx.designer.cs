@@ -11,7 +11,7 @@ namespace WebApplication2
 {
 
 
-    public partial class Result
+    public partial class WebForm13
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_display;
 
         /// <summary>
-        /// listview_result control.
+        /// GridView_SearchResult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView listview_result;
+        protected global::System.Web.UI.WebControls.GridView GridView_SearchResult;
     }
 }
