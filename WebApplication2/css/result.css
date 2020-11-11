@@ -46,3 +46,8 @@ h3 {
     .zoom:hover {
         transform: scale(1.5);
     }
+
+.hb {
+    text-decoration: none;
+    background-color: white;
+}

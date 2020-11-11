@@ -90,6 +90,7 @@
     <Content Include="img\bg.svg" />
     <Content Include="img\comment.png" />
     <Content Include="img\delete.png" />
+    <Content Include="img\GroupChat.png" />
     <Content Include="img\I1.png" />
     <Content Include="img\I2.png" />
     <Content Include="img\like.png" />

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class WebForm4 {
-        
+namespace WebApplication2
+{
+
+
+    public partial class WebForm4
+    {
+
         /// <summary>
         /// Profile_Image control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Profile_Image;
-        
+
         /// <summary>
         /// Edit_Profile_Image control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Edit_Profile_Image;
-        
+
         /// <summary>
         /// Button_Edit control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Edit;
-        
+
         /// <summary>
         /// label_Name control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Name;
-        
+
         /// <summary>
         /// Label_ShowName control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowName;
-        
+
         /// <summary>
         /// label_DOB control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_DOB;
-        
+
         /// <summary>
         /// Label_ShowDOB control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowDOB;
-        
+
         /// <summary>
         /// label_Phone control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Phone;
-        
+
         /// <summary>
         /// Label_ShowPhone control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowPhone;
-        
+
         /// <summary>
         /// label_Email control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_Email;
-        
+
         /// <summary>
         /// Label_ShowEmail control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_ShowEmail;
-        
+
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-        
+
         /// <summary>
         /// GridView_FriendNotification control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
-        
+
         /// <summary>
         /// ImgUpload control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
-        
+
         /// <summary>
         /// Button_Upload_Picture control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Upload_Picture;
-        
+
         /// <summary>
         /// Datalist_Images control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList Datalist_Images;
-        
+
         /// <summary>
         /// Button_Redirect_MorePic control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Redirect_MorePic;
-        
+
         /// <summary>
         /// Button_RedirectRoom control.
         /// </summary>
@@ -173,16 +175,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_RedirectRoom;
-        
-        /// <summary>
-        /// Label_RoomList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_RoomList;
-        
+
         /// <summary>
         /// Label_NoRoomList control.
         /// </summary>
@@ -191,16 +184,16 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_NoRoomList;
-        
+
         /// <summary>
-        /// Gridview_RoomList control.
+        /// listview_ChatRoom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gridview_RoomList;
-        
+        protected global::System.Web.UI.WebControls.ListView listview_ChatRoom;
+
         /// <summary>
         /// Label_FriendList control.
         /// </summary>
@@ -209,7 +202,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_FriendList;
-        
+
         /// <summary>
         /// Label_NoFriend control.
         /// </summary>
@@ -218,7 +211,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_NoFriend;
-        
+
         /// <summary>
         /// Gridview_FriendList control.
         /// </summary>

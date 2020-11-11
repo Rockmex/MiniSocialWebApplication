@@ -15,7 +15,7 @@
             <asp:ListView runat="server" ID="listview_result">
                 <ItemTemplate>
                     <div class="block zoom">
-                        <asp:LinkButton runat="server" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_View">
+                        <asp:LinkButton runat="server" CommandArgument='<%# Eval("UID") %>' CssClass="hb" OnCommand="Button_Click_View">
                             <table>
                                 <tr>
                                     <td colspan="2">

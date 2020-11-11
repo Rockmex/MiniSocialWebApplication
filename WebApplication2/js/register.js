@@ -22,4 +22,9 @@ inputs.forEach(input => {
 
 /*Alert Message*/
 var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
-if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
+if (alertMsg != null) {
+    if (alertMsg.value != "") {
+        alert(alertMsg.value);
+        window.location.href = 'Register.aspx';
+    }
+}

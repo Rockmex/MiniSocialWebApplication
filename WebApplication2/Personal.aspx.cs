@@ -203,8 +203,10 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            Gridview_RoomList.DataSource = dataTable;
-            Gridview_RoomList.DataBind();
+            listview_ChatRoom.DataSource = dataTable;
+            listview_ChatRoom.DataBind();
+            //Gridview_RoomList.DataSource = dataTable;
+            //Gridview_RoomList.DataBind();
         }
 
         private int CountRooms()

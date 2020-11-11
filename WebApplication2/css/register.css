@@ -7,6 +7,7 @@
 /*Body*/
 body {
     font-family: 'Poppins', sans-serif;
+    background-color:white;
 }
 
 
@@ -184,6 +185,7 @@ a {
 h3 {
     color: var(--gray);
     padding: 8px 10px;
+    border-bottom:none;
 }
 
 /* label */

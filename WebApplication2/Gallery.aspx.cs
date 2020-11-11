@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace WebApplication2
 {
@@ -34,9 +37,11 @@ namespace WebApplication2
             Datalist_Images.DataBind();
         }
 
+
         protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
         }
+
     }
 }
