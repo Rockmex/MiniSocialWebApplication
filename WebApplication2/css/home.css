@@ -1,0 +1,109 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    min-height: 100vh;
+    font-family: montserrat;
+    /*background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;*/
+    box-sizing: border-box;
+    background-color: gainsboro;
+}
+
+.word {
+    width: 561px;
+    position: absolute;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding-left: 50px;
+    /*top: 15%;*/
+    left: 30%;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#PostArea {
+    border: 1px solid black;
+    width: 90%;
+}
+
+    #PostArea td {
+        padding: 2px;
+    }
+
+.PB {
+    margin-left: 50px;
+}
+
+
+/*===============================global =================================*/
+
+.hidden {
+    display: none;
+}
+
+
+.divider {
+    width: 50px;
+    height: auto;
+    display: inline-block;
+}
+
+.SimgClass {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
+.friendlist {
+    position: absolute;
+    width: 250px;
+    /*top: 15%;*/
+    background-color: #ec1da4e6;
+    padding-left: 10px;
+    height: 100%;
+    padding-bottom: 500em;
+    margin-bottom: -500em;
+    overflow: hidden;
+}
+
+.hb {
+    background-color: #333;
+    color: white;
+    width: 240px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#t01 td {
+    padding: 10px;
+}
+
+.zoom {
+    transition: transform .3s;
+    margin: 0 auto;
+}
+
+    .zoom:hover {
+        transform: scale(1.5);
+    }
+
+h3 {
+    border-bottom: double;
+}
+
+.right-menu {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    /*top: 15%;*/
+    right: 0%;
+    background-color: #ec1da4e6;
+    padding-right: 10px;
+    padding-bottom: 500em;
+    margin-bottom: -500em;
+    overflow: hidden;
+}
