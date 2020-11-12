@@ -30,19 +30,18 @@ namespace WebApplication2
                     /* Notification Part*/
                     if (Count() == 0)
                     {
-                        GridView_FriendNotification.Visible = false;
+                        //GridView_FriendNotification.Visible = false;
                         Label_display.Text = "No New Notifications";
                     }
                     else
                     {
                         ShowResult();
-                        Label_display.Text = "There are" + Count() + " new notifications.";
+                        Label_display.Text = "There are " + Count() + " new notifications.";
                     }
 
                     /* Friend List Part*/
                     if (CountFriends() == 0)
                     {
-                        Gridview_FriendList.Visible = false;
                         Label_NoFriend.Visible = true;
                     }
                     else
@@ -54,7 +53,6 @@ namespace WebApplication2
                     /* Chat Room List Part*/
                     if (CountRooms() == 0)
                     {
-                        Gridview_FriendList.Visible = false;
                         Label_NoRoomList.Visible = true;
                     }
                     else
@@ -116,7 +114,7 @@ namespace WebApplication2
             Response.Redirect("Edit.aspx");
         }
 
-        protected void Button_Click_Redirect(object sender, CommandEventArgs e)
+        protected void Button_Click_RedirectFriend(object sender, CommandEventArgs e)
         {
             Session["FID"] = e.CommandArgument;
             Response.Redirect("Friends.aspx");
@@ -187,12 +185,12 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT FriendRelationship.User2_Id, Fname, Lname FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1";
+            string searchCmd = "SELECT FriendRelationship.User2_Id, Fname, Lname, ImageId FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            Gridview_FriendList.DataSource = dataTable;
-            Gridview_FriendList.DataBind();
+            listview_friendlist.DataSource = dataTable;
+            listview_friendlist.DataBind();
         }
 
         private void ShowRooms()
@@ -205,8 +203,6 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             listview_ChatRoom.DataSource = dataTable;
             listview_ChatRoom.DataBind();
-            //Gridview_RoomList.DataSource = dataTable;
-            //Gridview_RoomList.DataBind();
         }
 
         private int CountRooms()

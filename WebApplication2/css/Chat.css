@@ -7,7 +7,7 @@
     /* width: -webkit-fill-available; */
     /* display: initial; */
     justify-content: center;
-    width: 48%;
+    width: 48%/*60%*/;
     margin: auto;
     border-radius: 20px;
 }

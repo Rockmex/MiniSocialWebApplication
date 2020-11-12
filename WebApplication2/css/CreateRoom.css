@@ -1,0 +1,54 @@
+﻿.word {
+    width: fit-content;
+    position: absolute;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding-left: 50px;
+    top: 30%;
+    left: 35%;
+    padding-right: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.label {
+    margin-top: 10px;
+}
+
+.btn-place {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pad {
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right,#605d5d, #a6a6a6, #605d5d );
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+    /*When pointed*/
+    .btn:hover, .btn-editImage:hover {
+        background-position: right;
+    }
+
+.input {
+    margin-left: 10px;
+}

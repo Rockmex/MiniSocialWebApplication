@@ -69,23 +69,31 @@
                                             <asp:Label ID="Label_display" Text="XX Notifications" runat="server"></asp:Label></td>
                                     </tr>
                                 </table>
-                                <asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
-                                    <Columns>
-                                        <asp:BoundField DataField="UID" HeaderText="Friend ID" />
-                                        <asp:BoundField DataField="Fname" HeaderText="First Name" />
-                                        <asp:BoundField DataField="Lname" HeaderText="Last Name" />
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="Button_Accept" runat="server" Text="Accept" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Accept" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:LinkButton ID="Button_Decline" runat="server" Text="Decline" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Decline" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
+                                <div style="overflow:auto; height: 250px;margin-top: 5px;">
+                                    <asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Friend ID">
+                                                <ItemTemplate>
+                                                    <div style="text-align: center">
+                                                        <asp:LinkButton ID="Button_View" runat="server" Text='<%# Eval("UID") %>' CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_RedirectFriend" />
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:BoundField DataField="Fname" HeaderText="First Name" />
+                                            <asp:BoundField DataField="Lname" HeaderText="Last Name" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="Button_Accept" runat="server" Text="Accept" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Accept" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="Button_Decline" runat="server" Text="Decline" CommandArgument='<%# Eval("UID") %>' OnCommand="Button_Click_Decline" />
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
                             </div>
                         </div>
                     </td>
@@ -164,25 +172,33 @@
                                 <table>
                                     <tr>
                                         <td colspan="2" class="td_center">
-                                            <asp:Label ID="Label_FriendList" Text="Friend List" runat="server"></asp:Label></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="td_center">
                                             <asp:Label ID="Label_NoFriend" Text="No Friend Yet." runat="server"></asp:Label></td>
                                     </tr>
                                 </table>
-                                <asp:GridView ID="Gridview_FriendList" runat="server" AutoGenerateColumns="False">
-                                    <Columns>
-                                        <asp:BoundField DataField="User2_Id" HeaderText="FID" />
-                                        <asp:BoundField DataField="fname" HeaderText="Fisrt Name" />
-                                        <asp:BoundField DataField="lname" HeaderText="Last Name" />
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:Button ID="Button_Redirect" runat="server" CssClass="btn" Text="View" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_Redirect" />
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                    </Columns>
-                                </asp:GridView>
+                                 <div style="overflow:auto; height: 250px;margin-top: 5px;">
+                                    <asp:ListView runat="server" ID="listview_friendlist">
+                                        <ItemTemplate>
+                                            <div class="block zoom">
+                                                <asp:LinkButton runat="server" CssClass="hb" CommandArgument='<%#Eval("User2_Id")%>' OnCommand="Button_Click_RedirectFriend">
+                                                    <table>
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <asp:Image ID="Profile_Image" runat="server" CssClass="image-friendlist" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' />
+                                                            </td>
+                                                            <td>
+                                                                <h3>UID: <%#Eval("User2_Id")%></h3>
+                                                            </td>
+                                                            <td>
+                                                                <h3><%#Eval("Fname")%><%#Eval("Lname")%></h3>
+                                                            </td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                </asp:LinkButton>
+                                            </div>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
                             </div>
                         </div>
                     </td>

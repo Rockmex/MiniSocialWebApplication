@@ -195,15 +195,6 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.ListView listview_ChatRoom;
 
         /// <summary>
-        /// Label_FriendList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label_FriendList;
-
-        /// <summary>
         /// Label_NoFriend control.
         /// </summary>
         /// <remarks>
@@ -213,12 +204,12 @@ namespace WebApplication2
         protected global::System.Web.UI.WebControls.Label Label_NoFriend;
 
         /// <summary>
-        /// Gridview_FriendList control.
+        /// listview_friendlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Gridview_FriendList;
+        protected global::System.Web.UI.WebControls.ListView listview_friendlist;
     }
 }

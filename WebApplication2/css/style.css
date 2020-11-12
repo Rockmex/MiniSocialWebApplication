@@ -37,7 +37,7 @@ body {
         display: flex;
         align-items: center;
         overflow: hidden;
-        left: 100px;
+        left: 0px;
     }
 
         .main .topbar .logo {
@@ -166,55 +166,4 @@ body {
     width: 25px;
     height: 25px;
     padding: 2px;
-}
-
-.friendlist {
-    position: absolute;
-    width: 250px;
-    /*top: 15%;*/
-    background-color: #ec1da4e6;
-    padding-left: 10px;
-    height: 100%;
-    padding-bottom: 500em;
-    margin-bottom: -500em;
-    overflow: hidden;
-}
-
-.hb {
-    background-color: #333;
-    color: white;
-    width: 240px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-#t01 td {
-    padding: 10px;
-}
-
-.zoom {
-    transition: transform .3s;
-    margin: 0 auto;
-}
-
-    .zoom:hover {
-        transform: scale(1.5);
-    }
-
-h3 {
-    border-bottom: double;
-}
-
-.right-menu {
-    position: absolute;
-    width: 250px;
-    height: 100%;
-    /*top: 15%;*/
-    right: 0%;
-    background-color: #ec1da4e6;
-    padding-right: 10px;
-    padding-bottom: 500em;
-    margin-bottom: -500em;
-    overflow: hidden;
 }
