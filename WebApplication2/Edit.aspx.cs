@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 
 namespace WebApplication2
 {
@@ -40,22 +41,111 @@ namespace WebApplication2
 
         protected void Button_Click_EditEmail(object sender, EventArgs e)
         {
-            Response.Redirect("Edit_Email.aspx");
+            m1.Visible = true;
         }
 
         protected void Button_Click_EditPhone(object sender, EventArgs e)
         {
-            Response.Redirect("Edit_Phone.aspx");
+            m2.Visible = true;
         }
 
         protected void Button_Click_EditPassword(object sender, EventArgs e)
         {
-            Response.Redirect("Edit_Password.aspx");
+            m3.Visible = true;
         }
 
         protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
+        }
+
+        protected void Button_Click_Back2(object sender, EventArgs e)
+        {
+            Response.Redirect("Edit.aspx");
+        }
+
+        protected void Button_Click_Update(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+
+
+                string updateInfocmd = "update UserInfo SET Email = @email where Email = '" + Session["Email"] + "'";
+                SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+                UpdateInfo.Parameters.AddWithValue("@email", new_email.Text);
+
+                UpdateInfo.ExecuteNonQuery();
+                Session["Email"] = new_email.Text;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessageHidden.Value = "Update Error:" + ex.ToString();
+            }
+        }
+
+        protected void Button_Click_Update2(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+
+
+                string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
+                SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+                UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
+
+                UpdateInfo.ExecuteNonQuery();
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessageHidden.Value = "Update Error:" + ex.ToString();
+            }
+        }
+
+        protected void Button_Click_Update3(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                conn.Open();
+
+                string checkUser = "Select count(*) from UserInfo where Email = '" + Session["Email"] + "' AND password = '" + old_password.Text + "'";
+                SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
+                int match = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+
+                if (match == 1)
+                {
+                    string updateInfocmd = "update UserInfo SET Password = @password where Email = '" + Session["Email"] + "'";
+                    SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+
+                    UpdateInfo.Parameters.AddWithValue("@password", new_password.Text);
+
+                    UpdateInfo.ExecuteNonQuery();
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+                }
+                else
+                {
+                    errorMessageHidden.Value = "Error: Old Password not match";
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                errorMessageHidden.Value = "Update Error:" + ex.ToString();
+            }
         }
     }
 }

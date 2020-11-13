@@ -95,7 +95,7 @@ namespace WebApplication2
         {
             if (Session["SelectPostId"] == null)
             {
-                LinkButton button = (LinkButton)sender;
+                ImageButton button = (ImageButton)sender;
                 var item = (ListViewItem)button.NamingContainer;
                 var label = (Label)item.FindControl("PostId");
                 var postId = label.Text;

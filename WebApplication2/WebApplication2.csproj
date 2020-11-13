@@ -78,6 +78,7 @@
     <Content Include="css\Chat.css" />
     <Content Include="css\ChatRoom.css" />
     <Content Include="css\CreateRoom.css" />
+    <Content Include="css\Edit.css" />
     <Content Include="css\home.css" />
     <Content Include="css\login.css" />
     <Content Include="css\login_layout.css" />

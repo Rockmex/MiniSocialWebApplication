@@ -130,10 +130,12 @@
                                 </div>
                             </td>
                             <td style="width: 50px">
-                                <div class="PB">
+                                <%--<div class="PB">
                                     <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>' />
+                                </div>--%>
+                                <div class="PB">
+                                    <asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" width=" 35px" heigth="35px" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
                                 </div>
-                                <%--<asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" width=" 35px" heigth="35px" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>--%>
                             </td>
                             <td style="width: 50px">
                                 <div class="PB">
