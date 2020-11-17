@@ -23,7 +23,7 @@ namespace WebApplication2
                     ShowUser();
                     ShowPost();
                     ShowFriends();
-                    ShowRooms();
+                    ShowDate();
                 }
             }
         }
@@ -435,10 +435,15 @@ namespace WebApplication2
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
-        
-
-
-
+        private void ShowDate()
+        {
+            Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+            Weekday.Text = DateTime.Now.ToString("dddd");
+        }
+        protected void Timer_Tick(object sender, EventArgs e)
+        {
+            Time.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
     }
 
 }

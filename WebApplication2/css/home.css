@@ -29,9 +29,18 @@
     width: 90%;
 }
 
-    #PostArea td {
-        padding: 2px;
-    }
+#PostArea td {
+    padding: 2px;
+}
+
+#Clock td{
+    padding: 2px;
+}
+
+.ClockArea {
+    width:100%;
+    background: gray;
+}
 
 .PB {
     margin-left: 50px;

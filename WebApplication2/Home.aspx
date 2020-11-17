@@ -174,16 +174,39 @@
         </div>
         <div class="right-menu">
             <table>
-                <tr>
-                    <td colspan="2">
-                        <h3>Current Time</h3>
+                 <tr>
+                    <td>
+                        <h3>You have ...</h3>
                     </td>
                 </tr>
                 <tr>
-                    <td>Clock </td>
+                    <td>
+                        <div class="ClockArea">
+                        <table id="Clock">
+                            <tr>
+                                <td colspan="2">
+                                    <h3>Current time is</h3> 
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                                    <asp:UpdatePanel ID="U1" runat="server">
+                                    <ContentTemplate>
+                                    <asp:Label ID="Time" runat="server" />
+                                    <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" /> 
+                                    </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><asp:Label ID="Date" runat="server"/></td>
+                                <td><asp:Label ID="Weekday" runat="server"/></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Adv </td>
+                    <td>
+                        <h3>Adv</h3> 
+                    </td>
                 </tr>
             </table>
         </div>
