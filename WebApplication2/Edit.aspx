@@ -38,7 +38,7 @@
                             var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
                             if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
                         </script>
-                          <div class="blackback">
+                          <div class="popup">
                             <div class="word">
                                 <div class ="menu">
                                 <table id="t02">
@@ -64,7 +64,7 @@
                             var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
                             if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
                         </script>
-                        <div class="blackback">
+                        <div class="popup">
                         <div class="word">
                              <div class ="menu">
                             <table id="t03">
@@ -90,7 +90,7 @@
                             var alertMsg = document.getElementById('ContentPlaceHolder1_errorMessageHidden');
                             if (alertMsg != null) if (alertMsg.value != "") alert(alertMsg.value);
                         </script>
-                      <div class="blackback">
+                      <div class="popup">
                         <div class="word">
                              <div class ="menu">
                                 <table id="t04">
@@ -112,5 +112,6 @@
                             </div>
                         </div>
                     </div>
-                </div>              
+                </div>  
+    <div runat="server" id="black" class="blackback" visible="false"/>
 </asp:Content>

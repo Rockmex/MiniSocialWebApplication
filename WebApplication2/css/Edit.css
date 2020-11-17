@@ -50,6 +50,14 @@ h3 {
     filter: alpha(opacity=80);
 }
 
+.popup {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    background-color: white;
+    z-index: 1002;
+}
+
 #old_email, #new_email, #old_phone, #new_phone, #old_password, #new_password {
     width: 251px;
     height: 32px;

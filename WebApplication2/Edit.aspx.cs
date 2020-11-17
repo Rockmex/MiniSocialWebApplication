@@ -42,16 +42,19 @@ namespace WebApplication2
         protected void Button_Click_EditEmail(object sender, EventArgs e)
         {
             m1.Visible = true;
+            black.Visible = true;
         }
 
         protected void Button_Click_EditPhone(object sender, EventArgs e)
         {
             m2.Visible = true;
+            black.Visible = true;
         }
 
         protected void Button_Click_EditPassword(object sender, EventArgs e)
         {
             m3.Visible = true;
+            black.Visible = true;
         }
 
         protected void Button_Click_Back(object sender, EventArgs e)
@@ -61,7 +64,11 @@ namespace WebApplication2
 
         protected void Button_Click_Back2(object sender, EventArgs e)
         {
-            Response.Redirect("Edit.aspx");
+            //Response.Redirect("Edit.aspx");
+            m1.Visible = false;
+            m2.Visible = false;
+            m3.Visible = false;
+            black.Visible = false;
         }
 
         protected void Button_Click_Update(object sender, EventArgs e)
