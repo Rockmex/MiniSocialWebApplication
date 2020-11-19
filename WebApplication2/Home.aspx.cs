@@ -24,6 +24,14 @@ namespace WebApplication2
                     ShowPost();
                     ShowFriends();
                     ShowDate();
+                    if (Count() == 0)
+                    {
+                        Label_display.Text = "No New Notifications";
+                    }
+                    else
+                    {
+                        Label_display.Text = Count() + " new notifications.";
+                    }
                 }
             }
         }
@@ -299,8 +307,7 @@ namespace WebApplication2
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
             conn.Open();
-
-            string searchCmd = "SELECT COUNT(*) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT COUNT(*) FROM ImageDB";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
             cmdCheck.ExecuteScalar();
             int found = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
@@ -308,7 +315,7 @@ namespace WebApplication2
 
 
             conn.Open();
-            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB WHERE UId = '" + Session["UID"] + "'";
+            string GenerateCmd = "SELECT MAX(ImageID) FROM ImageDB";
             SqlCommand GenerateCheck = new SqlCommand(GenerateCmd, conn);
 
             if (found == 0)
@@ -443,6 +450,15 @@ namespace WebApplication2
         protected void Timer_Tick(object sender, EventArgs e)
         {
             Time.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private int Count()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
     }
 
