@@ -24,7 +24,8 @@ namespace WebApplication2
                     ShowPost();
                     ShowFriends();
                     ShowDate();
-                    
+                    Label_display.Text = Count() + " new notifications.";
+
                 }
             }
         }
@@ -440,6 +441,15 @@ namespace WebApplication2
         protected void Timer_Tick(object sender, EventArgs e)
         {
             Time.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private int Count()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
     }

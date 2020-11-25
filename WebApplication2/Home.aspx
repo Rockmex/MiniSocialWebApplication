@@ -178,7 +178,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label_display" Text="XX Notifications" runat="server"></asp:Label></td>
+                        <asp:Label ID="Label_display" Text="No new Notifications" runat="server"></asp:Label></td>
                 </tr>
                 <tr>
                     <td>
