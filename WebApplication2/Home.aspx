@@ -178,18 +178,27 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:Label ID="Label_display" Text="XX Notifications" runat="server"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Current time is</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <div class="ClockArea">
                         <table id="Clock">
                             <tr>
                                 <td colspan="2">
-                                    <h3>Current time is</h3> 
                                     <asp:ScriptManager ID="ScriptManager1" runat="server" />
                                     <asp:UpdatePanel ID="U1" runat="server">
                                     <ContentTemplate>
-                                    <asp:Label ID="Time" runat="server" />
+                                    <h1><asp:Label ID="Time" runat="server" /></h1>
                                     <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" /> 
                                     </ContentTemplate>
                                     </asp:UpdatePanel>
+                                    
                                 </td>
                             </tr>
                             <tr>
