@@ -102,21 +102,21 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <asp:Image ID="Profile_Image" runat="server" Width="50px" Height="50px" />
-                                <%#Eval("Fname")%><%#Eval("Lname")%>
+                                <asp:Image ID="Profile_Image" runat="server" Width="50px" Height="50px" CssClass="image-personal" />
+                                <asp:Label id="name" CssClass="text-name" runat="server" text='<%#Eval("Fname") + "" + Eval("Lname")%>'></asp:Label>
                             </td>
                             <td>
-                                <asp:ImageButton ID="Delete_Button" runat="server" ImageUrl="~/img/delete.png" Width=" 35px" heigth="35px" OnCommand="Button_Click_Post_Delete" CommandArgument='<%# Eval("PostId") %>' /></td>
+                                <asp:ImageButton ID="Delete_Button" runat="server" ImageUrl="~/img/delete.png" Width=" 35px" heigth="35px" CssClass="button-deletePost" OnCommand="Button_Click_Post_Delete" CommandArgument='<%# Eval("PostId") %>' /></td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <%#Eval("content")%>
+                                <asp:Label ID="content" runat="server" Text='<%#Eval("content")%>' CssClass="text-content"></asp:Label>
                                 <!-- User Message Here -->
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3">
-                                <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' onerror="this.style.display='none'" Height="200px" Width="300px" />
+                                <asp:Image ID="Post_Image" runat="server" Width="300px" Height="200px" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' onerror="this.style.display='none'" CssClass="image-post" />
                             </td>
                         </tr>
                         <tr>
@@ -126,20 +126,17 @@
                         <tr>
                             <td style="width: 50px;">
                                 <div class="PB">
-                                    <asp:ImageButton ID="Like_Button" ImageUrl="~/img/like.png" Width=" 35px" heigth="35px" runat="server" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
-                                </div>
-                            </td>
-                            <td style="width: 50px">
-                                <%--<div class="PB">
-                                    <asp:LinkButton ID="CommentDisplay_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>' />
-                                </div>--%>
-                                <div class="PB">
-                                    <asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" width=" 35px" heigth="35px" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
+                                    <asp:ImageButton ID="Like_Button" ImageUrl="~/img/like.png" CssClass="button-lck" runat="server" OnCommand="Button_Click_Like" CommandArgument='<%# Eval("PostId") %>' />
                                 </div>
                             </td>
                             <td style="width: 50px">
                                 <div class="PB">
-                                    <asp:ImageButton ID="Share_Button" ImageUrl="~/img/share.png" Width=" 35px" heigth="35px" runat="server" Text="Share" OnCommand="Button_Click_Share" CommandArgument='<%# Eval("PostId") %>' />
+                                    <asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" CssClass="button-lck" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
+                                </div>
+                            </td>
+                            <td style="width: 50px">
+                                <div class="PB">
+                                    <asp:ImageButton ID="Share_Button" ImageUrl="~/img/share.png" CssClass="button-lck" runat="server" Text="Share" OnCommand="Button_Click_Share" CommandArgument='<%# Eval("PostId") %>' />
                                 </div>
                             </td>
                         </tr>

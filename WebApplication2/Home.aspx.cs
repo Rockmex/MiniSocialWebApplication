@@ -222,10 +222,10 @@ namespace WebApplication2
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             var table = (Panel)e.Item.FindControl("CommentArea");
             table.Visible = false;
+            string postId = ((Label)e.Item.FindControl("PostId")).Text;
             if (e.Item.ItemType == ListViewItemType.DataItem || e.Item.ItemType == ListViewItemType.InsertItem || e.Item.ItemType == ListViewItemType.EmptyItem)
             {
-                string postId = ((Label)e.Item.FindControl("PostId")).Text;
-
+               
                 string temp = "";
 
                 if (Session["SelectPostId"] != null)
@@ -260,7 +260,7 @@ namespace WebApplication2
             var Profile_Image = (Image)e.Item.FindControl("Profile_Image");
 
             conn.Open();
-            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = '" + Session["UID"] + "'";
+            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = (SELECT SenderId FROM Post WHERE postId = '" + postId + "')";
             SqlCommand com = new SqlCommand(searchCmd, conn);
             com.ExecuteScalar();
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
@@ -286,9 +286,6 @@ namespace WebApplication2
                 cmdImg.Parameters.AddWithValue("@Name", SqlDbType.VarChar).Value = "img1";
                 cmdImg.Parameters.AddWithValue("@Image", SqlDbType.Image).Value = imgarray;
                 cmdImg.ExecuteNonQuery();
-                /*Label1.Visible = true;
-                Label1.Text = "Image Is Uploaded successfully";
-                imagebindGrid();*/
                 conn.Close();
             }
             return Imgid;
@@ -444,6 +441,7 @@ namespace WebApplication2
         {
             Time.Text = DateTime.Now.ToString("HH:mm:ss");
         }
+
     }
 
 }
