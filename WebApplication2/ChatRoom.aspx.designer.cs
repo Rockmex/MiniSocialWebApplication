@@ -7,13 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class ChatRoom1
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class ChatRoom1 {
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// Timer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.Timer Timer;
+        
         /// <summary>
         /// label_name control.
         /// </summary>
@@ -22,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_name;
-
+        
         /// <summary>
         /// datalist1 control.
         /// </summary>
@@ -31,7 +56,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList datalist1;
-
+        
         /// <summary>
         /// MessageBox control.
         /// </summary>
@@ -40,7 +65,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox MessageBox;
-
+        
         /// <summary>
         /// Button_Send control.
         /// </summary>
@@ -49,7 +74,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Send;
-
+        
         /// <summary>
         /// Label_MemberList control.
         /// </summary>
@@ -58,7 +83,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_MemberList;
-
+        
         /// <summary>
         /// Gridview_MemberList control.
         /// </summary>
@@ -67,7 +92,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Gridview_MemberList;
-
+        
         /// <summary>
         /// Button_Add_New_Member control.
         /// </summary>
@@ -76,7 +101,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Add_New_Member;
-
+        
         /// <summary>
         /// Button_Drop_Room control.
         /// </summary>

@@ -101,5 +101,10 @@ namespace WebApplication2
             return name;
         }
 
+        protected void Timer_Tick(object sender, EventArgs e)
+        {
+            ShowResult();
+        }
+
     }
 }

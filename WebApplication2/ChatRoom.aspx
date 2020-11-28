@@ -6,6 +6,10 @@
      <div class="Form1">
         <div class="chatbox">
             <asp:Panel CssClass="panel" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+               <asp:updatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                <asp:Timer ID="Timer" runat="server" Interval="5000" OnTick="Timer_Tick"/>
                 <h2><asp:Label runat="server" ID="label_name"></asp:Label></h2>
                 <div class="pre-scrollable datalist">
                     <asp:DataList ID="datalist1" runat="server" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" RepeatLayout="Table">
@@ -22,6 +26,8 @@
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
+              </ContentTemplate>
+             </asp:updatePanel>
             </asp:Panel>
             <div class="chat-textbox">
                 <table>
