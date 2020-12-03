@@ -4,11 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="Form1">
-        <div class="friendlist">
+        <div class="left-menu">
             <table>
                 <tr>
                     <td colspan="2">
-                        <h3>Friends</h3>
+                        <h2>Friends</h2>
                     </td>
                 </tr>
                 <tr>
@@ -19,7 +19,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="zoom">
-                                            <asp:LinkButton ID="Profile_Image2" runat="server" CssClass="hb" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Button_Click_View">
+                                            <asp:LinkButton ID="Profile_Image2" runat="server" CssClass="left-hb" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Left_Button_Click_View">
                                                         <table id="t01">
                                                             <tr>
                                                                 <td><asp:Image runat="server" width="50px" height="50px" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' /></td>
@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <h3>ChatRooms</h3>
+                        <h2>ChatRooms</h2>
                     </td>
                 </tr>
                 <tr>
@@ -47,7 +47,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="zoom">
-                                            <asp:LinkButton ID="Profile_Image3" runat="server" CssClass="hb" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Button_Click_View">
+                                            <asp:LinkButton ID="Profile_Image3" runat="server" CssClass="left-hb" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Left_Button_Click_View">
                                                         <table id="t01">
                                                             <tr>
                                                                 <td><asp:Image runat="server" width="50px" height="50px" ImageUrl="~/img/I2.png" /></td>
@@ -173,7 +173,7 @@
             <table>
                  <tr>
                     <td>
-                        <h3>You have ...</h3>
+                        <h2>You have ...</h2>
                     </td>
                 </tr>
                 <tr>
@@ -182,7 +182,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <h3>Current time is</h3>
+                        <h2>Current time is</h2>
                     </td>
                 </tr>
                 <tr>
@@ -211,7 +211,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <h3>Adv</h3> 
+                        <h2>Adv</h2> 
                     </td>
                 </tr>
             </table>

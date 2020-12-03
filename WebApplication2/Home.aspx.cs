@@ -22,7 +22,8 @@ namespace WebApplication2
                 {
                     ShowUser();
                     ShowPost();
-                    ShowFriends();
+                    Left_ShowFriends();
+                    Left_ShowRooms();
                     ShowDate();
                     Label_display.Text = Count() + " new notifications.";
 
@@ -367,7 +368,7 @@ namespace WebApplication2
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
-        private void ShowFriends()
+        private void Left_ShowFriends()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -379,7 +380,7 @@ namespace WebApplication2
             GridView_Friends.DataBind();
         }
 
-        private void ShowRooms()
+        private void Left_ShowRooms()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
@@ -404,7 +405,7 @@ namespace WebApplication2
             conn.Close();
         }
 
-        protected void Button_Click_View(object sender, CommandEventArgs e)
+        protected void Left_Button_Click_View(object sender, CommandEventArgs e)
         {
             if (e.CommandArgument != null)
             {

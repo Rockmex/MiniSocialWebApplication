@@ -6,7 +6,7 @@
 /*================================================Fixed==================================*/
 .Form1 {
     position: relative;
-    top: 25px;
+    top: 1px;
     left: 0;
     bottom: 100px;
     width: 100%;
@@ -248,12 +248,65 @@ h3{
     transition: transform .3s;
 }
 
-    .zoom:hover {
+.zoom:hover {
         transform: scale(1.1);
-    }
+}
 
 .hb {
     color: black;
     text-align: center;
     text-decoration: none;
+}
+
+/*===============================global =================================*/
+
+.left-menu {
+    position: absolute;
+    width: 250px;
+    /*top: 15%;*/
+    background-color: #ec1da4e6;
+    padding-left: 10px;
+    height: 100%;
+    padding-bottom: 500em;
+    margin-bottom: -500em;
+    overflow: hidden;
+}
+
+.left-hb {
+    background-color: #333;
+    color: white;
+    width: 240px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#t01 td {
+    padding: 10px;
+}
+
+.zoom {
+    transition: transform .3s;
+    margin: 0 auto;
+}
+
+    .zoom:hover {
+        transform: scale(1.5);
+    }
+
+h2 {
+    border-bottom: double;
+}
+
+.right-menu {
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    /*top: 15%;*/
+    right: 0%;
+    background-color: #ec1da4e6;
+    padding-right: 10px;
+    padding-bottom: 500em;
+    margin-bottom: -500em;
+    overflow: hidden;
 }

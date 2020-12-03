@@ -33,23 +33,43 @@
     padding: 2px;
 }
 
-#Clock td{
-    padding: 2px;
-}
-
-.ClockArea {
-    width:100%;
-    background: gray;
-}
-
 .PB {
     margin-left: 50px;
+}
+
+.image-post {
+    padding-left: 20%;
+}
+
+.image-personal {
+    border-radius: 25px;
+}
+
+.text-content {
+    font-family: Brandish;
+    padding-left: 5px;
+}
+
+.text-name {
+    padding-left: 10px;
+    -webkit-text-stroke: medium;
+}
+
+.button-deletePost {
+    float: right;
+    width: 35px;
+    padding-right: 20px;
+}
+
+.button-lck {
+    height: 25px;
+    width: 25px;
 }
 
 
 /*===============================global =================================*/
 
-.hidden {
+/*.hidden {
     display: none;
 }
 
@@ -58,15 +78,15 @@
     width: 50px;
     height: auto;
     display: inline-block;
-}
+}*/
 
-.SimgClass {
+/*.SimgClass {
     width: 25px;
     height: 25px;
     padding: 2px;
-}
+}*/
 
-.friendlist {
+.left-menu {
     position: absolute;
     width: 250px;
     /*top: 15%;*/
@@ -78,7 +98,7 @@
     overflow: hidden;
 }
 
-.hb {
+.left-hb {
     background-color: #333;
     color: white;
     width: 240px;
@@ -96,11 +116,11 @@
     margin: 0 auto;
 }
 
-    .zoom:hover {
-        transform: scale(1.5);
-    }
+.zoom:hover {
+    transform: scale(1.5);
+}
 
-h3 {
+h2 {
     border-bottom: double;
 }
 
@@ -117,31 +137,13 @@ h3 {
     overflow: hidden;
 }
 
-.image-post {
-    padding-left: 20%;
+#Clock td {
+    padding: 2px;
 }
 
-.image-personal {
-    border-radius:25px;
+.ClockArea {
+    width: 100%;
+    background: gray;
 }
 
-.text-content{
-    font-family:Brandish;
-    padding-left:5px;
-}
 
-.text-name {
-    padding-left: 10px;
-    -webkit-text-stroke: medium;
-}
-
-.button-deletePost {
-    float: right;
-    width: 35px;
-    padding-right: 20px;
-}
-
-.button-lck{
-    height:25px;
-    width: 25px;
-}

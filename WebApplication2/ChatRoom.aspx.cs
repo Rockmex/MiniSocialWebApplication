@@ -34,6 +34,11 @@ namespace WebApplication2
                         ShowResult();
                         ShowMember();
                         label_name.Text = getRoomName();
+
+                        Left_ShowFriends();
+                        Left_ShowRooms();
+                        ShowDate();
+                        Label_display.Text = Left_Count() + " new notifications.";
                     }
                 }
             }
@@ -232,6 +237,94 @@ namespace WebApplication2
         protected void Timer_Tick(object sender, EventArgs e)
         {
             ShowResult();
+        }
+
+/* ===========================================================Left right menu Part=============================================================*/
+
+        private void Left_ShowFriends()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT FriendRelationship.User2_Id, Fname, Lname, ImageID FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            GridView_Friends.DataSource = dataTable;
+            GridView_Friends.DataBind();
+        }
+
+        private void Left_ShowRooms()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT IDwithChar, RoomName FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            Gridview_RoomList.DataSource = dataTable;
+            Gridview_RoomList.DataBind();
+        }
+
+        private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            var Profile_Image = (Image)e.Item.FindControl("Profile_Image2");
+            conn.Open();
+            string searchCmd = "SELECT imageID FROM UserInfo WHERE UID = '" + Session["UID"] + "'";
+            SqlCommand com = new SqlCommand(searchCmd, conn);
+            com.ExecuteScalar();
+            int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
+            Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
+        }
+
+        protected void Left_Button_Click_View(object sender, CommandEventArgs e)
+        {
+            if (e.CommandArgument != null)
+            {
+                Session["FID"] = e.CommandArgument;
+                string id = Session["FID"].ToString();
+                if (id.Length <= 3)
+                {
+                    Response.Redirect("Chat.aspx");
+                }
+                else
+                {
+                    Session["RoomId"] = e.CommandArgument;
+                    Session["RID"] = ShowRoomId(Session["RoomId"]);
+                    Response.Redirect("ChatRoom.aspx");
+                }
+
+            }
+        }
+
+        private int ShowRoomId(object idwithchar)
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+        }
+
+        private void ShowDate()
+        {
+            Date.Text = DateTime.Now.ToString("MMM dd yyyy");
+            Weekday.Text = DateTime.Now.ToString("dddd");
+        }
+
+        protected void Timer_Tick2(object sender, EventArgs e)
+        {
+            Time.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private int Left_Count()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
+            SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
 

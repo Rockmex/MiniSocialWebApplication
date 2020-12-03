@@ -3,7 +3,69 @@
     <link href="css/personal_layout.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="Form1">
+   <div class="Form1">
+       <div class="left-menu">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h2>Friends</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False" GridLines="None" OnItemDataBound="ShowFriendsImg">
+                            <Columns>
+                                <%--<asp:BoundField DataField="User2_Id" visible="False"/>--%>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <div class="zoom">
+                                            <asp:LinkButton ID="Profile_Image2" runat="server" CssClass="left-hb" CommandArgument='<%# Eval("User2_Id") %>' OnCommand="Left_Button_Click_View">
+                                                        <table id="t01">
+                                                            <tr>
+                                                                <td><asp:Image runat="server" width="50px" height="50px" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' /></td>
+                                                                <td><%#Eval("Fname")%><%#Eval("Lname")%></td>
+                                                            </tr>
+                                                        </table>
+                                            </asp:LinkButton>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <h2>ChatRooms</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:GridView ID="Gridview1" runat="server" AutoGenerateColumns="False" GridLines="None">
+                            <Columns>
+                                <asp:BoundField DataField="IDwithChar" Visible="False" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <div class="zoom">
+                                            <asp:LinkButton ID="Profile_Image3" runat="server" CssClass="left-hb" CommandArgument='<%# Eval("IDwithChar") %>' OnCommand="Left_Button_Click_View">
+                                                        <table id="t01">
+                                                            <tr>
+                                                                <td><asp:Image runat="server" width="50px" height="50px" ImageUrl="~/img/I2.png" /></td>
+                                                                <td><%#Eval("RoomName")%></td>
+                                                            </tr>
+                                                        </table>   
+                                            </asp:LinkButton>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="RoomName" Visible="False" />
+                                <asp:TemplateField></asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </td>
+                </tr>
+            </table>
+        </div>
    <div class="personal">
     <table id="m1">
       <tr>
@@ -108,9 +170,9 @@
                 <tr>
                     <td colspan="2" class="td_center"><asp:Label ID="Label_RoomList" Text="Chart Room List" runat="server" ></asp:Label></td>
                 </tr>      
-                <tr>
+                <%--<tr>
                     <td colspan="2" class="td_center"><asp:Label ID="Label_NoRoomList" Text="No Chart Room Yet." runat="server" ></asp:Label></td>
-                </tr>
+                </tr>--%>
                </table>
                <asp:GridView ID="Gridview_RoomList" runat="server" AutoGenerateColumns="False">
                 <Columns>
@@ -131,9 +193,9 @@
                 <tr>
                     <td colspan="2" class="td_center"><asp:Label ID="Label_FriendList" Text="Friend List" runat="server" ></asp:Label></td>
                 </tr>      
-                <tr>
+                <%--<tr>
                     <td colspan="2" class="td_center"><asp:Label ID="Label_NoFriend" Text="No Friend Yet." runat="server" ></asp:Label></td>
-                </tr>
+                </tr>--%>
             </table>
             <asp:GridView ID="Gridview_FriendList" runat="server" AutoGenerateColumns="False">
                 <Columns>
@@ -160,6 +222,53 @@
       </tr>
     </table>
  </div>
+ <div class="right-menu">
+            <table>
+                 <tr>
+                    <td>
+                        <h2>You have ...</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:Label ID="Label1" Text="No new Notifications" runat="server"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Current time is</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="ClockArea">
+                        <table id="Clock">
+                            <tr>
+                                <td colspan="2">
+                                    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                                    <asp:UpdatePanel ID="U1" runat="server">
+                                    <ContentTemplate>
+                                    <h1><asp:Label ID="Time" runat="server" /></h1>
+                                    <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" /> 
+                                    </ContentTemplate>
+                                    </asp:UpdatePanel>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><asp:Label ID="Date" runat="server"/></td>
+                                <td><asp:Label ID="Weekday" runat="server"/></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>Adv</h2> 
+                    </td>
+                </tr>
+            </table>
+        </div>
 </div>
 
 </asp:Content>
