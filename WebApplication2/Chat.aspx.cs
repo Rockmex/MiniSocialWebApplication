@@ -92,8 +92,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private string GetFriendName()
@@ -180,8 +181,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int id = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return id;
         }
 
         private void ShowDate()
@@ -201,8 +203,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
     }

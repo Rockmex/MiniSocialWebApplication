@@ -170,8 +170,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT Count(*) FROM ChatLog WHERE ReceiverId = '" + Session["RoomId"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
 
@@ -184,8 +185,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT Count(*) FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "' AND MemberId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count  =Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private string getRoomName()
@@ -194,8 +196,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomName FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            string name = cmdCheck.ExecuteScalar().ToString();
             conn.Close();
-            return cmdCheck.ExecuteScalar().ToString();
+            return name;
         }
 
         private bool isCreator()
@@ -310,8 +313,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int id = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return id;
         }
 
         private void ShowDate()
@@ -331,8 +335,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count =  Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
 

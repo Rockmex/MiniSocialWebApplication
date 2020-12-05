@@ -181,8 +181,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT MAX (RoomId) FROM ChatRoom";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int max = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return max;
         }
 
         private void ShowFriends()
@@ -218,8 +219,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND status = 1";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
     }
 }

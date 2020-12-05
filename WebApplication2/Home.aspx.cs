@@ -317,8 +317,9 @@ namespace WebApplication2
             }
             else
             {
+                int max = Convert.ToInt32(GenerateCheck.ExecuteScalar());
                 conn.Close();
-                return Convert.ToInt32(GenerateCheck.ExecuteScalar());
+                return max;
             }
 
         }
@@ -369,8 +370,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT COUNT(*) FROM CheckLike WHERE PostId = '" + Session["PostId"] + "' AND UID = '" + Session["UID"] + "' ";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private void Left_ShowFriends()
@@ -438,8 +440,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int id = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return id;
         }
 
         private void ShowDate()
@@ -458,8 +461,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
     }

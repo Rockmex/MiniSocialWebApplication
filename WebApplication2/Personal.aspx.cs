@@ -171,8 +171,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count  = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private void DeleteLog()
@@ -221,8 +222,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private int CountFriends()
@@ -231,8 +233,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND status = 1";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int count = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return count;
         }
 
         private int ShowRoomId(object idwithchar)
@@ -241,8 +244,9 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            int id  = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
             conn.Close();
-            return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            return id;
         }
 
         private void Imgupload() //Added refresh page.
