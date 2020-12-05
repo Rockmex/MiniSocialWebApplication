@@ -310,3 +310,12 @@ h2 {
     margin-bottom: -500em;
     overflow: hidden;
 }
+
+#Clock td {
+    padding: 2px;
+}
+
+.ClockArea {
+    width: 100%;
+    background: gray;
+}

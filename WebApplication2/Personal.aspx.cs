@@ -65,7 +65,7 @@ namespace WebApplication2
                     Left_ShowFriends();
                     Left_ShowRooms();
                     ShowDate();
-                    Label_display.Text = Count() + " new notifications.";
+                    Label1.Text = Count() + " new notifications.";
                 }
             }
         }
