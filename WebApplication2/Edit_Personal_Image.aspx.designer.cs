@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class Edit_Personal_Image
-    {
-
+namespace WebApplication2 {
+    
+    
+    public partial class Edit_Personal_Image {
+        
         /// <summary>
         /// label_OldImg control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_OldImg;
-
+        
         /// <summary>
         /// Profile_Image control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Profile_Image;
-
+        
         /// <summary>
         /// label_NewImg control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_NewImg;
-
+        
         /// <summary>
         /// ImgUpload control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
-
+        
         /// <summary>
         /// Button_Update control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace WebApplication2
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button_Update;
-
+        
         /// <summary>
         /// Button_Back control.
         /// </summary>
