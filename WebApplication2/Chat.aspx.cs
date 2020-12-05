@@ -12,8 +12,6 @@ namespace WebApplication2
 {
     public partial class ChatTest : System.Web.UI.Page
     {
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["Email"] == null)
@@ -82,6 +80,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             datalist1.DataSource = dataTable;
             datalist1.DataBind();
+            conn.Close();
         }
 
         /*
@@ -93,8 +92,8 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM ChatLog WHERE SenderId = '" + Session["UID"] + "' AND ReceiverId = '" + Session["FID"] + "' OR SenderId = '" + Session["FID"] + "' AND ReceiverId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
-
         }
 
         private string GetFriendName()
@@ -104,6 +103,7 @@ namespace WebApplication2
             string checkUser = "Select Fname from UserInfo where UID = '" + Session["FID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
             string name = cmdCheck.ExecuteScalar().ToString();
+            conn.Close();
             return name;
         }
 
@@ -125,6 +125,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_Friends.DataSource = dataTable;
             GridView_Friends.DataBind();
+            conn.Close();
         }
 
         private void Left_ShowRooms()
@@ -137,6 +138,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_RoomList.DataSource = dataTable;
             Gridview_RoomList.DataBind();
+            conn.Close();
         }
 
         private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
@@ -178,6 +180,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -198,6 +201,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 

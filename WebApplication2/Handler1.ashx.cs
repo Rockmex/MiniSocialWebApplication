@@ -30,6 +30,7 @@ namespace WebApplication2
                 dr.Read();
                 context.Response.BinaryWrite((byte[])dr[0]);
                 context.Response.End();
+                conn.Close();
             }
         }
 

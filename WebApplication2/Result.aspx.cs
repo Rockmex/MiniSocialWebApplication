@@ -70,6 +70,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM UserInfo WHERE Fname LIKE'" + Session["Result"] + "%' OR Lname LIKE'" + Session["Result"] + "%'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
 
         }

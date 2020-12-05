@@ -59,6 +59,7 @@ namespace WebApplication2
             string checkUser = "Select UID from UserInfo where Email = '" + email.Text + "'";
             SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
             int id = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+            conn.Close();
             return id;
         }
     }

@@ -162,6 +162,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_FriendNotification.DataSource = dataTable;
             GridView_FriendNotification.DataBind();
+            conn.Close();
         }
 
         private int Count()
@@ -170,6 +171,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -197,6 +199,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             listview_friendlist.DataSource = dataTable;
             listview_friendlist.DataBind();
+            conn.Close();
         }
 
         private void ShowRooms()
@@ -209,6 +212,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             listview_ChatRoom.DataSource = dataTable;
             listview_ChatRoom.DataBind();
+            conn.Close();
         }
 
         private int CountRooms()
@@ -217,6 +221,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -226,6 +231,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM FriendRelationship WHERE User1_Id = '" + Session["UID"] + "' AND status = 1";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -235,6 +241,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -280,10 +287,12 @@ namespace WebApplication2
 
             if (found == 0)
             {
+                conn.Close();
                 return 0;
             }
             else
             {
+                conn.Close();
                 return Convert.ToInt32(GenerateCheck.ExecuteScalar());
             }
 
@@ -297,6 +306,7 @@ namespace WebApplication2
             SqlDataReader dr = com.ExecuteReader();
             Datalist_Images.DataSource = dr;
             Datalist_Images.DataBind();
+            conn.Close();
         }
         public void DisplayPersonalImg()
         {
@@ -307,6 +317,7 @@ namespace WebApplication2
             com.ExecuteScalar();
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
             Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
         }
 
         protected void Button_Click_Redirect_MorePic(object sender, EventArgs e)
@@ -331,8 +342,9 @@ namespace WebApplication2
             }
             else
             {
-                Response.Write("Error: Unable to get User info");
+                Response.Write("Error: Unable to get User info");       //???
             }
+            conn.Close();
         }
 
         /* =======================================================Left right menu Part========================================================*/
@@ -346,6 +358,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_Friends.DataSource = dataTable;
             GridView_Friends.DataBind();
+            conn.Close();
         }
 
         private void Left_ShowRooms()
@@ -358,6 +371,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_RoomList.DataSource = dataTable;
             Gridview_RoomList.DataBind();
+            conn.Close();
         }
 
         private void ShowFriendsImg(object sender, ListViewItemEventArgs e)

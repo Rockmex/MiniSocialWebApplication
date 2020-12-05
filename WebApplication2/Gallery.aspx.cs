@@ -35,6 +35,7 @@ namespace WebApplication2
             SqlDataReader dr = com.ExecuteReader();
             Datalist_Images.DataSource = dr;
             Datalist_Images.DataBind();
+            conn.Close();
         }
 
 

@@ -148,6 +148,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             datalist1.DataSource = dataTable;
             datalist1.DataBind();
+            conn.Close();
         }
 
         private void ShowMember()
@@ -160,6 +161,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_MemberList.DataSource = dataTable;
             Gridview_MemberList.DataBind();
+            conn.Close();
         }
 
         private int Count()
@@ -168,8 +170,8 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT Count(*) FROM ChatLog WHERE ReceiverId = '" + Session["RoomId"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
-
         }
 
 
@@ -182,8 +184,8 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT Count(*) FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "' AND MemberId = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
-
         }
 
         private string getRoomName()
@@ -192,6 +194,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomName FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return cmdCheck.ExecuteScalar().ToString();
         }
 
@@ -200,7 +203,6 @@ namespace WebApplication2
             bool isCreator = false;
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            //Missing RID. FIX IT!!!!
             string query = "SELECT isCreator FROM ChatRoom WHERE MemberId = '" + Session["UID"] + "' AND IDwithChar = '" + Session["RoomId"] + "'";
             SqlCommand queryCommand = new SqlCommand(query, conn);
             var senderID = Convert.ToInt32(queryCommand.ExecuteScalar().ToString());
@@ -212,6 +214,7 @@ namespace WebApplication2
             {
                 isCreator = true;
             }
+            conn.Close();
             return isCreator;
         }
 
@@ -231,6 +234,7 @@ namespace WebApplication2
             {
                 isSender = true;
             }
+            conn.Close();
             return isSender;
         }
 
@@ -251,6 +255,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_Friends.DataSource = dataTable;
             GridView_Friends.DataBind();
+            conn.Close();
         }
 
         private void Left_ShowRooms()
@@ -263,6 +268,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_RoomList.DataSource = dataTable;
             Gridview_RoomList.DataBind();
+            conn.Close();
         }
 
         private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
@@ -304,6 +310,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -324,6 +331,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 

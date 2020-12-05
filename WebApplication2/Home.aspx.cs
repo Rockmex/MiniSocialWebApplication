@@ -186,7 +186,7 @@ namespace WebApplication2
             var item = (ListViewItem)button.NamingContainer;
             var label = (Label)item.FindControl("PostId");
 
-            Response.Write(label.Text);
+            Response.Write(label.Text);     //??
         }
 
         private void ShowUser()
@@ -312,10 +312,12 @@ namespace WebApplication2
 
             if (found == 0)
             {
+                conn.Close();
                 return 0;
             }
             else
             {
+                conn.Close();
                 return Convert.ToInt32(GenerateCheck.ExecuteScalar());
             }
 
@@ -337,6 +339,7 @@ namespace WebApplication2
             {
                 isCommentor = true;
             }
+            conn.Close();
             return isCommentor;
         }
 
@@ -356,6 +359,7 @@ namespace WebApplication2
             {
                 isPoster = true;
             }
+            conn.Close();
             return isPoster;
         }
 
@@ -365,6 +369,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT COUNT(*) FROM CheckLike WHERE PostId = '" + Session["PostId"] + "' AND UID = '" + Session["UID"] + "' ";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -378,6 +383,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_Friends.DataSource = dataTable;
             GridView_Friends.DataBind();
+            conn.Close();
         }
 
         private void Left_ShowRooms()
@@ -390,6 +396,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_RoomList.DataSource = dataTable;
             Gridview_RoomList.DataBind();
+            conn.Close();
         }
 
         private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
@@ -431,6 +438,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -450,6 +458,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 

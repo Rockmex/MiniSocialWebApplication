@@ -112,7 +112,7 @@ namespace WebApplication2
 
             Response.Redirect("Friends.aspx");
 
-            Response.Write("Request send");
+            Response.Write("Request send");  //???
         }
 
         protected void Button_Click_Cancel(object sender, EventArgs e)
@@ -244,6 +244,7 @@ namespace WebApplication2
             com.ExecuteScalar();
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
             Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
         }
 
         public void DisplayInfo()
@@ -265,6 +266,7 @@ namespace WebApplication2
             {
                 Response.Write("Error: Unable to get User info");
             }
+            conn.Close();
         }
 
         /* =======================================================Left right menu Part========================================================*/
@@ -278,6 +280,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             GridView_Friends.DataSource = dataTable;
             GridView_Friends.DataBind();
+            conn.Close();
         }
 
         private void Left_ShowRooms()
@@ -290,6 +293,7 @@ namespace WebApplication2
             dataAdapter.Fill(dataTable);
             Gridview_RoomList.DataSource = dataTable;
             Gridview_RoomList.DataBind();
+            conn.Close();
         }
 
         private void ShowFriendsImg(object sender, ListViewItemEventArgs e)
@@ -331,6 +335,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT RoomId FROM ChatRoom WHERE IDwithChar = '" + idwithchar + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
@@ -340,6 +345,7 @@ namespace WebApplication2
             conn.Open();
             string searchCmd = "SELECT count(*) FROM EventLog WHERE FID = '" + Session["UID"] + "'";
             SqlCommand cmdCheck = new SqlCommand(searchCmd, conn);
+            conn.Close();
             return Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
         }
 
