@@ -137,6 +137,7 @@
             <td>
                 <div class="validator">
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="repassword" ErrorMessage="*" ForeColor="Red"/>
+                    <asp:CompareValidator runat="server" ControlToCompare="password" ControlToValidate="Repassword" ErrorMessage="Password is not match" ForeColor="Red"/>
                 </div>
             </td>
         </tr>

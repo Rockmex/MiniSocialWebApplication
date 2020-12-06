@@ -77,15 +77,18 @@ namespace WebApplication2
                         Button_Block.Visible = false;
                         Button_Unblock.Visible = true;
                         Button_Message.Visible = false;
-                    }
-
-                    /* Left right menu Part*/
-                    Left_ShowFriends();
-                    Left_ShowRooms();
-                    ShowDate();
-                    Label_display.Text = Count() + " new notifications.";
+                    }                
                 }
+                /* Chat Room List Part*/
+                ShowRooms();
+
+                /* Left right menu Part*/
+                Left_ShowFriends();
+                Left_ShowRooms();
+                ShowDate();
+                Label1.Text = Count() + " new notifications.";
                 conn.Close();
+
             }
         }
 
@@ -269,6 +272,19 @@ namespace WebApplication2
             conn.Close();
         }
 
+        private void ShowRooms()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            conn.Open();
+            string searchCmd = "SELECT IDwithChar, RoomName FROM ChatRoom WHERE MemberId = '" + Session["FID"] + "'";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            Gridview_RoomList.DataSource = dataTable;
+            Gridview_RoomList.DataBind();
+            conn.Close();
+        }
+
         /* =======================================================Left right menu Part========================================================*/
         private void Left_ShowFriends()
         {
@@ -291,8 +307,8 @@ namespace WebApplication2
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
-            Gridview_RoomList.DataSource = dataTable;
-            Gridview_RoomList.DataBind();
+            Gridview1.DataSource = dataTable;
+            Gridview1.DataBind();
             conn.Close();
         }
 
@@ -322,14 +338,14 @@ namespace WebApplication2
                 else
                 {
                     Session["RoomId"] = e.CommandArgument;
-                    Session["RID"] = ShowRoomId(Session["RoomId"]);
+                    Session["RID"] = Left_ShowRoomId(Session["RoomId"]);
                     Response.Redirect("ChatRoom.aspx");
                 }
 
             }
         }
 
-        private int ShowRoomId(object idwithchar)
+        private int Left_ShowRoomId(object idwithchar)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
