@@ -46,17 +46,24 @@ namespace WebApplication2
 
         protected void Button_Click_Send(object sender, EventArgs e)
         {
-            using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+            if (string.IsNullOrEmpty(MessageBox.Text))
             {
-                conn.Open();
-                string insertQuery = "insert into ChatLog (SenderId, Message, ReceiverId,Time) values ('" + Session["UID"] + "', @Msg,'" + Session["RoomId"] + "', getdate())";
-                SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
-                cmdInsert.Parameters.AddWithValue("@Msg", MessageBox.Text);
-                cmdInsert.ExecuteNonQuery();
-                conn.Close();
+                Response.Redirect("ChatRoom.aspx");
             }
+            else
+            {
+                using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
+                {
+                    conn.Open();
+                    string insertQuery = "insert into ChatLog (SenderId, Message, ReceiverId,Time) values ('" + Session["UID"] + "', @Msg,'" + Session["RoomId"] + "', getdate())";
+                    SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
+                    cmdInsert.Parameters.AddWithValue("@Msg", MessageBox.Text);
+                    cmdInsert.ExecuteNonQuery();
+                    conn.Close();
+                }
 
-            Response.Redirect("ChatRoom.aspx");
+                Response.Redirect("ChatRoom.aspx");
+            }
         }
 
         protected void Button_Click_Delete(object sender, CommandEventArgs e)
@@ -97,6 +104,11 @@ namespace WebApplication2
                 cmdDelete.ExecuteNonQuery();
                 conn.Close();
             }
+            else
+            {
+                Response.Redirect("ChatRoom.aspx");
+            }
+            Response.Redirect("ChatRoom.aspx");
         }
 
         protected void Button_Click_AddNewMember(object sender, EventArgs e)

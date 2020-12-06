@@ -334,13 +334,14 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string getInfoCmd = "select [Fname],[DOB],[Email],[Tel] from UserInfo where Email = '" + Session["Email"] + "'";
+            string getInfoCmd = "select [Fname],[Lname],[DOB],[Email],[Tel] from UserInfo where Email = '" + Session["Email"] + "'";
             SqlCommand getInfo = new SqlCommand(getInfoCmd, conn);
             SqlDataReader reader = getInfo.ExecuteReader();
 
             if (reader.Read())
             {
-                Label_ShowName.Text = reader["Fname"].ToString();
+                Label_ShowFName.Text = reader["Fname"].ToString();
+                Label_ShowLName.Text = reader["Lname"].ToString();
                 Label_ShowDOB.Text = reader["DOB"].ToString();
                 Label_ShowEmail.Text = reader["Email"].ToString();
                 Label_ShowPhone.Text = reader["Tel"].ToString();

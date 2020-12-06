@@ -6,7 +6,17 @@ namespace WebApplication2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                if (Session["Email"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
 
+                }
+            }
         }
     }
 }

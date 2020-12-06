@@ -88,7 +88,7 @@
                         <ItemTemplate>
                             <div class="listItem" >
                                 <asp:Image ID="Image" runat="server" CssClass="image zoom" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>'/>
-                                <asp:Button runat="server" CssClass="button" Text="Delete"></asp:Button>
+                                <asp:Button runat="server" CssClass="button" Text="Delete" CommandArgument='<%# Eval("ImageID") %>'/>
                             </div>
                         </ItemTemplate>
                     </asp:DataList>

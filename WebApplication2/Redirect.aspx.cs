@@ -65,43 +65,51 @@ namespace WebApplication2
 
         protected void Button_Click_CreatRoom(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-
-            var Rid = Generate_Rid() + 1;
-
-            conn.Open();
-            /*      If isCreator is 0, it mean current user is submember. 1 refer current user is creator      */
-            string AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,'" + Session["UID"] + "',1)";
-            SqlCommand cmdInsert = new SqlCommand(AddRoom, conn);
-            cmdInsert.Parameters.AddWithValue("Rid", Rid);
-            cmdInsert.Parameters.AddWithValue("Rname", rname.Text);
-
-            cmdInsert.ExecuteNonQuery();
-
-            conn.Close();
-
-            foreach (GridViewRow gvrow in GridView_ChatRoom.Rows)
+            if (string.IsNullOrEmpty(rname.Text))
             {
-                var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
-                if (checkbox.Checked)
-                {
-                    var FID = gvrow.FindControl("Label_UID") as Label;
-
-
-                    conn.Open();
-                    AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,@Fid,0)";
-                    SqlCommand cmdInsert_2 = new SqlCommand(AddRoom, conn);
-                    cmdInsert_2.Parameters.AddWithValue("Rid", Rid);
-                    cmdInsert_2.Parameters.AddWithValue("Rname", rname.Text);
-                    cmdInsert_2.Parameters.AddWithValue("Fid", FID.Text);
-
-                    cmdInsert_2.ExecuteNonQuery();
-
-                    conn.Close();
-                }
+                Response.Redirect("Redirect.aspx");
             }
+            else
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
-            Response.Redirect("Personal.aspx");
+                var Rid = Generate_Rid() + 1;
+
+                conn.Open();
+                /*      If isCreator is 0, it mean current user is submember. 1 refer current user is creator      */
+                string AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,'" + Session["UID"] + "',1)";
+                SqlCommand cmdInsert = new SqlCommand(AddRoom, conn);
+                cmdInsert.Parameters.AddWithValue("Rid", Rid);
+                cmdInsert.Parameters.AddWithValue("Rname", rname.Text);
+
+                cmdInsert.ExecuteNonQuery();
+
+                conn.Close();
+
+                foreach (GridViewRow gvrow in GridView_ChatRoom.Rows)
+                {
+                    var checkbox = gvrow.FindControl("CheckBox1") as CheckBox;
+                    if (checkbox.Checked)
+                    {
+                        var FID = gvrow.FindControl("Label_UID") as Label;
+
+
+                        conn.Open();
+                        AddRoom = "insert into ChatRoom (RoomId,RoomName,MemberId,IsCreator) values (@Rid,@Rname,@Fid,0)";
+                        SqlCommand cmdInsert_2 = new SqlCommand(AddRoom, conn);
+                        cmdInsert_2.Parameters.AddWithValue("Rid", Rid);
+                        cmdInsert_2.Parameters.AddWithValue("Rname", rname.Text);
+                        cmdInsert_2.Parameters.AddWithValue("Fid", FID.Text);
+
+                        cmdInsert_2.ExecuteNonQuery();
+
+                        conn.Close();
+                    }
+                }
+
+                Response.Redirect("Personal.aspx");
+            }
+            
         }
 
         protected void Button_Click_AddMember(object sender, EventArgs e)
@@ -172,7 +180,7 @@ namespace WebApplication2
                 }
             }
 
-            Response.Redirect("Personal.aspx");
+            Response.Redirect("ChatRoom.aspx");
         }
 
         private int Generate_Rid()

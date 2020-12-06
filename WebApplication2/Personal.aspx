@@ -97,7 +97,7 @@
                                         <td class="td_left">
                                             <asp:Label ID="label_Name" Text="Name: " runat="server"></asp:Label></td>
                                         <td class="td_right">
-                                            <asp:Label ID="Label_ShowName" runat="server"></asp:Label></td>
+                                            <asp:Label ID="Label_ShowFName" runat="server"/><asp:Label ID="Label_ShowLName" runat="server"/></td>
                                     </tr>
                                     <tr>
                                         <td class="td_left">

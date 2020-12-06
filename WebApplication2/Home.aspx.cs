@@ -35,30 +35,37 @@ namespace WebApplication2
         {
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
+                string pm = Post_Textbox.Text;
                 conn.Open();
-
-                if (ImgUpload.HasFile)
+                if (pm.Length > 0 && pm.Length < 500)
                 {
-                    string imgID = Imgupload();
-                    string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts, ImageId) values ('" + Session["UID"] + "', @Msg,0,0, @IID)";
+                    if (ImgUpload.HasFile)
+                    {
+                        string imgID = Imgupload();
+                        string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts, ImageId) values ('" + Session["UID"] + "', @Msg,0,0, @IID)";
 
-                    SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
+                        SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
 
-                    cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
-                    cmdInsert.Parameters.AddWithValue("@IID", imgID);
+                        cmdInsert.Parameters.AddWithValue("@Msg", pm);
+                        cmdInsert.Parameters.AddWithValue("@IID", imgID);
 
 
-                    cmdInsert.ExecuteNonQuery();
+                        cmdInsert.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts) values ('" + Session["UID"] + "', @Msg,0,0)";
+
+                        SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
+
+                        cmdInsert.Parameters.AddWithValue("@Msg", pm);
+
+                        cmdInsert.ExecuteNonQuery();
+                    }
                 }
                 else
                 {
-                    string insertQuery = "insert into Post (SenderId, Content, LikeCounts,CommentCounts) values ('" + Session["UID"] + "', @Msg,0,0)";
-
-                    SqlCommand cmdInsert = new SqlCommand(insertQuery, conn);
-
-                    cmdInsert.Parameters.AddWithValue("@Msg", Post_Textbox.Text);
-
-                    cmdInsert.ExecuteNonQuery();
+                    Response.Redirect("Home.aspx");
                 }
                 conn.Close();
             }
@@ -167,13 +174,25 @@ namespace WebApplication2
         protected void Button_Click_Comment_Delete(object sender, CommandEventArgs e)
         {
             string commentID = e.CommandArgument.ToString();
+
             if (isCommentor(commentID))
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
                 conn.Open();
+
+                string updateInfocmd = "UPDATE Post SET CommentCounts = CommentCounts - 1 Where PostId = (SELECT PostId FROM Comment WHERE commentID = '" + commentID + "')";
+
+                SqlCommand cmdUpdate = new SqlCommand(updateInfocmd, conn);
+
+                cmdUpdate.ExecuteNonQuery();
+
                 string deleteQuery = "DELETE FROM Comment WHERE commentID = '" + commentID + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
+
                 SqlCommand delete = new SqlCommand(deleteQuery, conn);
+
                 delete.ExecuteNonQuery();
+
                 conn.Close();
 
                 Response.Redirect("Home.aspx");

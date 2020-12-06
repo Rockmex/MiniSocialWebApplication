@@ -53,6 +53,11 @@ namespace WebApplication2
 
         protected void Button_Click_Send(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(MessageBox.Text))
+            {
+                Response.Redirect("Chat.aspx");
+            }
+            else { 
             using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
             {
                 conn.Open();
@@ -68,6 +73,7 @@ namespace WebApplication2
             }
 
             Response.Redirect("Chat.aspx");
+            }
         }
 
         private void ShowResult()

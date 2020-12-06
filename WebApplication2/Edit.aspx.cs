@@ -75,20 +75,26 @@ namespace WebApplication2
         {
             try
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                conn.Open();
+                if (string.IsNullOrEmpty(new_email.Text))
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No Email inputed!!');window.location ='Edit.aspx';", true);
+                }
+                else
+                {
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                    conn.Open();
 
+                    string updateInfocmd = "update UserInfo SET Email = @email where Email = '" + Session["Email"] + "'";
+                    SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+                    UpdateInfo.Parameters.AddWithValue("@email", new_email.Text);
 
-                string updateInfocmd = "update UserInfo SET Email = @email where Email = '" + Session["Email"] + "'";
-                SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
-                UpdateInfo.Parameters.AddWithValue("@email", new_email.Text);
+                    UpdateInfo.ExecuteNonQuery();
+                    Session["Email"] = new_email.Text;
 
-                UpdateInfo.ExecuteNonQuery();
-                Session["Email"] = new_email.Text;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
-
-                conn.Close();
+                    conn.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -100,19 +106,26 @@ namespace WebApplication2
         {
             try
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                conn.Open();
+                if (string.IsNullOrEmpty(new_phone.Text))
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No Phone inputed!!');window.location ='Edit.aspx';", true);
+                }
+                else
+                {
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                    conn.Open();
 
 
-                string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
-                SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
-                UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
+                    string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
+                    SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+                    UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
 
-                UpdateInfo.ExecuteNonQuery();
+                    UpdateInfo.ExecuteNonQuery();
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
 
-                conn.Close();
+                    conn.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -124,30 +137,37 @@ namespace WebApplication2
         {
             try
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                conn.Open();
-
-                string checkUser = "Select count(*) from UserInfo where Email = '" + Session["Email"] + "' AND password = '" + old_password.Text + "'";
-                SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
-                int match = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
-
-                if (match == 1)
+                if (string.IsNullOrEmpty(new_password.Text))
                 {
-                    string updateInfocmd = "update UserInfo SET Password = @password where Email = '" + Session["Email"] + "'";
-                    SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
-
-                    UpdateInfo.Parameters.AddWithValue("@password", new_password.Text);
-
-                    UpdateInfo.ExecuteNonQuery();
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('No Password inputed!!');window.location ='Edit.aspx';", true);
                 }
                 else
                 {
-                    errorMessageHidden.Value = "Error: Old Password not match";
-                }
+                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                    conn.Open();
 
-                conn.Close();
+                    string checkUser = "Select count(*) from UserInfo where Email = '" + Session["Email"] + "' AND password = '" + old_password.Text + "'";
+                    SqlCommand cmdCheck = new SqlCommand(checkUser, conn);
+                    int match = Convert.ToInt32(cmdCheck.ExecuteScalar().ToString());
+
+                    if (match == 1)
+                    {
+                        string updateInfocmd = "update UserInfo SET Password = @password where Email = '" + Session["Email"] + "'";
+                        SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+
+                        UpdateInfo.Parameters.AddWithValue("@password", new_password.Text);
+
+                        UpdateInfo.ExecuteNonQuery();
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+                    }
+                    else
+                    {
+                        errorMessageHidden.Value = "Error: Old Password not match";
+                    }
+
+                    conn.Close();
+                }
             }
             catch (Exception ex)
             {

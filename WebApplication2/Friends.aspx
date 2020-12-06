@@ -120,19 +120,19 @@
         <td>
           <div class="personal_invites">
           <div class="center">
-          <h2>New Friends</h2>
+          <h2>XXXXXXXX</h2>
           <table>
             <tr>
-                <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="XX Notifications" runat="server" ></asp:Label></td>
+                <td colspan="2" class="td_center"><asp:Label ID="Label_display" Text="XXXXXXXX" runat="server" ></asp:Label></td>
             </tr>                           
           </table>
-          <asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
+          <%--<asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="UID" HeaderText="Friend ID" />
                 <asp:BoundField DataField="Fname" HeaderText="First Name" />
                 <asp:BoundField DataField="Lname" HeaderText="Last Name" />
              </Columns>
-            </asp:GridView>
+            </asp:GridView>--%>
          </div>
         </div>
         </td>

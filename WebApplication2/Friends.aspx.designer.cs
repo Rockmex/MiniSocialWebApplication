@@ -184,15 +184,6 @@ namespace WebApplication2 {
         protected global::System.Web.UI.WebControls.Label Label_display;
         
         /// <summary>
-        /// GridView_FriendNotification control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView_FriendNotification;
-        
-        /// <summary>
         /// Datalist_Images control.
         /// </summary>
         /// <remarks>
