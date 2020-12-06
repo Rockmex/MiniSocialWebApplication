@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
-    
-    
-    public partial class WebForm1 {
-        
+namespace WebApplication2
+{
+
+
+    public partial class WebForm1
+    {
+
         /// <summary>
         /// GridView_Friends control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView_Friends;
-        
+
         /// <summary>
         /// Gridview_RoomList control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Gridview_RoomList;
-        
+
         /// <summary>
         /// Label_UserName control.
         /// </summary>
@@ -38,7 +40,16 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_UserName;
-        
+
+        /// <summary>
+        /// test_label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label test_label;
+
         /// <summary>
         /// Post_Textbox control.
         /// </summary>
@@ -47,7 +58,16 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Post_Textbox;
-        
+
+        /// <summary>
+        /// RequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
+
         /// <summary>
         /// ImgUpload control.
         /// </summary>
@@ -56,7 +76,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ImgUpload;
-        
+
         /// <summary>
         /// Post_Button control.
         /// </summary>
@@ -65,7 +85,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Post_Button;
-        
+
         /// <summary>
         /// Post_ListView control.
         /// </summary>
@@ -74,7 +94,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView Post_ListView;
-        
+
         /// <summary>
         /// Label_display control.
         /// </summary>
@@ -83,7 +103,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label_display;
-        
+
         /// <summary>
         /// ScriptManager1 control.
         /// </summary>
@@ -92,7 +112,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// U1 control.
         /// </summary>
@@ -101,7 +121,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel U1;
-        
+
         /// <summary>
         /// Time control.
         /// </summary>
@@ -110,7 +130,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Time;
-        
+
         /// <summary>
         /// Timer control.
         /// </summary>
@@ -119,7 +139,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.Timer Timer;
-        
+
         /// <summary>
         /// Date control.
         /// </summary>
@@ -128,7 +148,7 @@ namespace WebApplication2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Date;
-        
+
         /// <summary>
         /// Weekday control.
         /// </summary>

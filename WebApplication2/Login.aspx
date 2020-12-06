@@ -51,7 +51,7 @@
         </tr>
       <tr>
         <td>
-        <a href="Register.aspx">Forgot Password?</a>
+        <a href="Register.aspx">New User?</a>
           </td>
         </tr>
       <tr>

@@ -175,6 +175,7 @@ namespace WebApplication2
                 SqlCommand delete = new SqlCommand(deleteQuery, conn);
                 delete.ExecuteNonQuery();
                 conn.Close();
+
                 Response.Redirect("Home.aspx");
             }
         }

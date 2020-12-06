@@ -296,8 +296,9 @@ namespace WebApplication2
             }
             else
             {
+                int max= Convert.ToInt32(GenerateCheck.ExecuteScalar());
                 conn.Close();
-                return Convert.ToInt32(GenerateCheck.ExecuteScalar());
+                return max;
             }
 
         }

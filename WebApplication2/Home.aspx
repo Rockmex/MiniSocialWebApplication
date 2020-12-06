@@ -74,18 +74,21 @@
                     </td>
                     <td colspan="2" class="td_center">
                         <asp:Label ID="Label_UserName" runat="server"></asp:Label></td>
+                    <td><asp:Label ID="test_label" runat="server"></asp:Label></td>
                 </tr>
             </table>
             <table id="Table_PostArea">
                 <tr>
                     <td>
-                        <asp:TextBox ID="Post_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
+                        <asp:TextBox ID="Post_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Post_Textbox" ValidationGroup="Post_Group" ErrorMessage="*" ForeColor="Red"/>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <asp:FileUpload ID="ImgUpload" runat="server" /></td>
                     <td>
-                        <asp:Button ID="Post_Button" runat="server" Text="Post" OnClick="Button_Click_Post" /></td>
+                        <asp:Button ID="Post_Button" runat="server" Text="Post" OnClick="Button_Click_Post" ValidationGroup="Post_Group" /></td>
                 </tr>
             </table>
             <br />
@@ -160,9 +163,11 @@
                         <table id="Table_CommentArea" runat="server">
                             <tr>
                                 <td>
-                                    <asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox></td>
+                                    <asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Comment_Textbox" ValidationGroup="Comment_Group" ErrorMessage="*" ForeColor="Red"/>
+                                </td>
                                 <td>
-                                    <asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>' /></td>
+                                    <asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>' ValidationGroup="Comment_Group"/></td>
                             </tr>
                         </table>
                     </asp:Panel>
