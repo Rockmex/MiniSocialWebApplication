@@ -62,9 +62,6 @@ namespace WebApplication2
         {
             if (e.CommandArgument != null)
             {
-                Session["MID"] = e.CommandArgument;
-                if (isSender())
-                {
                     using (var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString))
                     {
                         conn.Open();
@@ -76,7 +73,6 @@ namespace WebApplication2
 
                         conn.Close();
                     }
-                }
             }
             else
             {

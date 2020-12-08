@@ -3,6 +3,7 @@
     <link href="css/home.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField Value="" ID="errorMessageHidden" runat="server" />
     <div class="Form1">
         <div class="left-menu">
             <table>

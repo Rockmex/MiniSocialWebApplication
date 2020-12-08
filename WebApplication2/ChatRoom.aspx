@@ -94,10 +94,11 @@
             <div class="chat-textbox">
                 <table>
                     <tr>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="MessageBox" ValidationGroup="Send_Group" ErrorMessage=" "/>
                         <td style="width: 176%">
                             <asp:TextBox ID="MessageBox" runat="server" Style="width: 90%;"></asp:TextBox></td>
                         <td>
-                            <asp:Button ID="Button_Send" runat="server" Text="Send" OnClick="Button_Click_Send" /></td>
+                            <asp:Button ID="Button_Send" runat="server" Text="Send" ValidationGroup="Send_Group" onclick="Button_Click_Send"/></td>
                     </tr>
                 </table>
             </div>

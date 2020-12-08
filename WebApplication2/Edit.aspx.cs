@@ -110,19 +110,26 @@ namespace WebApplication2
                 }
                 else
                 {
-                    SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-                    conn.Open();
+                    if (new_phone.Text.Length == 10)
+                    {
+                        SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+                        conn.Open();
 
 
-                    string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
-                    SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
-                    UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
+                        string updateInfocmd = "update UserInfo SET Tel = @Tel where Email = '" + Session["Email"] + "'";
+                        SqlCommand UpdateInfo = new SqlCommand(updateInfocmd, conn);
+                        UpdateInfo.Parameters.AddWithValue("@Tel", new_phone.Text);
 
-                    UpdateInfo.ExecuteNonQuery();
+                        UpdateInfo.ExecuteNonQuery();
 
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Updated sucessfully!!');window.location ='Personal.aspx';", true);
 
-                    conn.Close();
+                        conn.Close();
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Your input is less or greater then 10 numbers !!');window.location ='Edit.aspx';", true);
+                    }
                 }
             }
             catch (Exception ex)
@@ -161,7 +168,7 @@ namespace WebApplication2
                     }
                     else
                     {
-                        errorMessageHidden.Value = "Error: Old Password not match";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Old Password not match!!');window.location ='Edit.aspx';", true);
                     }
 
                     conn.Close();

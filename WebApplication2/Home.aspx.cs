@@ -65,6 +65,7 @@ namespace WebApplication2
                 }
                 else
                 {
+                    Response.Write("<script>alert('Your post can't be empty or more than 500 words!!')</script>");
                     Response.Redirect("Home.aspx");
                 }
                 conn.Close();
@@ -355,6 +356,7 @@ namespace WebApplication2
             if (senderID != Session["UID"].ToString())
             {
                 Response.Write("<script>alert('You can only delete your own Comments')</script>");
+                Response.Redirect("Home.aspx");
             }
             else
             {
@@ -375,6 +377,7 @@ namespace WebApplication2
             if (senderID != Session["UID"].ToString())
             {
                 Response.Write("<script>alert('You can only delete your own Posts')</script>");
+                Response.Redirect("Home.aspx");
             }
             else
             {
