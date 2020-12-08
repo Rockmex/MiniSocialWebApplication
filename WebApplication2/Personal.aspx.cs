@@ -270,6 +270,10 @@ namespace WebApplication2
                 conn.Close();
                 Response.Redirect("Personal.aspx");
             }
+            else
+            {
+                Response.Redirect("Personal.aspx");
+            }
         }
 
         private int CountImg()  //Fixed generate id error.

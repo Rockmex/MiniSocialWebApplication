@@ -23,23 +23,15 @@ namespace WebApplication2
                     Response.Redirect("Home.aspx");
                 }
                 else
-                {
-                 /*   if (Count() == 0)
-                    {
-                        GridView_ChatBox.Visible = false;
-                        Label_display.Text = "This is your first time chatting. Please write something.";
-                    }
-                    else
-                 */   {
+                {  
                         ShowResult();
                         ShowMember();
                         label_name.Text = getRoomName();
-
                         Left_ShowFriends();
                         Left_ShowRooms();
                         ShowDate();
                         Label_display.Text = Left_Count() + " new notifications.";
-                    }
+                    
                 }
             }
         }
@@ -167,7 +159,7 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            string searchCmd = "SELECT MemberId FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "'";
+            string searchCmd = "SELECT Fname, MemberId FROM (ChatRoom INNER JOIN UserInfo On MemberId = UID) WHERE IDwithChar = '" + Session["RoomId"] + "'";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();
             dataAdapter.Fill(dataTable);

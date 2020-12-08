@@ -14,8 +14,7 @@ namespace WebApplication2
 
         protected void Button_Click_Submit(object sender, EventArgs e)
         {
-            if (Request.Form["gender"] != null)
-            {
+            
                 try
                 {
                     string gender = Request.Form["gender"].ToString();
@@ -51,11 +50,7 @@ namespace WebApplication2
                 {
                     errorMessageHidden.Value = "Error: " + ex.ToString();
                 }
-            }
-            else
-            {
-                errorMessageHidden.Value = "Error: Gender not checked"; //Try to see if there is a way to validate radio button, to delete this line.
-            }
+            
         }
     
       }

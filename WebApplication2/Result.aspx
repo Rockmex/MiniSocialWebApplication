@@ -6,11 +6,11 @@
     <div class="Form1">
         <div class="list">
             <table class="label-display">
-                    <tr>
-                        <td colspan="2" class="td_center">
-                            <asp:Label ID="Label_display" Text="We Found XX results " runat="server"></asp:Label>
-                        </td>
-                    </tr>
+                <tr>
+                    <td colspan="2" class="td_center">
+                        <asp:Label ID="Label_display" Text="We Found XX results " runat="server"></asp:Label>
+                    </td>
+                </tr>
             </table>
             <asp:ListView runat="server" ID="listview_result">
                 <ItemTemplate>
@@ -27,9 +27,7 @@
                                     <td>
                                         <h3><%#Eval("Fname")%><%#Eval("Lname")%></h3>
                                     </td>
-                                    <td>
-
-                                    </td>
+                                    <td></td>
                                 </tr>
                             </table>
                         </asp:LinkButton>

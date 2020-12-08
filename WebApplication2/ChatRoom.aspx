@@ -3,8 +3,8 @@
     <link href="css/chatroom.css" rel="stylesheet" type="text/css"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="Form1">
-         <div class="left-menu">
+    <div class="Form1">
+        <div class="left-menu">
             <table>
                 <tr>
                     <td colspan="2">
@@ -15,7 +15,6 @@
                     <td>
                         <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False" GridLines="None" OnItemDataBound="ShowFriendsImg">
                             <Columns>
-                                <%--<asp:BoundField DataField="User2_Id" visible="False"/>--%>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="zoom">
@@ -69,43 +68,47 @@
         <div class="chatbox">
             <asp:Panel CssClass="panel" runat="server">
                 <asp:ScriptManager ID="ScriptManager1" runat="server" />
-               <asp:updatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>
-                <asp:Timer ID="Timer" runat="server" Interval="5000" OnTick="Timer_Tick"/>
-                <h2><asp:Label runat="server" ID="label_name"></asp:Label></h2>
-                <div class="pre-scrollable datalist">
-                    <asp:DataList ID="datalist1" runat="server" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" RepeatLayout="Table">
-                        <ItemTemplate>
-                            <div style="display:inline-block">
-                                <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "sender-image" : "receiver-image" %>" >
-                                    <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' CssClass="round-image" Height="50px" Width="50px" />
-                                </div>
-                                <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "SenderClass" : "ReceiverClass" %> MainChatListClass">
-                                    <asp:Label ID="label1" runat="server" Text='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "You: " : Eval("Fname")+": " %>'></asp:Label>
-                                    <asp:Label ID="label2" runat="server" Text='<%# Eval("Message") %>'></asp:Label>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:DataList>
-                </div>
-              </ContentTemplate>
-             </asp:updatePanel>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:Timer ID="Timer" runat="server" Interval="5000" OnTick="Timer_Tick" />
+                        <h2>
+                            <asp:Label runat="server" ID="label_name"></asp:Label></h2>
+                        <div class="pre-scrollable datalist">
+                            <asp:DataList ID="datalist1" runat="server" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" RepeatLayout="Table">
+                                <ItemTemplate>
+                                    <div style="display: inline-block">
+                                        <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "sender-image" : "receiver-image" %>">
+                                            <asp:Image ID="Post_Image" runat="server" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' CssClass="round-image" Height="50px" Width="50px" />
+                                        </div>
+                                        <div class="<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "SenderClass" : "ReceiverClass" %> MainChatListClass">
+                                            <asp:Label ID="label1" runat="server" Text='<%# Eval("SenderId").ToString() == Session["UID"].ToString() ? "You: " : Eval("Fname")+": " %>'></asp:Label>
+                                            <asp:Label ID="label2" runat="server" Text='<%# Eval("Message") %>'></asp:Label>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:DataList>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </asp:Panel>
             <div class="chat-textbox">
                 <table>
                     <tr>
-                        <td style="width: 176%"><asp:TextBox ID="MessageBox" runat="server" style="width: 90%;"></asp:TextBox></td>
-                        <td><asp:Button ID="Button_Send" runat="server" Text="Send" onclick="Button_Click_Send"/></td>
-                    </tr>                         
+                        <td style="width: 176%">
+                            <asp:TextBox ID="MessageBox" runat="server" Style="width: 90%;"></asp:TextBox></td>
+                        <td>
+                            <asp:Button ID="Button_Send" runat="server" Text="Send" OnClick="Button_Click_Send" /></td>
+                    </tr>
                 </table>
             </div>
         </div>
-         <div class="memberlist">
-             <asp:Panel runat="server">
-                <h2><asp:Label ID="Label_MemberList" Text="Member List" runat="server" /></h2>
+        <div class="memberlist">
+            <asp:Panel runat="server">
+                <h2>
+                    <asp:Label ID="Label_MemberList" Text="Member List" runat="server" /></h2>
                 <asp:GridView ID="Gridview_MemberList" CssClass="membertable" runat="server" AutoGenerateColumns="False" CellPadding="4" GridLines="None">
                     <Columns>
-                        <asp:BoundField DataField="MemberId" HeaderText="Member Id" Visible="true" />
+                        <asp:BoundField DataField="Fname" HeaderText="Member" Visible="true" />
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:Button ID="Button_Remove_Member" runat="server" Text="Remove" CommandArgument='<%# Eval("MemberId") %>' OnCommand="Button_Click_RemoveMember" />
@@ -117,11 +120,11 @@
                     <asp:Button ID="Button_Add_New_Member" runat="server" Text="Add" OnClick="Button_Click_AddNewMember" />
                     <asp:Button ID="Button_Drop_Room" runat="server" Text="Delete Room" OnClick="Button_Click_RemoveRoom" />
                 </div>
-             </asp:Panel>
-         </div>
-         <div class="right-menu">
+            </asp:Panel>
+        </div>
+        <div class="right-menu">
             <table>
-                 <tr>
+                <tr>
                     <td>
                         <h3>You have ...</h3>
                     </td>
@@ -138,29 +141,32 @@
                 <tr>
                     <td>
                         <div class="ClockArea">
-                        <table id="Clock">
-                            <tr>
-                                <td colspan="2">
-                                    <asp:UpdatePanel ID="U1" runat="server">
-                                    <ContentTemplate>
-                                    <h1><asp:Label ID="Time" runat="server" /></h1>
-                                    <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer_Tick2" /> 
-                                    </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><asp:Label ID="Date" runat="server"/></td>
-                                <td><asp:Label ID="Weekday" runat="server"/></td>
-                            </tr>
-                        </table>
+                            <table id="Clock">
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:UpdatePanel ID="U1" runat="server">
+                                            <ContentTemplate>
+                                                <h1>
+                                                    <asp:Label ID="Time" runat="server" /></h1>
+                                                <asp:Timer ID="Timer1" runat="server" Interval="1000" OnTick="Timer_Tick2" />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="Date" runat="server" /></td>
+                                    <td>
+                                        <asp:Label ID="Weekday" runat="server" /></td>
+                                </tr>
+                            </table>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h3>Adv</h3> 
+                        <h3>Adv</h3>
                     </td>
                 </tr>
             </table>

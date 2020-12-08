@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="Form1">
+        <asp:HiddenField Value="" ID="errorMessageHidden" runat="server" />
         <div class="left-menu">
             <table>
                 <tr>
@@ -15,7 +16,6 @@
                     <td>
                         <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False" GridLines="None" OnItemDataBound="ShowFriendsImg">
                             <Columns>
-                                <%--<asp:BoundField DataField="User2_Id" visible="False"/>--%>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="zoom">
@@ -97,7 +97,7 @@
                                         <td class="td_left">
                                             <asp:Label ID="label_Name" Text="Name: " runat="server"></asp:Label></td>
                                         <td class="td_right">
-                                            <asp:Label ID="Label_ShowFName" runat="server"/><asp:Label ID="Label_ShowLName" runat="server"/></td>
+                                            <asp:Label ID="Label_ShowFName" runat="server" /><asp:Label ID="Label_ShowLName" runat="server" /></td>
                                     </tr>
                                     <tr>
                                         <td class="td_left">
@@ -131,7 +131,7 @@
                                             <asp:Label ID="Label_display" Text="XX Notifications" runat="server"></asp:Label></td>
                                     </tr>
                                 </table>
-                                <div style="overflow:auto; height: 250px;margin-top: 5px;">
+                                <div style="overflow: auto; height: 250px; margin-top: 5px;">
                                     <asp:GridView ID="GridView_FriendNotification" runat="server" AutoGenerateColumns="False">
                                         <Columns>
                                             <asp:TemplateField HeaderText="Friend ID">
@@ -189,7 +189,7 @@
                     <td>
                         <div class="personal_rooms">
                             <div class="center">
-                                <h2 style="display:inline-block">Chat Room</h2>
+                                <h2 style="display: inline-block">Chat Room</h2>
                                 <asp:Button ID="Button_RedirectRoom" runat="server" CssClass="btn btn-toRight" Text="Create" OnClick="Button_Click_RedirectRoom" />
                                 <table>
                                     <tr>
@@ -198,10 +198,10 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <div style="overflow:auto; height: 250px;margin-top: 5px;">
+                                <div style="overflow: auto; height: 250px; margin-top: 5px;">
                                     <asp:ListView runat="server" ID="listview_ChatRoom">
                                         <ItemTemplate>
-                                            <div class="block zoom">
+                                            <div class="block zoom1">
                                                 <asp:LinkButton runat="server" CssClass="hb" CommandArgument='<%#Eval("IDwithChar")%>' OnCommand="Button_Click_RedirectChatRoom">
                                                     <table>
                                                         <tr>
@@ -237,10 +237,10 @@
                                             <asp:Label ID="Label_NoFriend" Text="No Friend Yet." runat="server"></asp:Label></td>
                                     </tr>
                                 </table>
-                                 <div style="overflow:auto; height: 250px;margin-top: 5px;">
+                                <div style="overflow: auto; height: 250px; margin-top: 5px;">
                                     <asp:ListView runat="server" ID="listview_friendlist">
                                         <ItemTemplate>
-                                            <div class="block zoom">
+                                            <div class="block zoom1">
                                                 <asp:LinkButton runat="server" CssClass="hb" CommandArgument='<%#Eval("User2_Id")%>' OnCommand="Button_Click_RedirectFriend">
                                                     <table>
                                                         <tr>
@@ -276,7 +276,7 @@
         </div>
         <div class="right-menu">
             <table>
-                 <tr>
+                <tr>
                     <td>
                         <h2>You have ...</h2>
                     </td>
@@ -293,30 +293,33 @@
                 <tr>
                     <td>
                         <div class="ClockArea">
-                        <table id="Clock">
-                            <tr>
-                                <td colspan="2">
-                                    <asp:ScriptManager ID="ScriptManager1" runat="server" />
-                                    <asp:UpdatePanel ID="U1" runat="server">
-                                    <ContentTemplate>
-                                    <h1><asp:Label ID="Time" runat="server" /></h1>
-                                    <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" /> 
-                                    </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><asp:Label ID="Date" runat="server"/></td>
-                                <td><asp:Label ID="Weekday" runat="server"/></td>
-                            </tr>
-                        </table>
+                            <table id="Clock">
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                                        <asp:UpdatePanel ID="U1" runat="server">
+                                            <ContentTemplate>
+                                                <h1>
+                                                    <asp:Label ID="Time" runat="server" /></h1>
+                                                <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="Date" runat="server" /></td>
+                                    <td>
+                                        <asp:Label ID="Weekday" runat="server" /></td>
+                                </tr>
+                            </table>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h2>Adv</h2> 
+                        <h2>Adv</h2>
                     </td>
                 </tr>
             </table>

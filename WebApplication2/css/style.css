@@ -6,7 +6,6 @@ body {
     text-decoration: none;
     min-height: 100vh;
     font-family: montserrat;
-    /*background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;*/
     box-sizing: border-box;
     background-color: gainsboro;
 }
@@ -102,7 +101,6 @@ body {
     border: 1px solid white;
     border-radius: 20px;
     padding-left: 50px;
-    /*top: 15%;*/
     left: 30%;
     padding-right: 5px;
     padding-top: 5px;

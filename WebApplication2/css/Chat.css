@@ -4,8 +4,6 @@
 
 .chatbox {
     background: white;
-    /* width: -webkit-fill-available; */
-    /* display: initial; */
     justify-content: center;
     width: 48%/*60%*/;
     margin: auto;
@@ -14,12 +12,10 @@
 
 h2 {
     display: flex;
-    /* text-align: center; */
     justify-content: center;
     color: #0a0a0a;
     border-bottom: 2px solid;
     padding: 5px;
-    /* border-radius: 10px; */
 }
 
 .SenderClass {
@@ -81,7 +77,6 @@ h2 {
     overflow-y: scroll;
     width: -webkit-fill-available;
     padding-bottom:10px;
-    /*flex-direction:column-reverse;*/
 }
 
 .title {
@@ -93,13 +88,10 @@ h2 {
     margin: auto;
     */ display: flex;
     justify-content: center;
-    /* background-color: black; */
-    /* width: 48%;*/
 }
 
 .Form1 {
     position: relative;
-    /*top: 100px;*/
     left: 0;
     width: 100%;
     padding-top: 50px;
@@ -108,7 +100,6 @@ h2 {
 .chat-textbox {
     text-align: center;
     margin: auto;
-    /* width: 50%; */
     border-top: 2px solid black;
     padding: 10px;
 }

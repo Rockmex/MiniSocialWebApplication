@@ -31,16 +31,11 @@ namespace WebApplication2
                         label_name.Text = GetFriendName();
                         if (Count() == 0)
                         {
-                            /*GridView_Chat.Visible = false;
-                            Label_display.Text = "This is your first time chatting. Please write something.";
-                            */
                             Response.Write("Zero");
                         }
                         else
                         {
                             ShowResult();
-
-                            /* Left right menu Part*/
                             Left_ShowFriends();
                             Left_ShowRooms();
                             ShowDate();

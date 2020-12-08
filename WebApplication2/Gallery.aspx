@@ -9,22 +9,22 @@
             width: 100%;
         }
 
-        .image{
-            height:200px;
-            width:200px;
+        .image {
+            height: 200px;
+            width: 200px;
             margin-bottom: 10px;
         }
 
-        .title{
+        .title {
             display: flex;
             justify-content: center;
         }
 
-        .listItem{
-            margin-bottom:20px;
+        .listItem {
+            margin-bottom: 20px;
         }
 
-        .button{
+        .button {
             display: flex;
             margin: auto;
             margin-top: 10px;
@@ -50,11 +50,11 @@
         }
 
             /*When pointed*/
-            .btn-back:hover, .btn-delete:hover{
+            .btn-back:hover, .btn-delete:hover {
                 background-position: right;
             }
 
-        .btn-delete{
+        .btn-delete {
             display: block;
             width: 60%;
             height: 35px;
@@ -70,7 +70,6 @@
             transition: .5s;
             margin: auto;
         }
-
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -79,16 +78,17 @@
             <tr>
                 <td>
                     <div class="title">
-                    <h2>Gallery</h2></div>
+                        <h2>Gallery</h2>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td>
                     <asp:DataList ID="Datalist_Images" runat="server" RepeatColumns="9" RepeatDirection="Horizontal">
                         <ItemTemplate>
-                            <div class="listItem" >
-                                <asp:Image ID="Image" runat="server" CssClass="image zoom" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>'/>
-                                <asp:Button runat="server" CssClass="button" Text="Delete" CommandArgument='<%# Eval("ImageID") %>'/>
+                            <div class="listItem">
+                                <asp:Image ID="Image" runat="server" CssClass="image zoom" ImageUrl='<%#"Handler1.ashx?id_Image="+ Eval("ImageID") %>' />
+                                <asp:Button runat="server" CssClass="btn-delete" Text="Delete" CommandArgument='<%# Eval("ImageID") %>' OnCommand="Button_Click_Delete" />
                             </div>
                         </ItemTemplate>
                     </asp:DataList>
@@ -96,7 +96,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="Button_Back" runat="server" Text="Back" OnClick="Button_Click_Back" class="button"/>
+                    <asp:Button ID="Button_Back" runat="server" Text="Back" OnClick="Button_Click_Back" class="btn-back" />
                 </td>
 
             </tr>

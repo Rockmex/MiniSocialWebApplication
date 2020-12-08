@@ -128,7 +128,7 @@ namespace WebApplication2
             {
                 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 conn.Open();
-                string deleteQuery = "DELETE FROM Post WHERE PostId = '" + postId + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
+                string deleteQuery = "DELETE FROM Post WHERE PostId = '" + postId + "'"; 
                 SqlCommand delete = new SqlCommand(deleteQuery, conn);
                 delete.ExecuteNonQuery();
                 conn.Close();
@@ -187,7 +187,7 @@ namespace WebApplication2
 
                 cmdUpdate.ExecuteNonQuery();
 
-                string deleteQuery = "DELETE FROM Comment WHERE commentID = '" + commentID + "'"; // AND PostId = '" + Session["SelectPostId"] +"'";
+                string deleteQuery = "DELETE FROM Comment WHERE commentID = '" + commentID + "'"; 
 
                 SqlCommand delete = new SqlCommand(deleteQuery, conn);
 

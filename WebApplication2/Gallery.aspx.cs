@@ -53,13 +53,28 @@ namespace WebApplication2
             }
         }
 
-
-
-
         protected void Button_Click_Back(object sender, EventArgs e)
         {
             Response.Redirect("Personal.aspx");
         }
 
+        protected void Button_Click_Delete(object sender, CommandEventArgs e)
+        {
+            string imageID = e.CommandArgument.ToString();
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
+            conn.Open();
+
+            string deleteQuery = "DELETE FROM ImageDB WHERE ImageID = '" + imageID + "'";
+
+            SqlCommand delete = new SqlCommand(deleteQuery, conn);
+
+            delete.ExecuteNonQuery();
+
+            conn.Close();
+
+            Response.Redirect("Gallery.aspx");
+        }
     }
 }

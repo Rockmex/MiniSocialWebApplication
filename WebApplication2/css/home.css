@@ -4,7 +4,6 @@
     text-decoration: none;
     min-height: 100vh;
     font-family: montserrat;
-    /*background: linear-gradient(#ccffff,#c8f6fa,#b0c4de 80%) fixed no-repeat;*/
     box-sizing: border-box;
     background-color: gainsboro;
 }
@@ -17,7 +16,6 @@
     border: 1px solid white;
     border-radius: 20px;
     padding-left: 50px;
-    /*top: 15%;*/
     left: 30%;
     padding-right: 5px;
     padding-top: 5px;
@@ -69,27 +67,9 @@
 
 /*===============================global =================================*/
 
-/*.hidden {
-    display: none;
-}
-
-
-.divider {
-    width: 50px;
-    height: auto;
-    display: inline-block;
-}*/
-
-/*.SimgClass {
-    width: 25px;
-    height: 25px;
-    padding: 2px;
-}*/
-
 .left-menu {
     position: absolute;
     width: 250px;
-    /*top: 15%;*/
     background-color: #ec1da4e6;
     padding-left: 10px;
     height: 100%;
@@ -128,7 +108,6 @@ h2 {
     position: absolute;
     width: 250px;
     height: 100%;
-    /*top: 15%;*/
     right: 0%;
     background-color: #ec1da4e6;
     padding-right: 10px;

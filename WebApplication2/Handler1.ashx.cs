@@ -10,7 +10,6 @@ namespace WebApplication2
     public class Handler1 : IHttpHandler
     {
 
-        //WebForm4 cls = new WebForm4();
         public void ProcessRequest(HttpContext context)
         {
             string displayimgid = context.Request.QueryString["id_Image"].ToString();

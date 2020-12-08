@@ -78,7 +78,9 @@ namespace WebApplication2
             //}
             //else
             //{
-            return Convert.ToInt32(GenerateCheck.ExecuteScalar());
+            int generate = Convert.ToInt32(GenerateCheck.ExecuteScalar());
+            conn.Close();
+            return generate;
             //}
 
         }
@@ -92,6 +94,7 @@ namespace WebApplication2
             com.ExecuteScalar();
             int imgID = Convert.ToInt32(com.ExecuteScalar().ToString());
             Profile_Image.ImageUrl = "Handler1.ashx?id_Image=" + imgID;
+            conn.Close();
         }
     }
 }

@@ -15,7 +15,6 @@
                     <td>
                         <asp:GridView ID="GridView_Friends" runat="server" AutoGenerateColumns="False" GridLines="None" OnItemDataBound="ShowFriendsImg">
                             <Columns>
-                                <%--<asp:BoundField DataField="User2_Id" visible="False"/>--%>
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <div class="zoom">
@@ -74,14 +73,15 @@
                     </td>
                     <td colspan="2" class="td_center">
                         <asp:Label ID="Label_UserName" runat="server"></asp:Label></td>
-                    <td><asp:Label ID="test_label" runat="server"></asp:Label></td>
+                    <td>
+                        <asp:Label ID="test_label" runat="server"></asp:Label></td>
                 </tr>
             </table>
             <table id="Table_PostArea">
                 <tr>
                     <td>
                         <asp:TextBox ID="Post_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Post_Textbox" ValidationGroup="Post_Group" ErrorMessage="*" ForeColor="Red"/>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Post_Textbox" ValidationGroup="Post_Group" ErrorMessage="*" ForeColor="Red" />
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +106,7 @@
                         <tr>
                             <td colspan="2">
                                 <asp:Image ID="Profile_Image" runat="server" Width="50px" Height="50px" CssClass="image-personal" />
-                                <asp:Label id="name" CssClass="text-name" runat="server" text='<%#Eval("Fname") + "" + Eval("Lname")%>'></asp:Label>
+                                <asp:Label ID="name" CssClass="text-name" runat="server" Text='<%#Eval("Fname") + "" + Eval("Lname")%>'></asp:Label>
                             </td>
                             <td>
                                 <asp:ImageButton ID="Delete_Button" runat="server" ImageUrl="~/img/delete.png" Width=" 35px" heigth="35px" CssClass="button-deletePost" OnCommand="Button_Click_Post_Delete" CommandArgument='<%# Eval("PostId") %>' /></td>
@@ -114,7 +114,6 @@
                         <tr>
                             <td colspan="3">
                                 <asp:Label ID="content" runat="server" Text='<%#Eval("content")%>' CssClass="text-content"></asp:Label>
-                                <!-- User Message Here -->
                             </td>
                         </tr>
                         <tr>
@@ -134,7 +133,7 @@
                             </td>
                             <td style="width: 50px">
                                 <div class="PB">
-                                    <asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" CssClass="button-lck" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>'/>
+                                    <asp:ImageButton ID="CommentDisplay_Button" ImageUrl="~/img/comment.png" CssClass="button-lck" runat="server" Text="Comment" OnCommand="Button_Click_Comment_Display" CommandArgument='<%# Eval("PostId") %>' />
                                 </div>
                             </td>
                             <td style="width: 50px">
@@ -164,10 +163,10 @@
                             <tr>
                                 <td>
                                     <asp:TextBox ID="Comment_Textbox" runat="server" TextMode="MultiLine" Height="50px" Width="300px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Comment_Textbox" ValidationGroup="Comment_Group" ErrorMessage="*" ForeColor="Red"/>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="Comment_Textbox" ValidationGroup="Comment_Group" ErrorMessage="*" ForeColor="Red" />
                                 </td>
                                 <td>
-                                    <asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>' ValidationGroup="Comment_Group"/></td>
+                                    <asp:Button ID="Comment_Button" runat="server" Text="Comment" OnCommand="Button_Click_Comment" CommandArgument='<%# Eval("PostId") %>' ValidationGroup="Comment_Group" /></td>
                             </tr>
                         </table>
                     </asp:Panel>
@@ -176,7 +175,7 @@
         </div>
         <div class="right-menu">
             <table>
-                 <tr>
+                <tr>
                     <td>
                         <h2>You have ...</h2>
                     </td>
@@ -193,30 +192,33 @@
                 <tr>
                     <td>
                         <div class="ClockArea">
-                        <table id="Clock">
-                            <tr>
-                                <td colspan="2">
-                                    <asp:ScriptManager ID="ScriptManager1" runat="server" />
-                                    <asp:UpdatePanel ID="U1" runat="server">
-                                    <ContentTemplate>
-                                    <h1><asp:Label ID="Time" runat="server" /></h1>
-                                    <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" /> 
-                                    </ContentTemplate>
-                                    </asp:UpdatePanel>
-                                    
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><asp:Label ID="Date" runat="server"/></td>
-                                <td><asp:Label ID="Weekday" runat="server"/></td>
-                            </tr>
-                        </table>
+                            <table id="Clock">
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                                        <asp:UpdatePanel ID="U1" runat="server">
+                                            <ContentTemplate>
+                                                <h1>
+                                                    <asp:Label ID="Time" runat="server" /></h1>
+                                                <asp:Timer ID="Timer" runat="server" Interval="1000" OnTick="Timer_Tick" />
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="Date" runat="server" /></td>
+                                    <td>
+                                        <asp:Label ID="Weekday" runat="server" /></td>
+                                </tr>
+                            </table>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h2>Adv</h2> 
+                        <h2>Adv</h2>
                     </td>
                 </tr>
             </table>

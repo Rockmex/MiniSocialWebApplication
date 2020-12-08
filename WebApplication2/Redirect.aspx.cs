@@ -211,7 +211,6 @@ namespace WebApplication2
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             conn.Open();
-            //string searchCmd = "SELECT UId, Fname, Lname FROM UserInfo INNER JOIN ChatRoom ON UserInfo.UID = ChatRoom.MemberId WHERE ChatRoom.IDwithChar != '" + Session["RoomId"] + "'";
             string searchCmd = "SELECT UId, Fname, Lname FROM FriendRelationship INNER JOIN UserInfo ON FriendRelationship.User2_Id = UserInfo.UID WHERE FriendRelationship.User1_Id = '" + Session["UID"] + "' AND status = 1 AND UId NOT IN (SELECT MemberId FROM ChatRoom WHERE IDwithChar = '" + Session["RoomId"] + "')";
             SqlDataAdapter dataAdapter = new SqlDataAdapter(searchCmd, conn);
             DataTable dataTable = new DataTable();

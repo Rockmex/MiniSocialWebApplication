@@ -12,17 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-<!--            <div class ="main">
-                <div class ="topbar">
-                    <%--<div class="logo">LOGO</div>--%>
-                       <img src="./img/logo.png"  width="100px" height:"100px" />
-                        <ul id="ulSiteMenu">
-                            <li><a href="Login.aspx">Login</a></li>
-                            <li><a href="Register.aspx">Register</a></li>
-                    </ul>
-            </div> 
-      </div>
--->        <div>
+        <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

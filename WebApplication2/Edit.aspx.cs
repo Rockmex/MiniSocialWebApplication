@@ -27,7 +27,6 @@ namespace WebApplication2
                     {
                         Label_ShowEmail.Text = reader["Email"].ToString();
                         Label_ShowPhone.Text = reader["Tel"].ToString();
-                        //Label_ShowPass.Text = reader["Password"].ToString();
                     }
                     else
                     {
@@ -64,7 +63,6 @@ namespace WebApplication2
 
         protected void Button_Click_Back2(object sender, EventArgs e)
         {
-            //Response.Redirect("Edit.aspx");
             m1.Visible = false;
             m2.Visible = false;
             m3.Visible = false;
